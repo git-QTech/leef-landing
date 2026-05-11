@@ -1520,6 +1520,17 @@ a {
   color: var(--primary-color);
 }
 
+.troubleshooter-result a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  font-weight: 700;
+  transition: opacity 0.2s ease;
+}
+
+.troubleshooter-result a:hover {
+  opacity: 0.8;
+}
+
 .troubleshooter-reset {
   margin-top: 2rem;
   background: none;

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Leef Browser</title>
+  <meta name="description" content="Official Privacy Policy for Leef Browser. Transparent information on data collection, local storage, and Chromium engine signals.">
+  <link rel="stylesheet" href="style.css?v=1.0.4">
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+
+<body class="docs-page">
+
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="Leef Logo" width="32" height="32">
+      Leef
+    </a>
+    <div class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#privacy">Privacy</a>
+      <a href="docs.html">Docs</a>
+      <a href="https://github.com/git-QTech/leef/releases" class="btn btn-primary" id="nav-download">Download</a>
+    </div>
+  </nav>
+
+  <header class="docs-hero">
+    <div class="container" style="display: flex; align-items: center; gap: 4rem; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 300px;">
+        <div class="pill-beta">Transparency & Trust</div>
+        <h1>Privacy Policy</h1>
+        <p>Last Updated: May 11, 2026</p>
+      </div>
+      <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
+        <img src="privacy-hero-v2.png" alt="Privacy Illustration" style="width: 100%; max-width: 200px; filter: drop-shadow(0 10px 20px rgba(90, 239, 126, 0.15));">
+      </div>
+    </div>
+  </header>
+
+  <main class="container docs-container">
+    <aside class="docs-sidebar">
+      <nav class="sidebar-nav">
+        <div class="sidebar-heading">Policy Sections</div>
+        <a href="#tldr" class="sidebar-link">Quick Summary (TL;DR)</a>
+        <a href="#introduction" class="sidebar-link active">Introduction</a>
+        <a href="#data-collection" class="sidebar-link">Data Collection</a>
+        <a href="#local-storage" class="sidebar-link">Local Storage</a>
+        <a href="#chromium-engine" class="sidebar-link">Chromium Engine</a>
+        <a href="#third-party" class="sidebar-link">Third-Party Services</a>
+        <a href="#contact" class="sidebar-link">Contact Us</a>
+      </nav>
+    </aside>
+
+    <article class="docs-content">
+      <section id="tldr" class="docs-section" style="position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -20px; right: -20px; font-size: 15rem; opacity: 0.03; pointer-events: none; color: var(--primary-color);">⚡</div>
+        <h2 style="display: flex; align-items: center; gap: 12px;">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
+          TL;DR (Quick Summary)
+        </h2>
+        <p>If you only have 30 seconds, here is the essence of our privacy policy. Look for the <strong>Verification Markers</strong> (e.g., <span style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">P1</span>) in the full text below to confirm these points.</p>
+        <div class="docs-card" style="background: rgba(90, 239, 126, 0.05); border: 1.5px solid var(--primary-color);">
+          <ul style="list-style: none; display: grid; gap: 1rem;">
+            <li style="display: flex; align-items: flex-start; gap: 10px;">
+              <span style="background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; flex-shrink: 0;">P1</span>
+              <span><strong>No Telemetry:</strong> We collect zero data on your browsing habits, hardware, or location. <a href="#data-collection" style="color: var(--primary-color); font-weight: 500;">Verify &rarr;</a></span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 10px;">
+              <span style="background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; flex-shrink: 0;">P2</span>
+              <span><strong>Local Storage:</strong> Your history, cookies, and passwords stay on your machine—always. <a href="#local-storage" style="color: var(--primary-color); font-weight: 500;">Verify &rarr;</a></span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 10px;">
+              <span style="background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; flex-shrink: 0;">P3</span>
+              <span><strong>No Cloud Sync:</strong> We don't have servers to sync your data to. It can't be leaked if it's not there. <a href="#local-storage" style="color: var(--primary-color); font-weight: 500;">Verify &rarr;</a></span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 10px;">
+              <span style="background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; flex-shrink: 0;">P4</span>
+              <span><strong>Chromium Engine:</strong> Some signals go to Google (like Safe Browsing), but Leef strips as much as possible. <a href="#chromium-engine" style="color: var(--primary-color); font-weight: 500;">Verify &rarr;</a></span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="introduction" class="docs-section">
+        <h2 style="display: flex; align-items: center; gap: 12px;">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          Introduction
+        </h2>
+        <p>At Leef, we believe privacy is the default state of a healthy internet. Our privacy policy is simple: <strong>We don't want your data, we don't collect it, and we wouldn't know what to do with it if we had it.</strong></p>
+        <p>Leef Browser is designed to be a "Zero-Knowledge" tool. This document explains exactly what that means and clarifies the boundaries between the Leef interface and the underlying open-source components we use.</p>
+      </section>
+
+      <section id="data-collection" class="docs-section">
+        <h2 style="display: flex; align-items: center; gap: 12px;">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Data Collection
+        </h2>
+        <div class="docs-card">
+          <h4>Zero Telemetry <span style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-left: 8px;">P1</span></h4>
+          <p>Leef Browser does not include any telemetry, usage tracking, or crash reporting services that send data to the Leef team. Unlike most modern browsers, we do not track:</p>
+          <ul style="margin-top: 1rem; margin-left: 1.5rem; list-style: disc;">
+            <li>Which sites you visit</li>
+            <li>How long you use the browser</li>
+            <li>Which features you click on</li>
+            <li>Your hardware specifications</li>
+            <li>Your location or IP address</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="local-storage" class="docs-section">
+        <h2 style="display: flex; align-items: center; gap: 12px;">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2H3v16h5v4l4-4h9z"></path><path d="M10 8l3 3 3-3"></path><path d="M13 11V4"></path></svg>
+          Local Storage <span style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-left: 8px;">P2</span>
+        </h2>
+        <p>Everything you do in Leef stays on your machine. This includes:</p>
+        <div class="docs-card">
+          <ul style="list-style: none;">
+            <li><strong>✓ Browsing History:</strong> Stored locally only.</li>
+            <li><strong>✓ Cookies & Site Data:</strong> Managed by the Chromium engine, stored on your disk.</li>
+            <li><strong>✓ Bookmarks & Settings:</strong> Saved in your local AppData folder.</li>
+            <li><strong>✓ Passwords:</strong> Handled by the native Chromium credential manager, encrypted by your OS.</li>
+          </ul>
+        </div>
+        <p style="margin-top: 1rem;"><span style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-right: 8px;">P3</span> Leef provides no "cloud sync" functionality by design. We do not have servers to sync your data to, which means your data can never be leaked from our systems—because it isn't there.</p>
+      </section>
+
+      <section id="chromium-engine" class="docs-section">
+        <h2 style="display: flex; align-items: center; gap: 12px;">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          Chromium Engine Transparency
+        </h2>
+        <p>Leef is built on the open-source Chromium engine. While we make every effort to strip out Google-specific telemetry, certain "baseline" signals are hard-coded into the engine's core functionality.</p>
+        <div class="docs-card" style="border-left: 4px solid #ffcc00;">
+          <h4>Important Note <span style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-left: 8px;">P4</span></h4>
+          <p>Certain features like <strong>Safe Browsing</strong> (which protects you from phishing) or <strong>Widevine DRM</strong> (which allows Netflix/Spotify to play) may occasionally communicate with external servers (like Google or Component Update servers) to download security definitions or verification tokens.</p>
+          <p style="margin-top: 1rem;">We do not have control over these specific external signals, but we ensure that <strong>no identifying data from the Leef team</strong> is ever attached to them.</p>
+        </div>
+      </section>
+
+      <section id="third-party" class="docs-section">
+        <h2 style="display: flex; align-items: center; gap: 12px;">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          Third-Party Services
+        </h2>
+        <p>While the browser itself is private, you may interact with third parties through our ecosystem:</p>
+        <ul style="margin-top: 1rem; margin-left: 1.5rem; list-style: disc;">
+          <li><strong>GitHub:</strong> We host our code and releases on GitHub. Their privacy policy applies when you download Leef or visit our repository.</li>
+          <li><strong>ProtonMail:</strong> Our support email is hosted by Proton. When you email us, your communication is protected by Proton's encryption.</li>
+          <li><strong>Website Hosting:</strong> This landing page is hosted on GitHub Pages. Basic web server logs (IP addresses) may be collected by GitHub for security and maintenance.</li>
+        </ul>
+      </section>
+
+      <section id="contact" class="docs-section">
+        <h2 style="display: flex; align-items: center; gap: 12px;">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Contact Us
+        </h2>
+        <p>If you have questions about our privacy practices, or if you find a way we can make Leef even more private, please reach out. We are always looking for ways to further strip back the "bloat" of the modern web.</p>
+        <a href="mailto:contact.qtech@proton.me" class="btn btn-primary" style="margin-top: 1rem;">contact.qtech@proton.me</a>
+      </section>
+    </article>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <div class="brand-footer">
+            <img src="logo.png" alt="Leef Logo" width="24" height="24">
+            Leef
+          </div>
+          <p class="footer-tagline">Fast, clean, open-source browsing.<br>No AI. No slop. Built by QTech.</p>
+        </div>
+        <div class="footer-links-col">
+          <div class="footer-heading">Project</div>
+          <ul class="footer-list">
+            <li><a href="https://github.com/git-QTech/leef">GitHub</a></li>
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="index.html#features">Features</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <div class="footer-heading">Community</div>
+          <ul class="footer-list">
+            <li><a href="https://bsky.app/profile/leefbrowser.bsky.social">Bluesky</a></li>
+            <li><a href="docs.html#bug-reporting">Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <div class="footer-heading">Legal</div>
+          <ul class="footer-list">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 License</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          &copy; 2026 QTech &bull; Made in Canada 🍁
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple script for sidebar active state
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('.docs-section');
+      const navLinks = document.querySelectorAll('.sidebar-link');
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (current && link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

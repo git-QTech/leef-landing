@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leef Browser - No AI. No Slop. Just Browsing.</title>
   <meta name="description"
-    content="Leef is a fast, lightweight Chromium browser built for true privacy. No AI overviews, no telemetry, no bloat.">
+    content="Leef is a fast, lightweight Chromium browser built for true privacy. No AI overviews, no Leef telemetry, no bloat. Built on Chromium.">
   <link rel="stylesheet" href="style.css?v=1.0.2">
   <link rel="icon" type="image/png" href="logo.png">
 </head>
@@ -95,7 +95,7 @@
             stroke-linejoin="round">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
-          Zero telemetry
+          Zero telemetry from us*
         </div>
         <div class="benefit-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
@@ -152,9 +152,8 @@
               <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
             </svg>
           </div>
-          <h3>Absolute Privacy</h3>
-          <p>Your history stays on your machine. Leef collects zero telemetry: no crash reports, no usage pings, and no
-            anonymous identifiers. What you do online is yours alone.</p>
+          <h3>Privacy-First Design*</h3>
+          <p>Your history stays on your machine. Leef itself collects zero telemetry — no crash reports, no usage pings, no anonymous identifiers sent to us. What you do online is yours alone.</p>
         </div>
 
         <!-- Feature 3 -->
@@ -169,8 +168,7 @@
             </svg>
           </div>
           <h3>AI-Free Search</h3>
-          <p>Leef doesn't just hide AI summaries. It stops Google AI Overviews from generating entirely, saving you
-            bandwidth and ensuring a clean, link-first search experience. While also saving a lil bit of water!</p>
+          <p>Leef injects a query parameter that strongly suppresses Google AI Overviews, giving you a clean, link-first search experience. While Google controls the final output, this approach is highly effective and saves bandwidth in the process.</p>
         </div>
 
         <!-- Feature 4 -->
@@ -211,8 +209,7 @@
             </svg>
           </div>
           <h3>Full Web Compatibility</h3>
-          <p>Enjoy the engine that powers the modern web without the corporate overhead. Every site and web app works
-            perfectly, running on your terms.</p>
+          <p>Enjoy the engine that powers the modern web without the corporate overhead. Built on Chromium, most sites and web apps work exactly as expected — running on your terms.</p>
         </div>
       </div>
     </div>
@@ -318,7 +315,7 @@
     <div class="container">
       <div class="pill">Privacy First</div>
       <h2>Private.<br><span class="highlight-white">Hard to come by nowadays.</span></h2>
-      <p>Leef operates on a simple promise: your data is not ours to take. No tracking, no syncing, and no telemetry.
+      <p>Leef operates on a simple promise: your data is not ours to take. We run no tracking, no syncing, and no telemetry of our own.
         Just a browser that respects your space.</p>
 
       <div class="stats-grid">
@@ -329,7 +326,7 @@
         <div class="stat-divider"></div>
         <div class="stat-item">
           <div class="stat-value">0kb</div>
-          <div class="stat-label">Data sent home</div>
+          <div class="stat-label">Data sent to us*</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
@@ -341,7 +338,6 @@
           <div class="stat-value">CC0</div>
           <div class="stat-label">Open license</div>
         </div>
-      </div>
     </div>
   </section>
 
@@ -450,7 +446,7 @@
               </a>
             </div>
             <a href="https://github.com/johanathann" target="_blank" class="dev-info">
-              <strong>Johanathann (johan)</strong>
+              <strong>Johanathann (johan) <span style="font-weight: 400; opacity: 0.6; font-size: 0.85em;">(he/him)</span></strong>
               <span>Lead Developer</span>
             </a>
           </div>
@@ -477,7 +473,7 @@
               </a>
             </div>
             <a href="https://github.com/Zexerif" target="_blank" class="dev-info">
-              <strong>Zexerif</strong>
+              <strong>Zexerif <span style="font-weight: 400; opacity: 0.6; font-size: 0.85em;">(he/him)</span></strong>
               <span>Core Developer</span>
             </a>
           </div>
@@ -517,7 +513,7 @@
             <li><a href="https://github.com/git-QTech/leef">GitHub</a></li>
             <li><a href="https://github.com/git-QTech/leef/releases">Releases</a></li>
             <li><a href="#features">Features</a></li>
-            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
           </ul>
         </div>
 
@@ -535,7 +531,7 @@
           <div class="footer-heading">Legal</div>
           <ul class="footer-list">
             <li><a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 License</a></li>
-            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
           </ul>
         </div>
       </div>
@@ -548,6 +544,7 @@
           <span class="license-pill">CC0 1.0 Universal</span>
         </div>
       </div>
+      <p style="font-size: 0.72rem; opacity: 0.45; text-align: center; margin-top: 1.5rem; line-height: 1.5;">* Leef itself sends zero telemetry. As a Chromium-based browser, some engine-level signals (e.g. safe-browsing checks) may reach Google. We strip what we can but cannot control the underlying Chromium engine.</p>
     </div>
   </footer>
 
