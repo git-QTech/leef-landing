@@ -37,4 +37,24 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.reveal').forEach(section => {
     revealObserver.observe(section);
   });
+
+  // Fetch Latest Version from GitHub
+  async function updateVersion() {
+    const versionSpan = document.getElementById('leef-version');
+    if (!versionSpan) return;
+    
+    try {
+      const response = await fetch('https://api.github.com/repos/git-QTech/leef/releases/latest');
+      if (response.ok) {
+        const data = await response.json();
+        if (data.tag_name) {
+          versionSpan.textContent = data.tag_name;
+        }
+      }
+    } catch (error) {
+      console.log('GitHub API fetch failed, using fallback version.');
+    }
+  }
+
+  updateVersion();
 });

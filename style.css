@@ -812,25 +812,75 @@ a {
 }
 
 .dev-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  overflow: hidden;
+  border-radius: 24px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dev-card-main {
   background: rgba(255, 255, 255, 0.05);
   border: 1.5px solid rgba(255, 255, 255, 0.1);
-  padding: 1.5rem 2.5rem 1.5rem 1.5rem;
+  padding: 1.5rem 2.5rem;
   border-radius: 24px;
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  text-decoration: none;
-  color: #fff;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 5;
   backdrop-filter: blur(10px);
-  min-width: 280px;
 }
 
-.dev-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.1);
+.dev-card:hover .dev-card-main {
   border-color: var(--primary-color);
-  box-shadow: 0 12px 30px rgba(23, 179, 64, 0.1);
+  background: rgba(23, 179, 64, 0.05);
+}
+
+.music-drawer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(5, 20, 10, 0.4);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  margin-top: -24px; /* Tuck behind main card */
+  padding-top: 24px;
+  border: 1.5px solid transparent;
+  border-top: none;
+}
+
+.dev-card:hover .music-drawer {
+  grid-template-rows: 1fr;
+  border-color: var(--primary-color);
+}
+
+.music-card {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, padding 0.4s ease, visibility 0.2s;
+}
+
+.dev-card:hover .music-card {
+  padding: 1.25rem 2rem;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease 0.1s, padding 0.4s ease, visibility 0.4s;
+}
+
+.avatar-container {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
 }
 
 .dev-avatar {
@@ -838,7 +888,58 @@ a {
   height: 64px;
   border-radius: 16px;
   object-fit: cover;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.music-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.music-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--primary-color);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.2rem;
+}
+
+.song-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+  margin: 0 !important;
+}
+
+.artist-name {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.music-link {
+  width: 32px;
+  height: 32px;
+  background: var(--primary-color);
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.music-link:hover {
+  transform: scale(1.15);
+  background: #fff;
 }
 
 .dev-info {
