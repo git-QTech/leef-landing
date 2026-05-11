@@ -81,6 +81,7 @@ a {
   object-fit: contain;
   transform: scale(1.2);
   margin-right: -0.1rem;
+  margin-top: -4px; /* Nudge up for precise vertical centering */
 }
 
 .nav-links {
@@ -666,6 +667,7 @@ a {
   object-fit: contain;
   transform: scale(1.2);
   margin-right: -0.1rem;
+  margin-top: -2px; /* Nudge up for precise vertical centering */
 }
 
 .footer-tagline {
