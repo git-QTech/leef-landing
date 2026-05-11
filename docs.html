@@ -30,6 +30,10 @@
       <div class="pill-beta">Leef Help Center</div>
       <h1>Documentation</h1>
       <p>Everything you need to know about the browser that respects your time, your hardware, and your privacy. No AI slop included.</p>
+      <div class="hero-actions" style="margin-top: 2rem; display: flex; gap: 1rem;">
+        <a href="#troubleshooter" class="btn btn-primary">Open Troubleshooter</a>
+        <a href="#installation" class="btn" style="border: 1.5px solid var(--overlay-border);">Installation Guide</a>
+      </div>
     </div>
   </header>
 
@@ -37,6 +41,10 @@
     <aside class="docs-sidebar">
       <nav class="sidebar-nav">
         <div class="sidebar-heading">Getting Started</div>
+        <a href="#troubleshooter" class="sidebar-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Interactive Troubleshooter
+        </a>
         <a href="#installation" class="sidebar-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Installation
@@ -89,10 +97,6 @@
         </a>
 
         <div class="sidebar-heading">Troubleshooting</div>
-        <a href="#troubleshooter" class="sidebar-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          Troubleshooter
-        </a>
         <a href="#recovery-mode" class="sidebar-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           Recovery Mode
@@ -273,23 +277,25 @@
         </div>
       </section>
 
-      <!-- Troubleshooting -->
+      <!-- Troubleshooter -->
       <section id="troubleshooter" class="docs-section">
+        <div class="pill-beta" style="background: rgba(23, 179, 64, 0.1); color: var(--primary-color); border: 1px solid var(--primary-color); margin-bottom: 1rem;">Recommended First Step</div>
         <h2>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           Interactive Troubleshooter
         </h2>
-        <p>Not sure where to start? Tell us what's wrong and we'll point you in the right direction.</p>
+        <p>Before diving into the manual guides, use this wizard to diagnose the most common issues based on your symptoms.</p>
         
-        <div class="troubleshooter-container" id="troubleshooter-wizard">
+        <div class="troubleshooter-container" id="troubleshooter-wizard" style="border: 2px solid var(--primary-color); background: rgba(23, 179, 64, 0.02);">
           <!-- Initial Step -->
           <div class="troubleshooter-step active" data-step="start">
             <div class="troubleshooter-question">What's the main problem?</div>
             <div class="troubleshooter-options">
               <div class="troubleshooter-btn" data-next="site-loading">A specific website isn't loading or looks broken</div>
-              <div class="troubleshooter-btn" data-next="youtube">YouTube or videos won't play</div>
+              <div class="troubleshooter-btn" data-next="youtube">YouTube or videos behave strangely</div>
+              <div class="troubleshooter-btn" data-next="audio">Music or audio stops in the background</div>
               <div class="troubleshooter-btn" data-next="performance">The browser feels slow or laggy</div>
-              <div class="troubleshooter-btn" data-next="other">Something else isn't working</div>
+              <div class="troubleshooter-btn" data-next="setup">I can't find the Setup Wizard / Onboarding</div>
             </div>
           </div>
 
@@ -304,10 +310,19 @@
 
           <!-- YouTube Step -->
           <div class="troubleshooter-step" data-step="youtube">
-            <div class="troubleshooter-question">Is the ad-blocker enabled for YouTube?</div>
+            <div class="troubleshooter-question">What exactly is happening on YouTube?</div>
             <div class="troubleshooter-options">
-              <div class="troubleshooter-btn" data-next="youtube-yes">Yes, ad-blocking is on</div>
-              <div class="troubleshooter-btn" data-next="youtube-no">No, it's already off</div>
+              <div class="troubleshooter-btn" data-next="youtube-blocked">The video won't play / Ad-blocker detected</div>
+              <div class="troubleshooter-btn" data-next="youtube-warp">The video is playing at crazy fast speed</div>
+            </div>
+          </div>
+
+          <!-- Audio Step -->
+          <div class="troubleshooter-step" data-step="audio">
+            <div class="troubleshooter-question">Does it happen when you switch to another tab?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="audio-background">Yes, it stops when I leave the tab</div>
+              <div class="troubleshooter-btn" data-next="audio-random">No, it just stops randomly</div>
             </div>
           </div>
 
@@ -332,12 +347,12 @@
           <div class="troubleshooter-step" data-step="site-loading-no">
             <div class="troubleshooter-result">
               <h5>Suggested Solution: Check Recovery Mode</h5>
-              <p>If the site is broken even with basic blocking, an internal component might be stuck. Try launching in <a href="#recovery-mode">Recovery Mode</a> to see if it fixes the issue.</p>
+              <p>If the site is broken even with basic blocking, an internal component might be stuck. Try launching in <a href="#recovery-mode">Recovery Mode</a> and selecting <strong>Reset Window</strong> or <strong>Reset Config</strong>.</p>
             </div>
             <button class="troubleshooter-reset">Start over</button>
           </div>
 
-          <div class="troubleshooter-step" data-step="youtube-yes">
+          <div class="troubleshooter-step" data-step="youtube-blocked">
             <div class="troubleshooter-result">
               <h5>Suggested Solution: Disable Ad-blocking</h5>
               <p>YouTube has recently started aggressively blocking ad-blockers. To watch videos, you may need to disable Leef's ad-blocker for YouTube via the Globe Icon menu. We are working on a more permanent fix!</p>
@@ -345,10 +360,26 @@
             <button class="troubleshooter-reset">Start over</button>
           </div>
 
-          <div class="troubleshooter-step" data-step="youtube-no">
+          <div class="troubleshooter-step" data-step="youtube-warp">
             <div class="troubleshooter-result">
-              <h5>Suggested Solution: Efficiency Mode Check</h5>
-              <p>Efficiency Mode might have hibernated the tab's media engine. Try reloading the page or disabling Efficiency Mode temporarily in the settings.</p>
+              <h5>Suggested Solution: Disable "Warp Speed" Lab</h5>
+              <p>You likely enabled <strong>YouTube Warp Speed</strong> in <code>leef://labs</code>. This skips unskippable ads by playing them at 16x speed, but it can sometimes get stuck on the main video. Try toggling it off.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="audio-background">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Disable Background Limit</h5>
+              <p>In <strong>Settings > Privacy</strong>, make sure "Background Limit" is toggled OFF. When enabled, Leef pauses background audio/video to save resources. Also, check if <a href="#efficiency-mode">Efficiency Mode</a> is hibernating the tab.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="audio-random">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Check Efficiency Mode</h5>
+              <p>Efficiency Mode throttles background tabs to 30% CPU power. If your audio stream is high-quality, this might cause stuttering. Try disabling Efficiency Mode in the settings.</p>
             </div>
             <button class="troubleshooter-reset">Start over</button>
           </div>
@@ -356,23 +387,23 @@
           <div class="troubleshooter-step" data-step="performance-yes">
             <div class="troubleshooter-result">
               <h5>Suggested Solution: Enable Efficiency Mode</h5>
-              <p>If you have many tabs, <a href="#efficiency-mode">Efficiency Mode</a> is your best friend. It hibernates background tabs to save RAM and CPU. Make sure it's toggled ON.</p>
+              <p>If you have many tabs, <a href="#efficiency-mode">Efficiency Mode</a> is your best friend. It throttles background tabs to save RAM and CPU. Make sure it's toggled ON in the settings.</p>
             </div>
             <button class="troubleshooter-reset">Start over</button>
           </div>
 
           <div class="troubleshooter-step" data-step="performance-no">
             <div class="troubleshooter-result">
-              <h5>Suggested Solution: Clean Slate</h5>
-              <p>If the browser is slow with only a few tabs, there might be corrupted cache files. Consider <a href="#reset-appdata">Resetting AppData</a> (make sure to backup your bookmarks first!).</p>
+              <h5>Suggested Solution: Nuclear Option (AppData)</h5>
+              <p>If the browser is slow with only a few tabs, there might be corrupted cache files. Consider <a href="#reset-appdata">Resetting AppData</a> or using the <strong>Rebuild AppData</strong> option in <a href="#recovery-mode">Recovery Mode</a>.</p>
             </div>
             <button class="troubleshooter-reset">Start over</button>
           </div>
 
-          <div class="troubleshooter-step" data-step="other">
+          <div class="troubleshooter-step" data-step="setup">
             <div class="troubleshooter-result">
-              <h5>Suggested Solution: Manual Reset or Support</h5>
-              <p>For more specific issues, we recommend checking <a href="#recovery-mode">Recovery Mode</a> first. If that doesn't help, please <a href="#bug-reporting">report a bug</a>.</p>
+              <h5>Suggested Solution: Redo Setup</h5>
+              <p>You can re-trigger the Setup Wizard at any time. Go to <strong>Settings > General</strong> and look for the <strong>"Redo Setup"</strong> button at the bottom of the page.</p>
             </div>
             <button class="troubleshooter-reset">Start over</button>
           </div>
@@ -380,7 +411,6 @@
         </div>
       </section>
 
-      <!-- Troubleshooting -->
       <section id="recovery-mode" class="docs-section">
         <h2>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
