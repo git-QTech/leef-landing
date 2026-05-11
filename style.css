@@ -1447,4 +1447,91 @@ a {
   .docs-hero h1 {
     font-size: 3.5rem;
   }
-}
+}/* Troubleshooting Wizard */
+.troubleshooter-container {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1.5px solid var(--overlay-border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  margin: 2rem 0;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.troubleshooter-step {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.troubleshooter-step.active {
+  display: block;
+}
+
+.troubleshooter-question {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+}
+
+.troubleshooter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.troubleshooter-btn {
+  padding: 1rem 1.5rem;
+  background: #fff;
+  border: 1.5px solid var(--overlay-border);
+  border-radius: 14px;
+  text-align: left;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.troubleshooter-btn:hover {
+  border-color: var(--primary-color);
+  background: var(--overlay-bg);
+  transform: translateX(5px);
+}
+
+.troubleshooter-btn::after {
+  content: '?';
+  opacity: 0.5;
+}
+
+.troubleshooter-result {
+  background: var(--overlay-bg);
+  padding: 2rem;
+  border-radius: 18px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.troubleshooter-result h5 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.troubleshooter-reset {
+  margin-top: 2rem;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

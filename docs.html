@@ -89,6 +89,10 @@
         </a>
 
         <div class="sidebar-heading">Troubleshooting</div>
+        <a href="#troubleshooter" class="sidebar-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Troubleshooter
+        </a>
         <a href="#recovery-mode" class="sidebar-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           Recovery Mode
@@ -270,6 +274,113 @@
       </section>
 
       <!-- Troubleshooting -->
+      <section id="troubleshooter" class="docs-section">
+        <h2>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Interactive Troubleshooter
+        </h2>
+        <p>Not sure where to start? Tell us what's wrong and we'll point you in the right direction.</p>
+        
+        <div class="troubleshooter-container" id="troubleshooter-wizard">
+          <!-- Initial Step -->
+          <div class="troubleshooter-step active" data-step="start">
+            <div class="troubleshooter-question">What's the main problem?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="site-loading">A specific website isn't loading or looks broken</div>
+              <div class="troubleshooter-btn" data-next="youtube">YouTube or videos won't play</div>
+              <div class="troubleshooter-btn" data-next="performance">The browser feels slow or laggy</div>
+              <div class="troubleshooter-btn" data-next="other">Something else isn't working</div>
+            </div>
+          </div>
+
+          <!-- Site Loading Step -->
+          <div class="troubleshooter-step" data-step="site-loading">
+            <div class="troubleshooter-question">Are you using "Comprehensive" ad-blocking?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="site-loading-yes">Yes, it's set to Comprehensive</div>
+              <div class="troubleshooter-btn" data-next="site-loading-no">No, I'm using Basic or None</div>
+            </div>
+          </div>
+
+          <!-- YouTube Step -->
+          <div class="troubleshooter-step" data-step="youtube">
+            <div class="troubleshooter-question">Is the ad-blocker enabled for YouTube?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="youtube-yes">Yes, ad-blocking is on</div>
+              <div class="troubleshooter-btn" data-next="youtube-no">No, it's already off</div>
+            </div>
+          </div>
+
+          <!-- Performance Step -->
+          <div class="troubleshooter-step" data-step="performance">
+            <div class="troubleshooter-question">Do you usually have many tabs open at once?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="performance-yes">Yes, I'm a tab hoarder</div>
+              <div class="troubleshooter-btn" data-next="performance-no">No, just a few</div>
+            </div>
+          </div>
+
+          <!-- Results -->
+          <div class="troubleshooter-step" data-step="site-loading-yes">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Dial it back</h5>
+              <p>Comprehensive blocking can sometimes be too aggressive and break site layouts. Try switching to <strong>Basic</strong> blocking or disabling it entirely for that specific site via the Globe Icon menu.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="site-loading-no">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Check Recovery Mode</h5>
+              <p>If the site is broken even with basic blocking, an internal component might be stuck. Try launching in <a href="#recovery-mode">Recovery Mode</a> to see if it fixes the issue.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="youtube-yes">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Disable Ad-blocking</h5>
+              <p>YouTube has recently started aggressively blocking ad-blockers. To watch videos, you may need to disable Leef's ad-blocker for YouTube via the Globe Icon menu. We are working on a more permanent fix!</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="youtube-no">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Efficiency Mode Check</h5>
+              <p>Efficiency Mode might have hibernated the tab's media engine. Try reloading the page or disabling Efficiency Mode temporarily in the settings.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="performance-yes">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Enable Efficiency Mode</h5>
+              <p>If you have many tabs, <a href="#efficiency-mode">Efficiency Mode</a> is your best friend. It hibernates background tabs to save RAM and CPU. Make sure it's toggled ON.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="performance-no">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Clean Slate</h5>
+              <p>If the browser is slow with only a few tabs, there might be corrupted cache files. Consider <a href="#reset-appdata">Resetting AppData</a> (make sure to backup your bookmarks first!).</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="other">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Manual Reset or Support</h5>
+              <p>For more specific issues, we recommend checking <a href="#recovery-mode">Recovery Mode</a> first. If that doesn't help, please <a href="#bug-reporting">report a bug</a>.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Troubleshooting -->
       <section id="recovery-mode" class="docs-section">
         <h2>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
@@ -397,6 +508,34 @@
         }
       });
     });
+
+    // Troubleshooting Wizard Logic
+    const wizard = document.getElementById('troubleshooter-wizard');
+    if (wizard) {
+      const steps = wizard.querySelectorAll('.troubleshooter-step');
+      const resetBtn = wizard.querySelectorAll('.troubleshooter-reset');
+
+      wizard.addEventListener('click', (e) => {
+        const btn = e.target.closest('.troubleshooter-btn');
+        if (btn) {
+          const nextStep = btn.getAttribute('data-next');
+          showStep(nextStep);
+        }
+
+        if (e.target.classList.contains('troubleshooter-reset')) {
+          showStep('start');
+        }
+      });
+
+      function showStep(stepId) {
+        steps.forEach(step => {
+          step.classList.remove('active');
+          if (step.getAttribute('data-step') === stepId) {
+            step.classList.add('active');
+          }
+        });
+      }
+    }
   </script>
 </body>
 
