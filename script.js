@@ -1,19 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Smooth scroll for anchor links
+  // Smooth scroll for internal anchor links only
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      e.preventDefault();
       const targetId = this.getAttribute('href');
-      const target = document.querySelector(targetId);
+      if (targetId === '#' || !targetId) return; // Ignore empty anchors
       
-      if (target) {
-        const navHeight = 80;
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
+      try {
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          const navHeight = 80;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      } catch (err) {
+        // Not a valid selector (likely an external link), let browser handle it
       }
     });
   });
@@ -38,23 +43,48 @@ document.addEventListener('DOMContentLoaded', () => {
     revealObserver.observe(section);
   });
 
-  // Fetch Latest Version from GitHub
-  async function updateVersion() {
+  // Download Dropdown Toggle
+  const downloadBtn = document.getElementById('download-btn');
+  const downloadMenu = document.getElementById('download-menu');
+
+  if (downloadBtn && downloadMenu) {
+    downloadBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      downloadMenu.classList.toggle('active');
+    });
+
+    document.addEventListener('click', () => {
+      downloadMenu.classList.remove('active');
+    });
+  }
+
+  // Fetch Latest Version and Download Link from GitHub
+  async function updateVersionAndLinks() {
     const versionSpan = document.getElementById('leef-version');
-    if (!versionSpan) return;
+    const winDownload = document.getElementById('win-download');
     
     try {
       const response = await fetch('https://api.github.com/repos/git-QTech/leef/releases/latest');
       if (response.ok) {
         const data = await response.json();
-        if (data.tag_name) {
+        
+        // Update Version Text
+        if (data.tag_name && versionSpan) {
           versionSpan.textContent = data.tag_name;
+        }
+
+        // Update Windows Download Link
+        if (data.assets && winDownload) {
+          const exeAsset = data.assets.find(asset => asset.name.endsWith('.exe'));
+          if (exeAsset) {
+            winDownload.href = exeAsset.browser_download_url;
+          }
         }
       }
     } catch (error) {
-      console.log('GitHub API fetch failed, using fallback version.');
+      console.log('GitHub API fetch failed, using fallback links.');
     }
   }
 
-  updateVersion();
+  updateVersionAndLinks();
 });

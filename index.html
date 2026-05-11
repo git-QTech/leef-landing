@@ -32,24 +32,61 @@
       <p>Leef is the lightweight, ultra-fast Chromium browser built for those who are tired of AI overviews, data
         mining, and browser bloat. Just the web, exactly as it was meant to be.</p>
       <div class="cta-container">
-        <a href="https://github.com/git-QTech/leef/releases" class="btn btn-primary btn-large">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-            stroke-linejoin="round" style="width: 20px; height: 20px; margin-right: 10px;">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          Download for Windows
-        </a>
-        <a href="https://github.com/git-QTech/leef" class="btn btn-secondary btn-large">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-            stroke-linejoin="round" style="width: 20px; height: 20px; margin-right: 10px;">
-            <path
-              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-            </path>
-          </svg>
-          View on GitHub
-        </a>
+        <div class="download-dropdown">
+          <button class="btn btn-primary btn-large download-trigger" id="download-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; margin-right: 10px;">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download Leef
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px; margin-left: 10px; opacity: 0.7;">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="dropdown-menu" id="download-menu">
+            <a href="#" class="dropdown-item" id="win-download">
+              <div class="item-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 12L10 13V5L3 6V12ZM11 13.14L21 14.5V4L11 5.43V13.14ZM3 13V19L10 20V13.14L3 13ZM11 20L21 21.5V14.64L11 13.29V20Z"/></svg>
+              </div>
+              <div class="item-text">
+                <strong>Windows (x64)</strong>
+                <span>Direct Download (.exe)</span>
+              </div>
+            </a>
+            <a href="https://github.com/git-QTech/leef/releases" target="_blank" class="dropdown-item">
+              <div class="item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </div>
+              <div class="item-text">
+                <strong>GitHub Releases</strong>
+                <span>View all versions</span>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item disabled">
+              <div class="item-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71,19.5C17.88,20.74,17,21.95,15.66,21.97C14.32,22,13.89,21.18,12.37,21.18C10.84,21.18,10.37,21.95,9.1,22C7.79,22.05,6.8,20.68,5.96,19.47C4.25,17,2.94,12.45,4.7,9.39C5.57,7.87,7.13,6.91,8.82,6.88C10.1,6.86,11.32,7.75,12.11,7.75C12.89,7.75,14.37,6.68,15.92,6.84C16.57,6.87,18.39,7.1,19.56,8.82C19.47,8.88,17.39,10.1,17.41,12.63C17.44,15.65,20.06,16.66,20.09,16.67C20.06,16.74,19.67,18.11,18.71,19.5M13,3.5C13.73,2.67,14.94,2.04,15.94,2C16.07,3.17,15.6,4.35,14.9,5.19C14.21,6.04,13.07,6.7,11.95,6.61C11.8,5.46,12.36,4.26,13,3.5Z"/></svg>
+              </div>
+              <div class="item-text">
+                <strong>macOS</strong>
+                <span>Coming Soon</span>
+              </div>
+            </div>
+            <div class="dropdown-item disabled">
+              <div class="item-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C10.5 2 9.5 3 9.5 4.5C9.5 5.5 10 6.5 10.5 7C9 8 7 10 7 12C7 13 7.5 14 8 15C7 16 6 17 6 18.5C6 20.5 8 22 10.5 22C11.5 22 12.5 21.5 13 21C13.5 21.5 14.5 22 15.5 22C18 22 20 20.5 20 18.5C20 17 19 16 18 15C18.5 14 19 13 19 12C19 10 17 8 15.5 7C16 6.5 16.5 5.5 16.5 4.5C16.5 3 15.5 2 14 2H12M12 4H14C14.3 4 14.5 4.2 14.5 4.5C14.5 4.8 14.3 5 14 5H12C11.7 5 11.5 4.8 11.5 4.5C11.5 4.2 11.7 4 12 4M10.5 11C11.3 11 12 11.7 12 12.5C12 13.3 11.3 14 10.5 14C9.7 14 9 13.3 9 12.5C9 11.7 9.7 11 10.5 11M15.5 11C16.3 11 17 11.7 17 12.5C17 13.3 16.3 14 15.5 14C14.7 14 14 13.3 14 12.5C14 11.7 14.7 11 15.5 11M11 16H15C15.5 16 16 16.5 16 17C16 17.5 15.5 18 15 18H11C10.5 18 10 17.5 10 17C10 16.5 10.5 16 11 16Z"/>
+                </svg>
+              </div>
+              <div class="item-text">
+                <strong>Linux</strong>
+                <span>Coming Soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="#features" class="btn btn-secondary btn-large">Learn More</a>
       </div>
       <div class="cta-benefits">
         <div class="benefit-item">
@@ -279,7 +316,7 @@
   <section id="privacy" class="privacy-banner reveal">
     <div class="container">
       <div class="pill">Privacy First</div>
-      <h2>The private things in life should stay that way, private.<br><span class="highlight-white">Leef private.</span></h2>
+      <h2>Private.<br><span class="highlight-white">Hard to come by nowadays.</span></h2>
       <p>Leef operates on a simple promise: your data is not ours to take. No tracking, no syncing, and no telemetry.
         Just a browser that respects your space.</p>
 
