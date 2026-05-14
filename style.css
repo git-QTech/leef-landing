@@ -169,9 +169,10 @@ a {
   font-weight: 600;
   transition: transform 0.2s ease, background-color 0.2s ease;
   cursor: pointer;
-  border: none;
+  border: 1.5px solid transparent;
   font-family: var(--font-sans);
   text-align: center;
+  box-sizing: border-box;
 }
 
 .btn-primary {
@@ -210,7 +211,8 @@ a {
 }
 
 .btn-large {
-  padding: 1.25rem 2.5rem;
+  padding: 0 2.5rem;
+  height: 4.2rem;
   font-size: 1.25rem;
   border-radius: 16px;
 }
@@ -254,6 +256,7 @@ a {
 .cta-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1.5rem;
   margin-bottom: 4rem;
   position: relative;
@@ -1504,7 +1507,7 @@ a {
   .docs-hero h1 {
     font-size: 3.5rem;
   }
-}/* Troubleshooting Wizard */
+}/* Troubleshooting Wizard */
 .troubleshooter-container {
   background: rgba(255, 255, 255, 0.4);
   border: 1.5px solid var(--overlay-border);
