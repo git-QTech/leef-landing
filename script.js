@@ -62,6 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
   async function updateVersionAndLinks() {
     const versionSpan = document.getElementById('leef-version');
     const winDownload = document.getElementById('win-download');
+    const winDownloadPage = document.getElementById('win-download-page');
+    const currentVersionSpans = document.querySelectorAll('.current-version');
     
     try {
       const response = await fetch('https://api.github.com/repos/git-QTech/leef/releases/latest');
@@ -69,15 +71,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = await response.json();
         
         // Update Version Text
-        if (data.tag_name && versionSpan) {
-          versionSpan.textContent = data.tag_name;
+        if (data.tag_name) {
+          if (versionSpan) versionSpan.textContent = data.tag_name;
+          currentVersionSpans.forEach(span => {
+            span.textContent = data.tag_name;
+          });
         }
 
-        // Update Windows Download Link
-        if (data.assets && winDownload) {
+        // Update Windows Download Links
+        if (data.assets) {
           const exeAsset = data.assets.find(asset => asset.name.endsWith('.exe'));
           if (exeAsset) {
-            winDownload.href = exeAsset.browser_download_url;
+            if (winDownload) winDownload.href = exeAsset.browser_download_url;
+            if (winDownloadPage) winDownloadPage.href = exeAsset.browser_download_url;
           }
         }
       }
@@ -87,4 +93,31 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   updateVersionAndLinks();
+});
+
+// Modal Logic
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('instructions-modal');
+  const openBtn = document.getElementById('open-instructions');
+  const closeBtn = document.getElementById('close-instructions');
+  
+  if (openBtn && modal && closeBtn) {
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scroll
+    });
+    
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    // Close on outside click
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  }
 });

@@ -13,16 +13,33 @@
 
 <body class="docs-page">
 
+  <div class="update-banner">
+    <div class="banner-text">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+        <line x1="12" y1="9" x2="12" y2="13"></line>
+        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+      </svg>
+      <span><strong>Critical Update:</strong> If you are using Leef v0.5.1, please update immediately to fix a major bug.</span>
+    </div>
+    <a href="https://github.com/git-QTech/leef/releases/latest">
+      Update to v0.5.2
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </a>
+  </div>
+
   <nav class="navbar">
     <a href="index.html" class="brand">
       <img src="logo.png" alt="Leef Logo" width="32" height="32">
       Leef
     </a>
     <div class="nav-links">
-      <a href="index.html#features">Features</a>
-      <a href="index.html#privacy">Privacy</a>
+      <a href="index.html">Home</a>
       <a href="docs.html" class="active" style="color: var(--primary-color);">Docs</a>
-      <a href="https://github.com/git-QTech/leef/releases" class="btn btn-primary" id="nav-download">Download</a>
+      <a href="downloads.html" class="btn btn-primary" id="nav-download">Download</a>
     </div>
   </nav>
 
@@ -108,13 +125,7 @@
           </svg>
           Leef Hub
         </a>
-        <a href="#themes" class="sidebar-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" width="18" height="18">
-            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-          </svg>
-          Themes & Tabs
-        </a>
+
 
         <div class="sidebar-heading">Advanced Features</div>
         <a href="#efficiency-mode" class="sidebar-link">
@@ -189,17 +200,7 @@
           </svg>
           Bug Reporting
         </a>
-        <a href="#release-notes" class="sidebar-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" width="18" height="18">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-            <polyline points="10 9 9 9 8 9"></polyline>
-          </svg>
-          Release Notes
-        </a>
+
       </nav>
     </aside>
 
@@ -481,10 +482,10 @@
         <p>On first launch, Leef walks you through a quick setup. No account creation, no newsletter signup.</p>
         <div class="docs-card">
           <h4>First-Time Configuration</h4>
-          <p>Choose your default search engine, toggle the Leef News feed, and pick a theme. The setup takes seconds.
+          <p>Toggle the Leef News feed and configure your privacy settings. The setup takes seconds.
           </p>
           <img src="docs_setup_wizard.png" alt="Leef Setup Wizard" class="docs-img">
-          <span class="docs-img-caption">Note: Interface shown is from v0.5.1 and is subject to change during
+          <span class="docs-img-caption">Note: Interface shown is from v0.4.0 and is subject to change during
             development.</span>
           <div class="docs-notice">
             <strong>Tip</strong>
@@ -563,7 +564,7 @@
               you must go to <strong>Settings &gt; Privacy &amp; Security</strong>.</p>
           </div>
           <img src="docs_globe_icon.png" alt="Globe Icon Menu" class="docs-img">
-          <span class="docs-img-caption">Note: Interface shown is from v0.5.1 and is subject to change during
+          <span class="docs-img-caption">Note: Interface shown is from v0.4.0 and is subject to change during
             development.</span>
         </div>
       </section>
@@ -588,21 +589,7 @@
         </div>
       </section>
 
-      <section id="themes" class="docs-section">
-        <h2>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-          </svg>
-          Themes & Tabs
-        </h2>
-        <p>Leef supports multiple themes and layout options to fit your workflow.</p>
-        <div class="docs-card">
-          <h4>Tab Management</h4>
-          <p>Leef offers a vertical tab sidebar for managing large numbers of open tabs. Group tabs by project to stay
-            organized.</p>
-        </div>
-      </section>
+
 
       <!-- Advanced Features -->
       <section id="efficiency-mode" class="docs-section">
@@ -669,14 +656,9 @@
           be stable.</p>
         <div class="docs-card">
           <h4>Slop Scanner</h4>
-          <p>Analyzes page content for common markers of AI-generated text using heuristic detection. It's not perfect
-            (nothing is), but it's a useful gut-check.</p>
+          <p>Analyzes highlighted text for common markers of AI-generated content. Simply select a passage, right-click, and select <strong>"Detect AI Text"</strong> for a heuristic gut-check. It's not perfect (nothing is), but it helps identify potential slop in real-time.</p>
         </div>
-        <div class="docs-card">
-          <h4>Paywall Fog</h4>
-          <p>Rotates local identity markers (cookies, localStorage) to help bypass metered paywalls without disrupting
-            authenticated sessions.</p>
-        </div>
+
       </section>
 
       <section id="recovery-mode" class="docs-section">
@@ -696,7 +678,7 @@
           <p>Hold the <span class="shortcut">Shift</span> key while launching Leef. A specialized menu will appear
             allowing you to reset your configuration or clear app data without losing your bookmarks.</p>
           <img src="docs_recovery_mode.png" alt="Recovery Mode Menu" class="docs-img">
-          <span class="docs-img-caption">Note: Interface shown is from v0.5.1 and is subject to change during
+          <span class="docs-img-caption">Note: Interface shown is from v0.4.0 and is subject to change during
             development.</span>
         </div>
         <div class="docs-notice">
@@ -827,38 +809,7 @@
         </div>
       </section>
 
-      <section id="release-notes" class="docs-section">
-        <h2>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-            <polyline points="10 9 9 9 8 9"></polyline>
-          </svg>
-          Release Notes
-        </h2>
 
-        <div class="docs-card">
-          <span class="feature-tag">Latest</span>
-          <h4>v0.5.1: The GPC Overhaul</h4>
-          <p style="margin-bottom: 1rem; opacity: 0.8;">Released May 12, 2026</p>
-          <ul class="docs-list">
-            <li><strong>⚡ Batched IPC:</strong> Consolidated sequential page-load calls into a single batched
-              round-trip. UI freezes are gone, and benchmarks are back to baseline.</li>
-            <li><strong>✅ True GPC Verification:</strong> Scrapped script-watching for GPC. Leef now strictly verifies
-              <code>/.well-known/gpc.json</code> according to the official standard.
-            </li>
-            <li><strong>🔒 Tab Isolation:</strong> Silently aborts probes if the hostname hasn't caught up to the
-              address bar yet, ensuring zero false-positive cache poisoning on navigation.</li>
-            <li><strong>🌐 UI Polish:</strong> Globe Menu now shows verification time (with a 10s timer) and updated
-              status text.</li>
-            <li><strong>🛡️ Internal Exclusions:</strong> <code>leef://</code> pages are now fully excluded from GPC
-              probes and injections.</li>
-          </ul>
-        </div>
-      </section>
 
       <section id="legal" class="docs-section">
         <h2>Legal Disclaimer</h2>
@@ -885,8 +836,8 @@
           <div class="footer-heading">Project</div>
           <ul class="footer-list">
             <li><a href="https://github.com/git-QTech/leef">GitHub</a></li>
-            <li><a href="https://github.com/git-QTech/leef/releases">Releases</a></li>
-            <li><a href="index.html#features">Features</a></li>
+            <li><a href="downloads.html">Downloads</a></li>
+            <li><a href="docs.html">Documentation</a></li>
             <li><a href="privacy.html">Privacy Policy</a></li>
           </ul>
         </div>
