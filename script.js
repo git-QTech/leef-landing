@@ -121,3 +121,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Interactive Elements Logic
+document.addEventListener('DOMContentLoaded', () => {
+  // Data Sold Ticker Animation
+  const dataSoldTicker = document.getElementById('data-sold-value');
+  if (dataSoldTicker) {
+    const dataSoldObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          let duration = 2000; // 2 seconds spin
+          let start = Date.now();
+          
+          let spinInterval = setInterval(() => {
+            let now = Date.now();
+            if (now - start > duration) {
+              clearInterval(spinInterval);
+              dataSoldTicker.textContent = '$ 0.00';
+              dataSoldTicker.classList.add('snapped');
+            } else {
+              let randomVal = (Math.random() * 100000).toFixed(2);
+              dataSoldTicker.textContent = '$ ' + parseFloat(randomVal).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            }
+          }, 40);
+
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    // Find the parent section to observe so it triggers a bit earlier
+    const privacySection = document.getElementById('privacy');
+    if (privacySection) {
+      dataSoldObserver.observe(privacySection);
+    } else {
+      dataSoldObserver.observe(dataSoldTicker);
+    }
+  }
+
+  // Slop Wiper Showcase (Sticky Scroll-based)
+  const slopWiper = document.getElementById('slop-wiper-container');
+  const scrollWrapper = document.querySelector('.slop-wiper-scroll-wrapper');
+  if (slopWiper && scrollWrapper) {
+    const calculateWiper = () => {
+      const wrapperRect = scrollWrapper.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      let progress = 0;
+      if (wrapperRect.top <= 80) {
+        progress = Math.abs(wrapperRect.top - 80) / windowHeight;
+      }
+      
+      progress = Math.max(0, Math.min(1, progress));
+      
+      slopWiper.style.setProperty('--wipe', `${progress * 100}%`);
+    };
+
+    window.addEventListener('scroll', calculateWiper);
+    calculateWiper(); // Run once to set initial state
+  }
+});

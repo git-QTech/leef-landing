@@ -421,10 +421,7 @@ a {
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.feature-card:hover {
-  transform: translateY(-5px);
-  background-color: var(--tab-active);
-}
+
 
 .icon-box {
   width: 48px;
@@ -1932,4 +1929,243 @@ a {
 
 .instructions-link:hover {
   opacity: 0.8;
+}
+
+/* Data Sold Ticker */
+.data-sold-ticker {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.data-sold-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+.data-sold-value {
+  font-family: var(--font-display);
+  font-size: 5.5rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  transition: color 0.1s;
+}
+
+.data-sold-value.snapped {
+  color: #5aef7e;
+  text-shadow: 0 0 20px rgba(90, 239, 126, 0.4);
+}
+
+.data-sold-caption {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .data-sold-value {
+    font-size: 3.5rem;
+  }
+}
+
+/* Slop Wiper Section */
+.slop-wiper-section {
+  background-color: #f5fdf5;
+  text-align: center;
+}
+
+.slop-wiper-scroll-wrapper {
+  height: 200vh;
+  position: relative;
+}
+
+.slop-wiper-sticky {
+  position: sticky;
+  top: 80px;
+  min-height: calc(100vh - 80px);
+  display: block;
+  padding-top: max(4rem, calc(50vh - 390px));
+  overflow: hidden;
+}
+
+.slop-wiper-header p {
+  font-size: 1.25rem;
+  color: #444;
+}
+
+.slop-wiper-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 540px;
+  margin: 0 auto;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+  background: #fff;
+  border: 1.5px solid var(--overlay-border);
+  overflow: hidden;
+  cursor: default;
+}
+
+@media (max-height: 850px) {
+  .slop-wiper-sticky .container {
+    transform: scale(0.85);
+    transform-origin: top center;
+  }
+}
+
+@media (max-height: 700px) {
+  .slop-wiper-sticky .container {
+    transform: scale(0.7);
+    transform-origin: top center;
+  }
+}
+
+@media (max-height: 600px) {
+  .slop-wiper-sticky .container {
+    transform: scale(0.6);
+    transform-origin: top center;
+  }
+}
+
+.slop-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 3rem;
+  text-align: left;
+  user-select: none;
+}
+
+.dirty-layer {
+  background-color: #f8f9fa;
+  z-index: 1;
+}
+
+.clean-layer {
+  background-color: #fff;
+  z-index: 2;
+  /* Scroll-linked wipe from top to bottom */
+  clip-path: polygon(0 0, 100% 0, 100% var(--wipe, 0%), 0 var(--wipe, 0%));
+}
+
+.mock-search-bar {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 1rem 1.5rem;
+  border-radius: 100px;
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+}
+
+.mock-search-bar::before {
+  content: '🔍';
+  margin-right: 1rem;
+  opacity: 0.5;
+}
+
+.mock-ai-overview {
+  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.5);
+  box-shadow: 0 10px 30px rgba(142, 197, 252, 0.2);
+}
+
+.ai-sparkle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.mock-ai-overview p {
+  color: #34495e;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.mock-sponsored {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.sponsored-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+  display: inline-block;
+  background: rgba(0,0,0,0.05);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.mock-sponsored h3, .mock-result h3 {
+  color: #1a0dab;
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+.mock-sponsored p, .mock-result p {
+  color: #4d5156;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.mock-result {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.clean-layer .mock-search-bar {
+  border-color: #eee;
+  box-shadow: none;
+  background: #f8f9fa;
+}
+
+.clean-layer::after {
+  content: "PURE BROWSING";
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #17b340;
+  letter-spacing: 0.1em;
+  background: rgba(23, 179, 64, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+@media (max-width: 900px) {
+  .slop-wiper-container {
+    height: 600px;
+  }
+  .slop-layer {
+    padding: 2rem;
+  }
 }
