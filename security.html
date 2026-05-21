@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Security Policy - Leef Browser</title>
-  <meta name="description" content="Official Security Policy for Leef Browser. Vulnerability reporting guidelines, scope of disclosure, and triage response timeline.">
+  <meta name="description"
+    content="Official Security Policy for Leef Browser. Vulnerability reporting guidelines, scope of disclosure, and triage response timeline.">
   <link rel="stylesheet" href="style.css?v=1.0.5">
   <link rel="icon" type="image/png" href="logo.png">
 </head>
@@ -32,7 +33,8 @@
         <p>Last Updated: May 21, 2026</p>
       </div>
       <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-        <img src="privacy-hero-v2.png" alt="Security Illustration" style="width: 100%; max-width: 200px; filter: drop-shadow(0 10px 20px rgba(90, 239, 126, 0.15));">
+        <img src="privacy-hero-v2.png" alt="Security Illustration"
+          style="width: 100%; max-width: 200px; filter: drop-shadow(0 10px 20px rgba(90, 239, 126, 0.15));">
       </div>
     </div>
   </header>
@@ -52,29 +54,50 @@
 
     <article class="docs-content">
       <section id="tldr" class="docs-section" style="position: relative; overflow: hidden;">
-        <div style="position: absolute; top: -20px; right: -20px; font-size: 15rem; opacity: 0.03; pointer-events: none; color: var(--primary-color);">🛡️</div>
+        <div
+          style="position: absolute; top: -20px; right: -20px; font-size: 15rem; opacity: 0.03; pointer-events: none; color: var(--primary-color);">
+          🛡️</div>
         <h2 style="display: flex; align-items: center; gap: 12px;">
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline>
+          </svg>
           TL;DR (Quick Summary)
         </h2>
-        <p>We take browser security seriously. If you find a security issue in Leef Browser, here is a quick overview of how we handle it. Look for the <strong>Verification Markers</strong> (e.g., <span style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">S1</span>) in the full text below.</p>
+        <p>We take browser security seriously. If you find a security issue in Leef Browser, here is a quick overview of
+          how we handle it. Look for the <strong>Verification Markers</strong> (e.g., <span
+            style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">S1</span>)
+          in the full text below.</p>
         <div class="docs-card" style="background: rgba(90, 239, 126, 0.05); border: 1.5px solid var(--primary-color);">
           <ul style="list-style: none; display: grid; gap: 1rem;">
             <li style="display: flex; align-items: flex-start; gap: 10px;">
-              <span style="background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; flex-shrink: 0;">S1</span>
-              <span><strong>Reporting:</strong> Report all potential vulnerabilities to <a href="mailto:contact.qtech@proton.me" style="color: var(--primary-color); font-weight: 500;">contact.qtech@proton.me</a>. <a href="#reporting" style="color: var(--primary-color); font-weight: 500;">Verify &rarr;</a></span>
+              <span
+                style="background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; flex-shrink: 0;">S1</span>
+              <span><strong>Reporting:</strong> Report all potential vulnerabilities to <a
+                  href="mailto:contact.qtech@proton.me"
+                  style="color: var(--primary-color); font-weight: 500;">contact.qtech@proton.me</a>. <a
+                  href="#reporting" style="color: var(--primary-color); font-weight: 500;">Verify &rarr;</a></span>
             </li>
             <li style="display: flex; align-items: flex-start; gap: 10px;">
-              <span style="background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; flex-shrink: 0;">S2</span>
-              <span><strong>Scope:</strong> In-scope items are Leef UI, settings, and custom configuration layers. Upstream Chromium bugs are out of scope. <a href="#scope" style="color: var(--primary-color); font-weight: 500;">Verify &rarr;</a></span>
+              <span
+                style="background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; flex-shrink: 0;">S2</span>
+              <span><strong>Scope:</strong> In-scope items are Leef UI, settings, and custom configuration layers.
+                Upstream Chromium bugs are out of scope. <a href="#scope"
+                  style="color: var(--primary-color); font-weight: 500;">Verify &rarr;</a></span>
             </li>
             <li style="display: flex; align-items: flex-start; gap: 10px;">
-              <span style="background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; flex-shrink: 0;">S3</span>
-              <span><strong>Timeline:</strong> We triage reports within 48 hours and fix confirmed flaws as fast as possible. <a href="#disclosure" style="color: var(--primary-color); font-weight: 500;">Verify &rarr;</a></span>
+              <span
+                style="background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; flex-shrink: 0;">S3</span>
+              <span><strong>Timeline:</strong> We triage reports within 48 hours and fix confirmed flaws as fast as
+                possible. <a href="#disclosure" style="color: var(--primary-color); font-weight: 500;">Verify
+                  &rarr;</a></span>
             </li>
             <li style="display: flex; align-items: flex-start; gap: 10px;">
-              <span style="background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; flex-shrink: 0;">S4</span>
-              <span><strong>Guarantees:</strong> Since we don't run external sync servers, your browser settings and local databases are completely protected on-device. <a href="#guarantees" style="color: var(--primary-color); font-weight: 500;">Verify &rarr;</a></span>
+              <span
+                style="background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; flex-shrink: 0;">S4</span>
+              <span><strong>Guarantees:</strong> Since we don't run external sync servers, your browser settings and
+                local databases are completely protected on-device. <a href="#guarantees"
+                  style="color: var(--primary-color); font-weight: 500;">Verify &rarr;</a></span>
             </li>
           </ul>
         </div>
@@ -82,10 +105,14 @@
 
       <section id="supported-versions" class="docs-section">
         <h2 style="display: flex; align-items: center; gap: 12px;">
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
           Supported Versions
         </h2>
-        <p>We actively support security updates for the current major release of Leef. Below is the support status for active version branches.</p>
+        <p>We actively support security updates for the current major release of Leef. Below is the support status for
+          active version branches.</p>
         <div class="docs-card">
           <table style="width: 100%; border-collapse: collapse; text-align: left;">
             <thead>
@@ -97,14 +124,16 @@
             </thead>
             <tbody>
               <tr style="border-bottom: 1px solid var(--overlay-border);">
-                <td style="padding: 0.75rem 0.5rem;"><strong>1.0.x</strong></td>
+                <td style="padding: 0.75rem 0.5rem;"><strong>1.x.x</strong></td>
                 <td style="padding: 0.75rem 0.5rem; color: var(--primary-color); font-weight: 600;">✔️ Yes</td>
                 <td style="padding: 0.75rem 0.5rem;">Active security support for v1.0.0 release.</td>
               </tr>
               <tr>
                 <td style="padding: 0.75rem 0.5rem;"><strong>0.x.x</strong></td>
                 <td style="padding: 0.75rem 0.5rem; color: #ff4a4a; font-weight: 600;">❌ No</td>
-                <td style="padding: 0.75rem 0.5rem;">Discontinued for security support as of <strong>June 1st, 2026</strong> to make way for the release of v1.0.0. Please upgrade to receive future security patches.</td>
+                <td style="padding: 0.75rem 0.5rem;">Discontinued for security support as of <strong>June 1st,
+                    2026</strong> to make way for the release of v1.0.0. Please upgrade to receive future security
+                  patches.</td>
               </tr>
             </tbody>
           </table>
@@ -113,33 +142,52 @@
 
       <section id="reporting" class="docs-section">
         <h2 style="display: flex; align-items: center; gap: 12px;">
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
           Reporting Vulnerabilities
         </h2>
         <div class="docs-card">
-          <h4>Vulnerability Disclosure Email <span style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-left: 8px;">S1</span></h4>
-          <p>Please report any suspected vulnerability to our core team via email at <strong><a href="mailto:contact.qtech@proton.me">contact.qtech@proton.me</a></strong>.</p>
+          <h4>Vulnerability Disclosure Email <span
+              style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-left: 8px;">S1</span>
+          </h4>
+          <p>Please report any suspected vulnerability to our core team via email at <strong><a
+                href="mailto:contact.qtech@proton.me">contact.qtech@proton.me</a></strong>.</p>
           <p>To help us triage and resolve the issue quickly, please include:</p>
           <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem; display: grid; gap: 0.5rem;">
             <li>A clear description of the vulnerability and its potential impact.</li>
-            <li>Step-by-step instructions to reproduce the issue (including any specific platforms or browser versions affected).</li>
+            <li>Step-by-step instructions to reproduce the issue (including any specific platforms or browser versions
+              affected).</li>
             <li>A working Proof of Concept (PoC) or script, if applicable.</li>
             <li>Whether you wish to be credited publicly or remain anonymous.</li>
           </ul>
-          <p style="margin-top: 1rem; opacity: 0.85; font-size: 0.9rem;"><em>Note: Please do not open public GitHub issues for security vulnerabilities, as this exposes users to potential exploits before a patch can be deployed.</em></p>
+          <p style="margin-top: 1rem; opacity: 0.85; font-size: 0.9rem;"><em>Note: Please do not open public GitHub
+              issues for security vulnerabilities, as this exposes users to potential exploits before a patch can be
+              deployed.</em></p>
         </div>
       </section>
 
       <section id="scope" class="docs-section">
         <h2 style="display: flex; align-items: center; gap: 12px;">
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 8v4"></path>
+            <path d="M12 16h.01"></path>
+          </svg>
           Policy Scope
         </h2>
-        <p>Our security policy applies to software components directly developed and maintained under the Leef Browser project.</p>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+        <p>Our security policy applies to software components directly developed and maintained under the Leef Browser
+          project.</p>
+
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
           <div class="docs-card" style="border-left: 4px solid var(--primary-color);">
-            <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">In-Scope (Leef UI & Features) <span style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-left: 8px;">S2</span></h4>
+            <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">In-Scope (Leef UI & Features) <span
+                style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-left: 8px;">S2</span>
+            </h4>
             <ul style="list-style: none; display: grid; gap: 0.5rem;">
               <li>✔️ Custom UI / Toolbar vulnerabilities</li>
               <li>✔️ Slop Scanner configuration & interaction logic</li>
@@ -162,34 +210,56 @@
 
       <section id="disclosure" class="docs-section">
         <h2 style="display: flex; align-items: center; gap: 12px;">
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
           Disclosure & Timeline
         </h2>
         <div class="docs-card">
-          <h4>Our Commited Response Timeline <span style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-left: 8px;">S3</span></h4>
-          <p>We are a lean, open-source team. We dedicate our time to resolving issues quickly and transparently. When we receive a report:</p>
+          <h4>Our Commited Response Timeline <span
+              style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-left: 8px;">S3</span>
+          </h4>
+          <p>We are a lean, open-source team. We dedicate our time to resolving issues quickly and transparently. When
+            we receive a report:</p>
           <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem; display: grid; gap: 0.5rem;">
             <li><strong>Triage:</strong> We will acknowledge and verify your report within 48 hours of receipt.</li>
-            <li><strong>Fix:</strong> Confirmations are assigned a severity level, and we aim to deploy patches within 14 days for critical issues.</li>
-            <li><strong>90-Day Disclosures:</strong> We adhere to the standard coordinated disclosure timeline. Public disclosures of details are coordinated at least 90 days after reports (or sooner once a patch is live).</li>
-            <li><strong>Attribution:</strong> We will proudly credit you in the release notes on GitHub and our website (unless you opt for anonymity).</li>
+            <li><strong>Fix:</strong> Confirmations are assigned a severity level, and we aim to deploy patches within
+              14 days for critical issues.</li>
+            <li><strong>90-Day Disclosures:</strong> We adhere to the standard coordinated disclosure timeline. Public
+              disclosures of details are coordinated at least 90 days after reports (or sooner once a patch is live).
+            </li>
+            <li><strong>Attribution:</strong> We will proudly credit you in the release notes on GitHub and our website
+              (unless you opt for anonymity).</li>
           </ul>
-          <p style="margin-top: 1rem; opacity: 0.85; font-size: 0.9rem;"><em>Note: Leef does not run a bug bounty program with financial rewards. We are fully open source, and all of our contributions (and those of our researchers) are public-domain donations to the community.</em></p>
+          <p style="margin-top: 1rem; opacity: 0.85; font-size: 0.9rem;"><em>Note: Leef does not run a bug bounty
+              program with financial rewards. We are fully open source, and all of our contributions (and those of our
+              researchers) are public-domain donations to the community.</em></p>
         </div>
       </section>
 
       <section id="guarantees" class="docs-section">
         <h2 style="display: flex; align-items: center; gap: 12px;">
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
           Security Guarantees
         </h2>
         <div class="docs-card">
-          <h4>Zero Telemetry = Zero Exposure <span style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-left: 8px;">S4</span></h4>
-          <p>The primary security advantage of Leef is its structural simplicity. Because we do not offer cloud sync, do not collect browser telemetry, and do not maintain user databases on our servers:</p>
+          <h4>Zero Telemetry = Zero Exposure <span
+              style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-left: 8px;">S4</span>
+          </h4>
+          <p>The primary security advantage of Leef is its structural simplicity. Because we do not offer cloud sync, do
+            not collect browser telemetry, and do not maintain user databases on our servers:</p>
           <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem; display: grid; gap: 0.5rem;">
             <li><strong>No Cloud Vectors:</strong> Your profile cannot be leaked in a server breach.</li>
-            <li><strong>Local Isolation:</strong> All sensitive data (passwords, cookies, history) is encrypted using your system's native OS keychain (Windows Credential Manager / macOS Keychain).</li>
-            <li><strong>Stripped Handshakes:</strong> We actively configure the Chromium engine to drop tracking and telemetry requests, reducing the active connection surface.</li>
+            <li><strong>Local Isolation:</strong> All sensitive data (passwords, cookies, history) is encrypted using
+              your system's native OS keychain (Windows Credential Manager / macOS Keychain).</li>
+            <li><strong>Stripped Handshakes:</strong> We actively configure the Chromium engine to drop tracking and
+              telemetry requests, reducing the active connection surface.</li>
           </ul>
         </div>
       </section>
