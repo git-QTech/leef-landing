@@ -603,31 +603,44 @@
         <div class="docs-card">
           <h4>GPC Unsupported Blocklist (v0.6.1+)</h4>
           <p>Starting with Leef v0.6.1, the browser ships with a continuously updated, built-in blocklist of domains identified as GPC non-compliant. When you visit a website on this blocklist (such as Amazon, Google, Facebook, or TikTok), Leef will display a red <strong>No GPC Support</strong> warning badge in the address bar's Globe Menu.</p>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.85;">Without GPC compliance, websites may sell/share your browsing habits, track you across the web, build ad-targeting profiles, or ignore your explicit opt-out requests. You can view the live blocklist directly on the <a href="https://gist.github.com/Zexerif/cff8fb4f9cebc0bec205b2b2a37f73dc" target="_blank">GPC Unsupported List Gist</a>.</p>
+          <p style="margin-bottom: 1.5rem; font-size: 0.9rem; opacity: 0.85;">Without GPC compliance, websites may sell/share your browsing habits, track you across the web, build ad-targeting profiles, or ignore your explicit opt-out requests.</p>
+          <a href="https://gist.githubusercontent.com/Zexerif/cff8fb4f9cebc0bec205b2b2a37f73dc/raw/gistfile1.txt" target="_blank" class="btn btn-secondary" style="text-decoration: none; display: inline-flex;">View GPC Blocklist</a>
         </div>
 
         <div class="docs-card">
-          <h4>Manual Verification System</h4>
-          <p>To ensure high accuracy, Leef uses a manual verification system to catalog GPC compliance. Verified sites are assigned specific verification codes and potential caveats:</p>
-          <h5 style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600;">Verification Criteria:</h5>
-          <ul style="padding-left: 1.25rem; line-height: 1.6; font-size: 0.95rem;">
-            <li><strong>1:</strong> Privacy policy explicitly states it respects GPC as an opt-out request.</li>
-            <li><strong>2:</strong> Stated publicly, or in private correspondence with the Leef team/journalists, that GPC is supported.</li>
+          <h4>Manual Verification &amp; Site Verification States</h4>
+          <p>When you click the Globe Menu in the address bar, Leef shows the site's verification state:</p>
+          <ul style="padding-left: 1.25rem; line-height: 1.6; font-size: 0.95rem; margin-top: 0.5rem; margin-bottom: 1rem;">
+            <li><strong>Self-Verified:</strong> The site hosts its own official <code>/.well-known/gpc.json</code> file indicating active compliance.</li>
+            <li><strong>Manually Verified:</strong> The site has been audited by the Leef team and marked compliant in the browser database. In this state, the Globe Menu explicitly details <em>why</em> the site was verified.</li>
+          </ul>
+
+          <h5 style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600;">Verification Reason Criteria (1–5):</h5>
+          <p style="font-size: 0.9rem; margin-bottom: 0.5rem; opacity: 0.85;">If manually verified, the menu will show one or more of these reasons:</p>
+          <ul style="padding-left: 1.25rem; line-height: 1.6; font-size: 0.95rem; margin-bottom: 1rem;">
+            <li><strong>1:</strong> Privacy Policy explicitly states it respects GPC as a legal opt-out request.</li>
+            <li><strong>2:</strong> Stated publicly, or in private correspondence with the Leef team or journalists, that they respect the GPC signal.</li>
             <li><strong>3:</strong> Technically audited by the Leef team and confirmed to comply.</li>
             <li><strong>4:</strong> Utilizes a known privacy-respecting framework that honors GPC globally.</li>
             <li><strong>5:</strong> Part of a verified network of privacy-first domains.</li>
           </ul>
           
-          <h5 style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600;">Data Use Caveats:</h5>
-          <ul style="padding-left: 1.25rem; line-height: 1.6; font-size: 0.95rem;">
-            <li><strong>Caveat 1:</strong> May still use data internally for analytics, retention, or internal research.</li>
-            <li><strong>Caveat 2:</strong> Has technical compliance, but lacks hard evidence of strict enforcement.</li>
-            <li><strong>Caveat 3:</strong> Sub-services or third-party embeds on the site may ignore GPC.</li>
-            <li><strong>Caveat 4:</strong> Native desktop apps/software/launchers from the company are not audited.</li>
-            <li><strong>Caveat 5:</strong> Owned by an outside investor (e.g. Tencent, Amazon, Google) which may not follow the same privacy rules.</li>
-            <li><strong>Caveat 6:</strong> Uses a legal gray area (e.g., AI chatbots using chat logs despite headers).</li>
+          <h5 style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-weight: 600;">Safety Caveats (1–6):</h5>
+          <p style="font-size: 0.9rem; margin-bottom: 0.5rem; opacity: 0.85;">Leef applies safety caveats to warn users about potential data protection limitations. These are <strong>only</strong> displayed if a site has specific known behaviors that could partially breach GPC principles (they are not shown for fully compliant sites):</p>
+          <ul style="padding-left: 1.25rem; line-height: 1.6; font-size: 0.95rem; margin-bottom: 1.5rem;">
+            <li><strong>Caveat 1 (Internal Data Use):</strong> Even though GPC signals are respected, the site may still use data internally for analytics, retention, or internal research.</li>
+            <li><strong>Caveat 2 (Unverified Enforcement):</strong> The site has technical compliance in place, but there is no hard evidence that they strictly comply with privacy requests.</li>
+            <li><strong>Caveat 3 (Partial Embed Ignore):</strong> The main site is compliant, but some elements or third-party sub-services embedded on the site may ignore GPC.</li>
+            <li><strong>Caveat 4 (Non-Audited Desktop Client):</strong> The site is compliant, but the company's desktop applications/launchers are not audited.</li>
+            <li><strong>Caveat 5 (Third-Party Investor Influence):</strong> The site is owned by an outside investor (e.g. Tencent, Amazon, Google) which may not follow the same privacy rules.</li>
+            <li><strong>Caveat 6 (Legal Gray Area):</strong> The site uses legal gray areas to process your data (e.g., AI chatbots using chat history despite GPC headers).</li>
           </ul>
-          <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.85;">You can check the list of manually approved sites and verification codes on the <a href="https://gist.github.com/Zexerif/b45362241d75f03e84900719470bc961" target="_blank">GPC Manual Approval Gist</a>.</p>
+          <a href="https://gist.githubusercontent.com/Zexerif/b45362241d75f03e84900719470bc961/raw/manualapproval" target="_blank" class="btn btn-secondary" style="text-decoration: none; display: inline-flex;">View Verified Domains &amp; Caveats</a>
+        </div>
+
+        <div class="docs-notice" style="margin-top: 2rem;">
+          <strong>Dynamic Updates</strong>
+          <p>Please note: While these lists are currently accurate, as GPC regulations become more strictly enforced, websites may implement compliance and be removed from the blocklist in the future. This is why Leef's GPC database is hosted via public Gists and built directly into the browser, allowing for real-time list updates without requiring full application updates.</p>
         </div>
       </section>
 
