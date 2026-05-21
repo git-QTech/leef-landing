@@ -1981,7 +1981,7 @@ a {
 /* Slop Wiper Section */
 .slop-wiper-section {
   background-color: #f5fdf5;
-  text-align: center;
+  text-align: left;
 }
 
 .slop-wiper-scroll-wrapper {
@@ -1993,22 +1993,60 @@ a {
   position: sticky;
   top: 80px;
   min-height: calc(100vh - 80px);
-  display: block;
-  padding-top: max(4rem, calc(50vh - 390px));
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  overflow: visible;
 }
 
-.slop-wiper-header p {
-  font-size: 1.25rem;
-  color: #444;
+/* Side-by-side grid layout */
+.slop-wiper-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+}
+
+.warning-pill {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  background: rgba(255, 74, 74, 0.1);
+  color: #ff4a4a;
+  border: 1.5px solid rgba(255, 74, 74, 0.2);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+}
+
+.slop-wiper-header h2 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+  color: var(--text-dark);
+}
+
+.slop-wiper-desc {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.slop-wiper-scroll-hint {
+  margin-top: 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  opacity: 0.8;
 }
 
 .slop-wiper-container {
   position: relative;
   width: 100%;
-  max-width: 900px;
-  height: 540px;
-  margin: 0 auto;
+  height: 520px;
   border-radius: 24px;
   box-shadow: 0 30px 60px rgba(0,0,0,0.1);
   background: #fff;
@@ -2017,26 +2055,19 @@ a {
   cursor: default;
 }
 
-@media (max-height: 850px) {
-  .slop-wiper-sticky .container {
-    transform: scale(0.85);
-    transform-origin: top center;
+@media (max-width: 900px) {
+  .slop-wiper-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .slop-wiper-sticky {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    align-items: flex-start;
   }
 }
 
-@media (max-height: 700px) {
-  .slop-wiper-sticky .container {
-    transform: scale(0.7);
-    transform-origin: top center;
-  }
-}
 
-@media (max-height: 600px) {
-  .slop-wiper-sticky .container {
-    transform: scale(0.6);
-    transform-origin: top center;
-  }
-}
 
 .slop-layer {
   position: absolute;
@@ -2164,7 +2195,7 @@ a {
 
 @media (max-width: 900px) {
   .slop-wiper-container {
-    height: 600px;
+    height: 420px;
   }
   .slop-layer {
     padding: 2rem;
