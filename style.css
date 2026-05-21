@@ -2004,7 +2004,7 @@ a {
   grid-template-columns: 1fr 1.2fr;
   gap: 4rem;
   align-items: center;
-  max-width: 1200px;
+  width: 100%;
 }
 
 .warning-pill {
