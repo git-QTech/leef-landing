@@ -42,6 +42,7 @@
       <nav class="sidebar-nav">
         <div class="sidebar-heading">Policy Sections</div>
         <a href="#tldr" class="sidebar-link">Quick Summary (TL;DR)</a>
+        <a href="#supported-versions" class="sidebar-link">Supported Versions</a>
         <a href="#reporting" class="sidebar-link active">Reporting Vulnerabilities</a>
         <a href="#scope" class="sidebar-link">Policy Scope</a>
         <a href="#disclosure" class="sidebar-link">Disclosure & Timeline</a>
@@ -76,6 +77,37 @@
               <span><strong>Guarantees:</strong> Since we don't run external sync servers, your browser settings and local databases are completely protected on-device. <a href="#guarantees" style="color: var(--primary-color); font-weight: 500;">Verify &rarr;</a></span>
             </li>
           </ul>
+        </div>
+      </section>
+
+      <section id="supported-versions" class="docs-section">
+        <h2 style="display: flex; align-items: center; gap: 12px;">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Supported Versions
+        </h2>
+        <p>We actively support security updates for the current major release of Leef. Below is the support status for active version branches.</p>
+        <div class="docs-card">
+          <table style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--overlay-border); font-weight: 700;">
+                <th style="padding: 0.75rem 0.5rem;">Version Branch</th>
+                <th style="padding: 0.75rem 0.5rem;">Supported</th>
+                <th style="padding: 0.75rem 0.5rem;">Security Support Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--overlay-border);">
+                <td style="padding: 0.75rem 0.5rem;"><strong>1.0.x</strong></td>
+                <td style="padding: 0.75rem 0.5rem; color: var(--primary-color); font-weight: 600;">✔️ Yes</td>
+                <td style="padding: 0.75rem 0.5rem;">Active security support for v1.0.0 release.</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.75rem 0.5rem;"><strong>0.x.x</strong></td>
+                <td style="padding: 0.75rem 0.5rem; color: #ff4a4a; font-weight: 600;">❌ No</td>
+                <td style="padding: 0.75rem 0.5rem;">Discontinued for security support as of <strong>June 1st, 2026</strong> to make way for the release of v1.0.0. Please upgrade to receive future security patches.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
