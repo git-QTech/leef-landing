@@ -593,14 +593,41 @@
           </svg>
           GPC Signal
         </h2>
-        <p>Leef sends the <strong>Global Privacy Control (GPC)</strong> signal with every request, automatically telling
-          websites that you do not want your data sold or shared.</p>
+        <p>Leef sends the <strong>Global Privacy Control (GPC)</strong> signal with every request, automatically telling websites that you do not want your personal data sold or shared. Under laws like California's CCPA and Europe's GDPR, participating websites are legally required to respect this signal.</p>
+
         <div class="docs-card">
           <h4>Standard-Compliant Verification (v0.5.1+)</h4>
-          <p>Leef 0.5.1 introduces a major overhaul to how we verify GPC compliance. Instead of monitoring page scripts
-            (which can be unreliable), Leef now strictly fetches <code>/.well-known/gpc.json</code> from the site's
-            origin. This is the official GPC standard, ensuring that your privacy signals are honored without false
-            positives or tracking-based fingerprinting.</p>
+          <p>Leef verifies GPC compliance using the official GPC standard. Instead of monitoring unreliable page scripts, Leef checks for the presence of the <code>/.well-known/gpc.json</code> file at the site's origin, ensuring your privacy signal is honored without fingerprinting risks.</p>
+        </div>
+
+        <div class="docs-card">
+          <h4>GPC Unsupported Blocklist (v0.6.1+)</h4>
+          <p>Starting with Leef v0.6.1, the browser ships with a continuously updated, built-in blocklist of domains identified as GPC non-compliant. When you visit a website on this blocklist (such as Amazon, Google, Facebook, or TikTok), Leef will display a red <strong>No GPC Support</strong> warning badge in the address bar's Globe Menu.</p>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.85;">Without GPC compliance, websites may sell/share your browsing habits, track you across the web, build ad-targeting profiles, or ignore your explicit opt-out requests. You can view the live blocklist directly on the <a href="https://gist.github.com/Zexerif/cff8fb4f9cebc0bec205b2b2a37f73dc" target="_blank">GPC Unsupported List Gist</a>.</p>
+        </div>
+
+        <div class="docs-card">
+          <h4>Manual Verification System</h4>
+          <p>To ensure high accuracy, Leef uses a manual verification system to catalog GPC compliance. Verified sites are assigned specific verification codes and potential caveats:</p>
+          <h5 style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600;">Verification Criteria:</h5>
+          <ul style="padding-left: 1.25rem; line-height: 1.6; font-size: 0.95rem;">
+            <li><strong>1:</strong> Privacy policy explicitly states it respects GPC as an opt-out request.</li>
+            <li><strong>2:</strong> Stated publicly, or in private correspondence with the Leef team/journalists, that GPC is supported.</li>
+            <li><strong>3:</strong> Technically audited by the Leef team and confirmed to comply.</li>
+            <li><strong>4:</strong> Utilizes a known privacy-respecting framework that honors GPC globally.</li>
+            <li><strong>5:</strong> Part of a verified network of privacy-first domains.</li>
+          </ul>
+          
+          <h5 style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600;">Data Use Caveats:</h5>
+          <ul style="padding-left: 1.25rem; line-height: 1.6; font-size: 0.95rem;">
+            <li><strong>Caveat 1:</strong> May still use data internally for analytics, retention, or internal research.</li>
+            <li><strong>Caveat 2:</strong> Has technical compliance, but lacks hard evidence of strict enforcement.</li>
+            <li><strong>Caveat 3:</strong> Sub-services or third-party embeds on the site may ignore GPC.</li>
+            <li><strong>Caveat 4:</strong> Native desktop apps/software/launchers from the company are not audited.</li>
+            <li><strong>Caveat 5:</strong> Owned by an outside investor (e.g. Tencent, Amazon, Google) which may not follow the same privacy rules.</li>
+            <li><strong>Caveat 6:</strong> Uses a legal gray area (e.g., AI chatbots using chat logs despite headers).</li>
+          </ul>
+          <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.85;">You can check the list of manually approved sites and verification codes on the <a href="https://gist.github.com/Zexerif/b45362241d75f03e84900719470bc961" target="_blank">GPC Manual Approval Gist</a>.</p>
         </div>
       </section>
 
