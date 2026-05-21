@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found - Leef Browser</title>
+  <meta name="description" content="Oops! The page you are looking for has been pruned or doesn't exist. Navigate back to Leef Browser home or downloads.">
+  <link rel="stylesheet" href="style.css?v=1.0.5">
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    .error-section {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1rem;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at center, rgba(23, 179, 64, 0.08) 0%, transparent 70%);
+    }
+
+    .error-container {
+      max-width: 600px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1.5px solid rgba(23, 179, 64, 0.15);
+      border-radius: 24px;
+      padding: 3.5rem 2rem;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 15px 35px rgba(23, 179, 64, 0.05), 0 5px 15px rgba(0, 0, 0, 0.03);
+      position: relative;
+      z-index: 2;
+    }
+
+    .error-code {
+      font-size: 8rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--primary-color) 0%, #064014 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 4px 10px rgba(23, 179, 64, 0.15));
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .error-title {
+      font-size: 2.2rem;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .error-message {
+      font-size: 1.1rem;
+      color: #333333;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .error-glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      filter: blur(120px);
+      opacity: 0.12;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .error-code {
+        font-size: 6rem;
+      }
+      .error-title {
+        font-size: 1.6rem;
+      }
+      .error-container {
+        padding: 2.5rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="docs-page">
+
+  <nav class="navbar">
+    <a href="./" class="brand">
+      <img src="logo.png" alt="Leef Logo" width="32" height="32">
+      Leef
+    </a>
+    <div class="nav-links">
+      <a href="./">Home</a>
+      <a href="docs">Docs</a>
+      <a href="downloads" class="btn btn-primary" id="nav-download">Download</a>
+    </div>
+  </nav>
+
+  <main class="error-section">
+    <div class="error-glow"></div>
+    <div class="error-container">
+      <div class="error-code">404</div>
+      <h1 class="error-title">Lost in the Undergrowth?</h1>
+      <p class="error-message">
+        It seems the page you are looking for has been pruned, moved, or never existed in the first place. Let's get you back on track.
+      </p>
+      <div class="error-actions">
+        <a href="./" class="btn btn-primary btn-large">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; margin-right: 8px;">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Go Home
+        </a>
+        <a href="docs" class="btn btn-secondary btn-large">
+          Search Docs
+        </a>
+        <a href="downloads" class="btn btn-secondary btn-large">
+          Get Leef
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <div class="brand-footer">
+            <img src="logo.png" alt="Leef Logo" width="24" height="24">
+            Leef
+          </div>
+          <p class="footer-tagline">Fast, clean, open-source browsing.<br>No AI. No slop. Built by QTech.</p>
+        </div>
+
+        <div class="footer-links-col">
+          <div class="footer-heading">Project</div>
+          <ul class="footer-list">
+            <li><a href="https://github.com/git-QTech/leef">GitHub</a></li>
+            <li><a href="downloads">Downloads</a></li>
+            <li><a href="docs">Documentation</a></li>
+            <li><a href="troubleshooter">Troubleshooter</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <div class="footer-heading">Community</div>
+          <ul class="footer-list">
+            <li><a href="https://bsky.app/profile/leefbrowser.bsky.social">Leef on Bluesky</a></li>
+            <li><a href="https://bsky.app/profile/qtech.bsky.social">QTech on Bluesky</a></li>
+            <li><a href="docs#bug-reporting">Report a Bug</a></li>
+            <li><a href="https://github.com/git-QTech/leef/issues">Contribute</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <div class="footer-heading">Legal</div>
+          <ul class="footer-list">
+            <li><a href="privacy">Privacy Policy</a></li>
+            <li><a href="security">Security Policy</a></li>
+            <li><a href="codebase-policy">Codebase & Fork Policy</a></li>
+            <li><a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 License</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          &copy; 2026 QTech &bull; Proudly Made in Canada 🇨🇦 &bull; Leef is public domain under CC0 1.0
+        </div>
+        <div class="footer-bottom-right">
+          <span class="license-pill">CC0 1.0 Universal</span>
+        </div>
+      </div>
+      <p style="font-size: 0.72rem; opacity: 0.45; text-align: center; margin-top: 1.5rem; line-height: 1.5;">* Leef
+        itself sends zero telemetry. As a Chromium-based browser, some engine-level signals (e.g. safe-browsing checks)
+        may reach Google. We strip what we can but cannot control the underlying Chromium engine.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

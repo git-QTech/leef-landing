@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const revealObserver = new IntersectionObserver(revealCallback, {
-    threshold: 0.15,
+    threshold: 0.05,
     rootMargin: '0px 0px -50px 0px'
   });
 
@@ -63,6 +63,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const versionSpan = document.getElementById('leef-version');
     const winDownload = document.getElementById('win-download');
     const winDownloadPage = document.getElementById('win-download-page');
+    
+    const macDownload = document.getElementById('mac-download');
+    const macDownloadStatus = document.getElementById('mac-download-status');
+    const macDownloadPage = document.getElementById('mac-download-page');
+    const macCard = document.getElementById('mac-card');
+    const macPill = document.getElementById('mac-pill');
+    const macVersionTag = document.getElementById('mac-version-tag');
+    const macBtnPlaceholder = document.getElementById('mac-btn-placeholder');
+    const openInstructions = document.getElementById('open-instructions');
+    const macRequirement = document.getElementById('mac-requirement');
+
+    const linuxDownload = document.getElementById('linux-download');
+    const linuxDownloadStatus = document.getElementById('linux-download-status');
+    const linuxDownloadPage = document.getElementById('linux-download-page');
+    const linuxCard = document.getElementById('linux-card');
+    const linuxPill = document.getElementById('linux-pill');
+    const linuxVersionTag = document.getElementById('linux-version-tag');
+    const linuxBtnPlaceholder = document.getElementById('linux-btn-placeholder');
+
     const currentVersionSpans = document.querySelectorAll('.current-version');
     
     try {
@@ -78,12 +97,91 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         }
 
-        // Update Windows Download Links
+        // Update Download Links
         if (data.assets) {
+          // Windows (.exe)
           const exeAsset = data.assets.find(asset => asset.name.endsWith('.exe'));
           if (exeAsset) {
             if (winDownload) winDownload.href = exeAsset.browser_download_url;
             if (winDownloadPage) winDownloadPage.href = exeAsset.browser_download_url;
+          }
+
+          // macOS (.dmg / .pkg)
+          const dmgAsset = data.assets.find(asset => asset.name.endsWith('.dmg') || asset.name.endsWith('.pkg'));
+          if (dmgAsset) {
+            // Enable macOS Dropdown Download Link
+            if (macDownload) {
+              macDownload.href = dmgAsset.browser_download_url;
+              macDownload.classList.remove('disabled');
+            }
+            if (macDownloadStatus) {
+              macDownloadStatus.textContent = 'Direct Download (.dmg)';
+            }
+
+            // Enable macOS Downloads Page Card
+            if (macCard) {
+              macCard.classList.remove('disabled');
+              macCard.classList.add('featured');
+            }
+            if (macPill) {
+              macPill.textContent = 'Stable';
+              macPill.classList.remove('beta');
+            }
+            if (macVersionTag) {
+              macVersionTag.innerHTML = `Version <span class="current-version">${data.tag_name}</span> (Universal)`;
+            }
+            if (macDownloadPage) {
+              macDownloadPage.href = dmgAsset.browser_download_url;
+              macDownloadPage.style.display = 'inline-flex';
+            }
+            if (macBtnPlaceholder) {
+              macBtnPlaceholder.style.display = 'none';
+            }
+            if (openInstructions) {
+              openInstructions.style.display = 'inline-flex';
+            }
+            if (macRequirement) {
+              macRequirement.style.opacity = '1';
+              macRequirement.innerHTML = `
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                macOS 11.0 or later
+              `;
+            }
+          }
+
+          // Linux (.deb / .rpm / .AppImage)
+          const linuxAsset = data.assets.find(asset => asset.name.endsWith('.deb') || asset.name.endsWith('.rpm') || asset.name.endsWith('.AppImage'));
+          if (linuxAsset) {
+            // Enable Linux Dropdown Download Link (takes to GitHub Release page)
+            if (linuxDownload) {
+              linuxDownload.href = data.html_url;
+              linuxDownload.classList.remove('disabled');
+            }
+            if (linuxDownloadStatus) {
+              linuxDownloadStatus.textContent = 'Choose Package (.deb, .rpm, .AppImage)';
+            }
+
+            // Enable Linux Downloads Page Card
+            if (linuxCard) {
+              linuxCard.classList.remove('disabled');
+            }
+            if (linuxPill) {
+              linuxPill.textContent = 'Stable';
+              linuxPill.classList.remove('beta');
+            }
+            if (linuxVersionTag) {
+              linuxVersionTag.innerHTML = `Version <span class="current-version">${data.tag_name}</span>`;
+            }
+            if (linuxDownloadPage) {
+              linuxDownloadPage.href = data.html_url;
+              linuxDownloadPage.style.display = 'inline-flex';
+            }
+            if (linuxBtnPlaceholder) {
+              linuxBtnPlaceholder.style.display = 'none';
+            }
           }
         }
       }
@@ -148,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.15 });
     
     // Find the parent section to observe so it triggers a bit earlier
     const privacySection = document.getElementById('privacy');

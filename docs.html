@@ -7,39 +7,22 @@
   <title>Documentation - Leef Browser</title>
   <meta name="description"
     content="Learn how to get the most out of Leef Browser. Detailed guides on privacy tools, efficiency mode, and AI-blocking features.">
-  <link rel="stylesheet" href="style.css?v=1.0.4">
+  <link rel="stylesheet" href="style.css?v=1.0.5">
   <link rel="icon" type="image/png" href="logo.png">
 </head>
 
 <body class="docs-page">
 
-  <div class="update-banner">
-    <div class="banner-text">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-        <line x1="12" y1="9" x2="12" y2="13"></line>
-        <line x1="12" y1="17" x2="12.01" y2="17"></line>
-      </svg>
-      <span><strong>Critical Update:</strong> If you are using Leef v0.5.1, please update immediately to fix a major bug.</span>
-    </div>
-    <a href="https://github.com/git-QTech/leef/releases/latest">
-      Update to v0.5.2
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="5" y1="12" x2="19" y2="12"></line>
-        <polyline points="12 5 19 12 12 19"></polyline>
-      </svg>
-    </a>
-  </div>
 
   <nav class="navbar">
-    <a href="index.html" class="brand">
+    <a href="./" class="brand">
       <img src="logo.png" alt="Leef Logo" width="32" height="32">
       Leef
     </a>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="docs.html" class="active" style="color: var(--primary-color);">Docs</a>
-      <a href="downloads.html" class="btn btn-primary" id="nav-download">Download</a>
+      <a href="./">Home</a>
+      <a href="docs" class="active" style="color: var(--primary-color);">Docs</a>
+      <a href="downloads" class="btn btn-primary" id="nav-download">Download</a>
     </div>
   </nav>
 
@@ -220,7 +203,7 @@
           Interactive Troubleshooter
         </h2>
         <p>Before diving into the manual guides, use this wizard to diagnose the most common issues based on your
-          symptoms.</p>
+          symptoms. <em>Prefer a fullscreen view? You can also <a href="troubleshooter" style="color: var(--primary-color); text-decoration: underline; font-weight: 600;">open the standalone troubleshooter</a>.</em></p>
 
         <div class="troubleshooter-container" id="troubleshooter-wizard"
           style="border: 2px solid var(--primary-color); background: rgba(23, 179, 64, 0.02);">
@@ -228,31 +211,60 @@
           <div class="troubleshooter-step active" data-step="start">
             <div class="troubleshooter-question">What's the main problem?</div>
             <div class="troubleshooter-options">
-              <div class="troubleshooter-btn" data-next="site-loading">A specific website isn't loading or looks broken
-              </div>
+              <div class="troubleshooter-btn" data-next="installation-issues">I'm having trouble downloading, installing, or updating the browser</div>
+              <div class="troubleshooter-btn" data-next="site-loading">A specific website isn't loading or looks broken</div>
               <div class="troubleshooter-btn" data-next="youtube">YouTube or videos behave strangely</div>
               <div class="troubleshooter-btn" data-next="audio">Music or audio stops in the background</div>
               <div class="troubleshooter-btn" data-next="performance">The browser feels slow or laggy</div>
-              <div class="troubleshooter-btn" data-next="setup">I want to clear my settings / start fresh</div>
-              <div class="troubleshooter-btn" data-next="other-chromium">Something else / Chromium-specific issues</div>
+              <div class="troubleshooter-btn" data-next="settings-privacy">I have questions about Settings, Privacy, or search suggestions</div>
+              <div class="troubleshooter-btn" data-next="other-issues">Something else / Other error screens</div>
             </div>
           </div>
 
-          <!-- Other Chromium Step -->
-          <div class="troubleshooter-step" data-step="other-chromium">
+          <!-- Installation/Update Issues Step -->
+          <div class="troubleshooter-step" data-step="installation-issues">
+            <div class="troubleshooter-question">What specific installation or update issue are you encountering?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="updater-fail-result">The in-app automatic updater isn't working</div>
+              <div class="troubleshooter-btn" data-next="already-open-result">The installer says Leef is already open</div>
+              <div class="troubleshooter-btn" data-next="smartscreen-result">Windows SmartScreen ("Windows protected your PC") is blocking me</div>
+              <div class="troubleshooter-btn" data-next="gatekeeper-result">macOS says it can't open Leef because it's from an unidentified developer</div>
+            </div>
+          </div>
+
+          <!-- Settings & Privacy Step -->
+          <div class="troubleshooter-step" data-step="settings-privacy">
+            <div class="troubleshooter-question">What settings or privacy feature are you trying to configure?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="setup">I want to clear my browsing data or start fresh (reset settings)</div>
+              <div class="troubleshooter-btn" data-next="autocomplete-result">Address bar search suggestions aren't appearing as I type</div>
+            </div>
+          </div>
+
+          <!-- Other Issues Step -->
+          <div class="troubleshooter-step" data-step="other-issues">
             <div class="troubleshooter-question">Which category does the issue fall into?</div>
             <div class="troubleshooter-options">
               <div class="troubleshooter-btn" data-next="performance">Memory/CPU usage is too high</div>
-              <div class="troubleshooter-btn" data-next="other-issues-visual">Visual glitches, flickering, or black
-                screens</div>
+              <div class="troubleshooter-btn" data-next="other-issues-visual">Visual glitches, flickering, or black/white screens</div>
               <div class="troubleshooter-btn" data-next="other-issues-network">Network errors (ERR_CONNECTION_...)</div>
-              <div class="troubleshooter-btn" data-next="recovery-mode-result">The browser keeps crashing or won't open
-              </div>
+              <div class="troubleshooter-btn" data-next="ssl-clock-result">Websites show security certificate warnings (SSL errors)</div>
+              <div class="troubleshooter-btn" data-next="recovery-mode-result">The browser keeps crashing or won't open</div>
             </div>
           </div>
 
           <!-- Site Loading Step -->
           <div class="troubleshooter-step" data-step="site-loading">
+            <div class="troubleshooter-question">What does the loading issue look like?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="adblock-check">The site has missing elements, broken layout, or blocks access</div>
+              <div class="troubleshooter-btn" data-next="ssl-clock-result">I see an SSL security certificate warning (e.g., date/time error)</div>
+              <div class="troubleshooter-btn" data-next="other-issues-network">I see a connection/network error page (e.g., ERR_CONNECTION_RESET)</div>
+            </div>
+          </div>
+
+          <!-- Adblock Check Step -->
+          <div class="troubleshooter-step" data-step="adblock-check">
             <div class="troubleshooter-question">Are you using "Comprehensive" ad-blocking?</div>
             <div class="troubleshooter-options">
               <div class="troubleshooter-btn" data-next="site-loading-yes">Yes, it's set to Comprehensive</div>
@@ -383,12 +395,9 @@
 
           <div class="troubleshooter-step" data-step="other-issues-visual">
             <div class="troubleshooter-result">
-              <h5>Suggested Solution: Toggle Hardware Acceleration</h5>
-              <p>Visual glitches are often caused by the GPU process. Try toggling <strong>Hardware
-                  Acceleration</strong> in <strong>Settings &gt; Performance</strong>. See more details in <a
-                  href="#other-issues">Other Issues</a>.</p>
-              <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">Still seeing glitches? We're happy to help
-                you fix it. Please <a href="#bug-reporting">reach out</a>.</p>
+              <h5>Suggested Solution: Toggle Hardware Acceleration / GPU Settings</h5>
+              <p>Visual glitches, black/white windows, or flickering are usually caused by conflicts with the GPU process. Try launching Leef from your terminal/command line with the <code>--disable-gpu</code> flag. If the window displays correctly, go to <strong>Settings &gt; Performance</strong> and disable <strong>Hardware Acceleration</strong>.</p>
+              <p style="margin-top: 1rem;">Alternatively, you can launch in <a href="#recovery-mode">Recovery Mode</a> (hold Shift at launch) and select <strong>Reset Window Layout</strong> to reset corrupt graphic states.</p>
             </div>
             <button class="troubleshooter-reset">Start over</button>
           </div>
@@ -428,6 +437,54 @@
             <button class="troubleshooter-reset">Start over</button>
           </div>
 
+          <div class="troubleshooter-step" data-step="updater-fail-result">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Download Direct Update</h5>
+              <p>If the in-app automatic updater fails to download or apply a new version, you can always download and run the latest installer directly from the official <a href="https://github.com/git-QTech/leef/releases">Leef GitHub Releases page</a>.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="already-open-result">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Use OS-Native Version</h5>
+              <p>This error is a known bug that occurs when trying to run the Windows version of Leef via compatibility/emulation layers (like Wine or Proton) on macOS or Linux. Please make sure you have downloaded and installed the correct native build built for your specific operating system (e.g. macOS <code>.dmg</code>/<code>.pkg</code> or Linux package).</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="smartscreen-result">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Bypass Windows SmartScreen</h5>
+              <p>Because Leef is a newly released, open-source project, Windows Defender SmartScreen might display a message saying "Windows protected your PC". To finish installation, click the <strong>More Info</strong> link on that screen, and then select the <strong>Run Anyway</strong> button that appears.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="gatekeeper-result">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Allow Installation in macOS Settings</h5>
+              <p>To open Leef on macOS for the first time, you must right-click (or Control-click) the application icon and select <strong>Open</strong> from the context menu. If you double-clicked it and got blocked by Gatekeeper, open the macOS <strong>System Settings</strong> app, navigate to <strong>Privacy & Security</strong>, scroll down to the Security section, and click the button to allow Leef to open.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="autocomplete-result">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Enable Live Autocomplete</h5>
+              <p>To maximize your privacy, Leef disables search queries autocomplete by default so that nothing is sent to search engines as you type. If you prefer live search suggestions, you can turn this option on by going to <strong>Settings &gt; Privacy &amp; Security</strong> and toggling ON the <strong>Live Autocomplete</strong> setting.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="ssl-clock-result">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Check System Date & Time</h5>
+              <p>Chromium requires highly accurate system time to establish secure HTTPS connections. If your computer's system clock is off by even a few minutes, security handshakes will fail and show certificate warnings. Go to your operating system's settings and verify that your date, time, and timezone are set to synchronize automatically.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
         </div>
 
         <div class="troubleshooter-footer"
@@ -450,8 +507,7 @@
           </svg>
           Installation
         </h2>
-        <p>Leef is currently available for Windows. macOS and Linux builds are in development and will be available
-          soon.</p>
+        <p>Leef is officially available for Windows, with macOS and Linux support launching with v1.0.0. You can read the setup steps for your platform below.</p>
 
         <div class="docs-card">
           <span class="feature-tag">Windows</span>
@@ -462,6 +518,16 @@
             purchased a code-signing certificate yet. Click <strong>More Info</strong> and then <strong>Run
               Anyway</strong>.</p>
           <p>3. Leef installs and launches automatically. No bundled extras, just the browser.</p>
+        </div>
+
+        <div class="docs-card">
+          <span class="feature-tag">macOS</span>
+          <h4>macOS Installation</h4>
+          <p>1. Download the latest Universal <code>.dmg</code> from our <a href="https://github.com/git-QTech/leef/releases">GitHub
+              Releases</a> page.</p>
+          <p>2. Double-click the downloaded <code>.dmg</code> file to mount it.</p>
+          <p>3. Drag the <strong>Leef</strong> icon into your <strong>Applications</strong> folder.</p>
+          <p>4. Since we do not sign our builds with an Apple Developer certificate yet, you will need to right-click the app in your Applications folder and select <strong>Open</strong> on the first launch to bypass the system Gatekeeper check.</p>
         </div>
 
         <div class="docs-notice">
@@ -485,7 +551,7 @@
           <p>Toggle the Leef News feed and configure your privacy settings. The setup takes seconds.
           </p>
           <img src="docs_setup_wizard.png" alt="Leef Setup Wizard" class="docs-img">
-          <span class="docs-img-caption">Note: Interface shown is from v0.4.0 and is subject to change during
+          <span class="docs-img-caption">Note: Interface shown is from v0.5.2 and is subject to change during
             development.</span>
           <div class="docs-notice">
             <strong>Tip</strong>
@@ -564,7 +630,7 @@
               you must go to <strong>Settings &gt; Privacy &amp; Security</strong>.</p>
           </div>
           <img src="docs_globe_icon.png" alt="Globe Icon Menu" class="docs-img">
-          <span class="docs-img-caption">Note: Interface shown is from v0.4.0 and is subject to change during
+          <span class="docs-img-caption">Note: Interface shown is from v0.5.2 and is subject to change during
             development.</span>
         </div>
       </section>
@@ -678,7 +744,7 @@
           <p>Hold the <span class="shortcut">Shift</span> key while launching Leef. A specialized menu will appear
             allowing you to reset your configuration or clear app data without losing your bookmarks.</p>
           <img src="docs_recovery_mode.png" alt="Recovery Mode Menu" class="docs-img">
-          <span class="docs-img-caption">Note: Interface shown is from v0.4.0 and is subject to change during
+          <span class="docs-img-caption">Note: Interface shown is from v0.5.2 and is subject to change during
             development.</span>
         </div>
         <div class="docs-notice">
@@ -836,9 +902,9 @@
           <div class="footer-heading">Project</div>
           <ul class="footer-list">
             <li><a href="https://github.com/git-QTech/leef">GitHub</a></li>
-            <li><a href="downloads.html">Downloads</a></li>
-            <li><a href="docs.html">Documentation</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="downloads">Downloads</a></li>
+            <li><a href="docs">Documentation</a></li>
+            <li><a href="troubleshooter">Troubleshooter</a></li>
           </ul>
         </div>
 
@@ -847,7 +913,7 @@
           <ul class="footer-list">
             <li><a href="https://bsky.app/profile/leefbrowser.bsky.social">Leef on Bluesky</a></li>
             <li><a href="https://bsky.app/profile/qtech.bsky.social">QTech on Bluesky</a></li>
-            <li><a href="docs.html#bug-reporting">Report a Bug</a></li>
+            <li><a href="docs#bug-reporting">Report a Bug</a></li>
             <li><a href="https://github.com/git-QTech/leef/issues">Contribute</a></li>
           </ul>
         </div>
@@ -855,16 +921,18 @@
         <div class="footer-links-col">
           <div class="footer-heading">Legal</div>
           <ul class="footer-list">
+            <li><a href="privacy">Privacy Policy</a></li>
+            <li><a href="security">Security Policy</a></li>
+            <li><a href="codebase-policy">Codebase & Fork Policy</a></li>
             <li><a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 License</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
           </ul>
         </div>
 
         <div class="footer-links-col">
           <div class="footer-heading">Support</div>
           <ul class="footer-list">
-            <li><a href="docs.html#troubleshooter">Troubleshooter</a></li>
-            <li><a href="docs.html#bug-reporting">Report a Bug</a></li>
+            <li><a href="docs#troubleshooter">Troubleshooter</a></li>
+            <li><a href="docs#bug-reporting">Report a Bug</a></li>
             <li><a href="mailto:contact.qtech@proton.me">contact.qtech@proton.me</a></li>
           </ul>
         </div>
@@ -872,12 +940,15 @@
 
       <div class="footer-bottom">
         <div class="footer-bottom-left">
-          &copy; 2026 QTech &bull; Proudly Made in Canada 🍁 &bull; Leef is public domain under CC0 1.0
+          &copy; 2026 QTech &bull; Proudly Made in Canada 🇨🇦 &bull; Leef is public domain under CC0 1.0
         </div>
         <div class="footer-bottom-right">
           <span class="license-pill">CC0 1.0 Universal</span>
         </div>
       </div>
+      <p style="font-size: 0.72rem; opacity: 0.45; text-align: center; margin-top: 1.5rem; line-height: 1.5;">* Leef
+        itself sends zero telemetry. As a Chromium-based browser, some engine-level signals (e.g. safe-browsing checks)
+        may reach Google. We strip what we can but cannot control the underlying Chromium engine.</p>
     </div>
   </footer>
 

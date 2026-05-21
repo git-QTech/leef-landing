@@ -314,6 +314,7 @@ a {
   opacity: 0.4;
   cursor: not-allowed;
   filter: grayscale(1);
+  pointer-events: none;
 }
 
 .item-icon {

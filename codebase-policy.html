@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codebase & Fork Policy - Leef Browser</title>
+  <meta name="description"
+    content="Official Codebase & Fork Policy for Leef Browser. Guidelines on using the CC0 public domain codebase, branding rules, and rebranding requirements.">
+  <link rel="stylesheet" href="style.css?v=1.0.5">
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+
+<body class="docs-page">
+
+  <nav class="navbar">
+    <a href="./" class="brand">
+      <img src="logo.png" alt="Leef Logo" width="32" height="32">
+      Leef
+    </a>
+    <div class="nav-links">
+      <a href="./">Home</a>
+      <a href="docs">Docs</a>
+      <a href="downloads" class="btn btn-primary" id="nav-download">Download</a>
+    </div>
+  </nav>
+
+  <header class="docs-hero">
+    <div class="container" style="display: flex; align-items: center; gap: 4rem; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 300px;">
+        <div class="pill-beta">Licensing & Rebranding</div>
+        <h1>Codebase & Fork Policy</h1>
+        <p>Last Updated: May 21, 2026</p>
+      </div>
+      <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
+        <img src="privacy-hero-v2.png" alt="Codebase Illustration"
+          style="width: 100%; max-width: 200px; filter: drop-shadow(0 10px 20px rgba(90, 239, 126, 0.15));">
+      </div>
+    </div>
+  </header>
+
+  <main class="container docs-container">
+    <aside class="docs-sidebar">
+      <nav class="sidebar-nav">
+        <div class="sidebar-heading">Policy Sections</div>
+        <a href="#tldr" class="sidebar-link">Quick Summary (TL;DR)</a>
+        <a href="#cc0" class="sidebar-link active">CC0 Public Domain</a>
+        <a href="#trademark" class="sidebar-link">Branding Guidelines</a>
+        <a href="#services" class="sidebar-link">Upstream Service Rules</a>
+        <a href="#contributions" class="sidebar-link">Contributing back</a>
+      </nav>
+    </aside>
+
+    <article class="docs-content">
+      <section id="tldr" class="docs-section" style="position: relative; overflow: hidden;">
+        <div
+          style="position: absolute; top: -20px; right: -20px; font-size: 15rem; opacity: 0.03; pointer-events: none; color: var(--primary-color);">
+          💻</div>
+        <h2 style="display: flex; align-items: center; gap: 12px;">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline>
+          </svg>
+          TL;DR (Quick Summary)
+        </h2>
+        <p>Leef Browser is fully open-source and dedicated to the public domain. However, we have a few simple
+          guidelines to protect users from brand confusion. Look for the <strong>Verification Markers</strong> (e.g.,
+          <span
+            style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">C1</span>)
+          in the full text below.</p>
+        <div class="docs-card" style="background: rgba(90, 239, 126, 0.05); border: 1.5px solid var(--primary-color);">
+          <ul style="list-style: none; display: grid; gap: 1rem;">
+            <li style="display: flex; align-items: flex-start; gap: 10px;">
+              <span
+                style="background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; flex-shrink: 0;">C1</span>
+              <span><strong>CC0 Public Domain:</strong> The source code is completely free to fork, modify,
+                commercialize, or close. No permission required. <a href="#cc0"
+                  style="color: var(--primary-color); font-weight: 500;">Verify &rarr;</a></span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 10px;">
+              <span
+                style="background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; flex-shrink: 0;">C2</span>
+              <span><strong>Branding:</strong> You must rename your fork and change the logos. Do not use the "Leef"
+                name or branding. <a href="#trademark" style="color: var(--primary-color); font-weight: 500;">Verify
+                  &rarr;</a></span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 10px;">
+              <span
+                style="background: var(--primary-color); color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; flex-shrink: 0;">C3</span>
+              <span><strong>Services:</strong> Update the GitHub update-check repositories for your fork. Public gists
+                (like GPC lists) are free to reuse. <a href="#services"
+                  style="color: var(--primary-color); font-weight: 500;">Verify &rarr;</a></span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="cc0" class="docs-section">
+        <h2 style="display: flex; align-items: center; gap: 12px;">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          CC0 Public Domain Dedication
+        </h2>
+        <div class="docs-card">
+          <h4>No Copyright Constraints <span
+              style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-left: 8px;">C1</span>
+          </h4>
+          <p>Leef Browser's codebase is published under the <strong>Creative Commons CC0 1.0 Universal (Public Domain
+              Dedication)</strong> license.</p>
+          <p>This means we have dedicated the work to the public domain by waiving all of our rights to the work
+            worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
+          </p>
+          <p>You can:</p>
+          <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem; display: grid; gap: 0.5rem;">
+            <li>Copy, modify, and distribute the code without asking.</li>
+            <li>Incorporate the code into proprietary/commercial projects.</li>
+            <li>Compile your own versions and distribute them as binaries.</li>
+            <li>No attribution or copyright notices are required in your source files or distributions.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="trademark" class="docs-section">
+        <h2 style="display: flex; align-items: center; gap: 12px;">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 8v4"></path>
+            <path d="M12 16h.01"></path>
+          </svg>
+          Branding & Rebranding Guidelines
+        </h2>
+        <p>Although our source code has no copyright restrictions, the names <strong>"Leef"</strong>, <strong>"Leef
+            Browser"</strong>, and the official <strong>Leef logo</strong> (the leaf brand icon) represent the brand
+          identity of the official QTech project.</p>
+
+        <div class="docs-card">
+          <h4>Why we have branding rules <span
+              style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-left: 8px;">C2</span>
+          </h4>
+          <p>These rules exist solely to prevent user confusion, phishing, or malware distribution. If someone downloads
+            a modified version of the browser, they must know exactly who built it so they don't mistake it for our
+            official, telemetry-free releases.</p>
+
+          <h5 style="margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem; color: var(--primary-color);">Rebranding
+            Requirements:</h5>
+          <p>If you fork and distribute a modified version of the codebase, you must adhere to the following:</p>
+          <ul style="list-style-type: disc; padding-left: 1.5rem; display: grid; gap: 0.5rem; margin-top: 0.5rem;">
+            <li><strong>Change the Name:</strong> Do not call your project "Leef", "Leef Browser", or any name
+              confusingly similar (e.g., "Leefy", "Leef Pro", "Leef+").</li>
+            <li><strong>Change the Logos:</strong> You must replace all official Leef logos, app icons, and branding
+              graphics with your own distinct brand assets.</li>
+            <li><strong>Clarify Origin:</strong> Your documentation, about screen, and distribution links must not state
+              or imply that your browser is an official release of the QTech team or endorsed by us.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="services" class="docs-section">
+        <h2 style="display: flex; align-items: center; gap: 12px;">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          Upstream Service Rules
+        </h2>
+        <div class="docs-card">
+          <h4>Configuring Updates & Public Resources <span
+              style="background: var(--primary-color); color: black; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; vertical-align: middle; margin-left: 8px;">C3</span>
+          </h4>
+          <p>Leef does not run proprietary, closed update servers. Instead, it relies on public APIs and Gists. If you
+            distribute a custom compilation or fork, please configure your queries as follows:</p>
+          <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem; display: grid; gap: 0.5rem;">
+            <li><strong>Update Checking:</strong> You must change the update checker configuration to target your own
+              GitHub repository. This prevents your users' browsers from querying official Leef release paths and
+              downloading updates built for our version.</li>
+            <li><strong>Blocklists & Gists:</strong> You are fully permitted and welcome to continue pointing your fork
+              to our public Gists (such as our Global Privacy Control allowlist and blocklist). These resources are
+              free, open, and CC0-dedicated for the entire community.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="contributions" class="docs-section">
+        <h2 style="display: flex; align-items: center; gap: 12px;">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          Contributing Back
+        </h2>
+        <p>While you are 100% free to maintain an independent fork, we strongly encourage developers to submit
+          improvements back to the main repository.</p>
+        <p>If you add cool features, security hardening, or optimizations to your copy, please consider opening a Pull
+          Request (PR) on the official repository. Working together helps us build a faster, slop-free web for everyone.
+        </p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <div class="brand-footer">
+            <img src="logo.png" alt="Leef Logo" width="24" height="24">
+            Leef
+          </div>
+          <p class="footer-tagline">Fast, clean, open-source browsing.<br>No AI. No slop. Built by QTech.</p>
+        </div>
+
+        <div class="footer-links-col">
+          <div class="footer-heading">Project</div>
+          <ul class="footer-list">
+            <li><a href="https://github.com/git-QTech/leef">GitHub</a></li>
+            <li><a href="downloads">Downloads</a></li>
+            <li><a href="docs">Documentation</a></li>
+            <li><a href="troubleshooter">Troubleshooter</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <div class="footer-heading">Community</div>
+          <ul class="footer-list">
+            <li><a href="https://bsky.app/profile/leefbrowser.bsky.social">Leef on Bluesky</a></li>
+            <li><a href="https://bsky.app/profile/qtech.bsky.social">QTech on Bluesky</a></li>
+            <li><a href="docs#bug-reporting">Report a Bug</a></li>
+            <li><a href="https://github.com/git-QTech/leef/issues">Contribute</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <div class="footer-heading">Legal</div>
+          <ul class="footer-list">
+            <li><a href="privacy">Privacy Policy</a></li>
+            <li><a href="security">Security Policy</a></li>
+            <li><a href="codebase-policy">Codebase & Fork Policy</a></li>
+            <li><a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 License</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          &copy; 2026 QTech &bull; Proudly Made in Canada 🇨🇦 &bull; Leef is public domain under CC0 1.0
+        </div>
+        <div class="footer-bottom-right">
+          <span class="license-pill">CC0 1.0 Universal</span>
+        </div>
+      </div>
+      <p style="font-size: 0.72rem; opacity: 0.45; text-align: center; margin-top: 1.5rem; line-height: 1.5;">* Leef
+        itself sends zero telemetry. As a Chromium-based browser, some engine-level signals (e.g. safe-browsing checks)
+        may reach Google. We strip what we can but cannot control the underlying Chromium engine.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple script for sidebar active state
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('.docs-section');
+      const navLinks = document.querySelectorAll('.sidebar-link');
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (current && link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Troubleshooter - Leef Browser</title>
+  <meta name="description" content="Use the interactive Leef Browser troubleshooter to quickly diagnose and fix issues with websites, YouTube, audio, or performance.">
+  <link rel="stylesheet" href="style.css?v=1.0.5">
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    .troubleshooter-section {
+      min-height: 70vh;
+      padding: 4rem 1rem;
+      background: radial-gradient(circle at center, rgba(23, 179, 64, 0.04) 0%, transparent 70%);
+    }
+
+    .troubleshooter-page-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .troubleshooter-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .troubleshooter-header h1 {
+      font-size: 2.5rem;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .troubleshooter-header p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .troubleshooter-wrapper {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1.5px solid rgba(23, 179, 64, 0.15);
+      border-radius: 24px;
+      padding: 3rem;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 15px 35px rgba(23, 179, 64, 0.05), 0 5px 15px rgba(0, 0, 0, 0.03);
+    }
+
+    @media (max-width: 600px) {
+      .troubleshooter-wrapper {
+        padding: 1.5rem;
+      }
+      .troubleshooter-header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="docs-page">
+
+  <nav class="navbar">
+    <a href="./" class="brand">
+      <img src="logo.png" alt="Leef Logo" width="32" height="32">
+      Leef
+    </a>
+    <div class="nav-links">
+      <a href="./">Home</a>
+      <a href="docs">Docs</a>
+      <a href="downloads" class="btn btn-primary" id="nav-download">Download</a>
+    </div>
+  </nav>
+
+  <main class="troubleshooter-section">
+    <div class="troubleshooter-page-container">
+      <div class="troubleshooter-header">
+        <div class="pill-beta" style="background: rgba(23, 179, 64, 0.1); color: var(--primary-color); border: 1px solid var(--primary-color); margin-bottom: 1rem; display: inline-block;">Diagnostic Tool</div>
+        <h1>Interactive Troubleshooter</h1>
+        <p>Follow the wizard below to diagnose and resolve the most common issues you might experience in the Leef Browser.</p>
+      </div>
+
+      <div class="troubleshooter-wrapper">
+        <div class="troubleshooter-container" id="troubleshooter-wizard" style="border: none; background: transparent; padding: 0;">
+          <!-- Initial Step -->
+          <div class="troubleshooter-step active" data-step="start">
+            <div class="troubleshooter-question">What's the main problem?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="installation-issues">I'm having trouble downloading, installing, or updating the browser</div>
+              <div class="troubleshooter-btn" data-next="site-loading">A specific website isn't loading or looks broken</div>
+              <div class="troubleshooter-btn" data-next="youtube">YouTube or videos behave strangely</div>
+              <div class="troubleshooter-btn" data-next="audio">Music or audio stops in the background</div>
+              <div class="troubleshooter-btn" data-next="performance">The browser feels slow or laggy</div>
+              <div class="troubleshooter-btn" data-next="settings-privacy">I have questions about Settings, Privacy, or search suggestions</div>
+              <div class="troubleshooter-btn" data-next="other-issues">Something else / Other error screens</div>
+            </div>
+          </div>
+
+          <!-- Installation/Update Issues Step -->
+          <div class="troubleshooter-step" data-step="installation-issues">
+            <div class="troubleshooter-question">What specific installation or update issue are you encountering?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="updater-fail-result">The in-app automatic updater isn't working</div>
+              <div class="troubleshooter-btn" data-next="already-open-result">The installer says Leef is already open</div>
+              <div class="troubleshooter-btn" data-next="smartscreen-result">Windows SmartScreen ("Windows protected your PC") is blocking me</div>
+              <div class="troubleshooter-btn" data-next="gatekeeper-result">macOS says it can't open Leef because it's from an unidentified developer</div>
+            </div>
+          </div>
+
+          <!-- Settings & Privacy Step -->
+          <div class="troubleshooter-step" data-step="settings-privacy">
+            <div class="troubleshooter-question">What settings or privacy feature are you trying to configure?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="setup">I want to clear my browsing data or start fresh (reset settings)</div>
+              <div class="troubleshooter-btn" data-next="autocomplete-result">Address bar search suggestions aren't appearing as I type</div>
+            </div>
+          </div>
+
+          <!-- Other Issues Step -->
+          <div class="troubleshooter-step" data-step="other-issues">
+            <div class="troubleshooter-question">Which category does the issue fall into?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="performance">Memory/CPU usage is too high</div>
+              <div class="troubleshooter-btn" data-next="other-issues-visual">Visual glitches, flickering, or black/white screens</div>
+              <div class="troubleshooter-btn" data-next="other-issues-network">Network errors (ERR_CONNECTION_...)</div>
+              <div class="troubleshooter-btn" data-next="ssl-clock-result">Websites show security certificate warnings (SSL errors)</div>
+              <div class="troubleshooter-btn" data-next="recovery-mode-result">The browser keeps crashing or won't open</div>
+            </div>
+          </div>
+
+          <!-- Site Loading Step -->
+          <div class="troubleshooter-step" data-step="site-loading">
+            <div class="troubleshooter-question">What does the loading issue look like?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="adblock-check">The site has missing elements, broken layout, or blocks access</div>
+              <div class="troubleshooter-btn" data-next="ssl-clock-result">I see an SSL security certificate warning (e.g., date/time error)</div>
+              <div class="troubleshooter-btn" data-next="other-issues-network">I see a connection/network error page (e.g., ERR_CONNECTION_RESET)</div>
+            </div>
+          </div>
+
+          <!-- Adblock Check Step -->
+          <div class="troubleshooter-step" data-step="adblock-check">
+            <div class="troubleshooter-question">Are you using "Comprehensive" ad-blocking?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="site-loading-yes">Yes, it's set to Comprehensive</div>
+              <div class="troubleshooter-btn" data-next="site-loading-no">No, I'm using Basic or None</div>
+            </div>
+          </div>
+
+          <!-- YouTube Step -->
+          <div class="troubleshooter-step" data-step="youtube">
+            <div class="troubleshooter-question">What exactly is happening on YouTube?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="youtube-blocked">The video won't play / Ad-blocker detected</div>
+              <div class="troubleshooter-btn" data-next="youtube-warp">The video is playing at crazy fast speed</div>
+            </div>
+          </div>
+
+          <!-- Audio Step -->
+          <div class="troubleshooter-step" data-step="audio">
+            <div class="troubleshooter-question">Does it happen when you switch to another tab?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="audio-background">Yes, it stops when I leave the tab</div>
+              <div class="troubleshooter-btn" data-next="audio-random">No, it just stops randomly</div>
+            </div>
+          </div>
+
+          <!-- Performance Step -->
+          <div class="troubleshooter-step" data-step="performance">
+            <div class="troubleshooter-question">Do you usually have many tabs open at once?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="performance-yes">Yes, I'm a tab hoarder</div>
+              <div class="troubleshooter-btn" data-next="performance-no">No, just a few</div>
+            </div>
+          </div>
+
+          <!-- Results -->
+          <div class="troubleshooter-step" data-step="site-loading-yes">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Dial it back</h5>
+              <p>Comprehensive blocking can sometimes be too aggressive and break site layouts. Try switching to <strong>Basic</strong> blocking or disabling it entirely via <strong>Settings &gt; Privacy &amp; Security</strong>.</p>
+              <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">If this doesn't fix it, we're very happy to help personally! Please <a href="docs#bug-reporting">report the issue</a> so we can improve Leef.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="site-loading-no">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Check Recovery Mode</h5>
+              <p>If the site is broken even with basic blocking, an internal component might be stuck. Try launching in <a href="docs#recovery-mode">Recovery Mode</a> and selecting <strong>Reset Window</strong> or <strong>Reset Config</strong>.</p>
+              <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">Still broken? We want to hear about it. Please <a href="docs#bug-reporting">reach out</a> and we'll help you get it sorted.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="youtube-blocked">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Disable Ad-blocking for YouTube</h5>
+              <p>YouTube has recently started aggressively blocking ad-blockers. To watch videos, you may need to disable Leef's ad-blocker entirely via <strong>Settings &gt; Privacy &amp; Security</strong>. We are working on a more permanent fix!</p>
+              <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">Not working? Please <a href="docs#bug-reporting">let us know</a>. We track these changes closely to keep Leef compatible.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="youtube-warp">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Disable "Warp Speed" Lab</h5>
+              <p>You likely enabled <strong>YouTube Warp Speed</strong> in <code>leef://labs</code>. This skips unskippable ads by playing them at 16x speed, but it can sometimes get stuck on the main video. Try toggling it off.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="audio-background">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Disable Background Limit</h5>
+              <p>In <strong>Settings &gt; Privacy &amp; Security</strong>, make sure "Background Limit" is toggled OFF. When enabled, Leef pauses all background audio and video to save resources.</p>
+              <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">Still stopping? We're happy to investigate. Open a <a href="docs#bug-reporting">ticket</a> or email us!</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="audio-random">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Check Efficiency Mode</h5>
+              <p>Efficiency Mode throttles background tabs to 30% CPU. If your audio stream is high quality, this can cause stuttering. Try disabling Efficiency Mode in <strong>Settings &gt; Performance</strong>.</p>
+              <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">If it's still stuttering, we want to know. Help us tune our performance by <a href="docs#bug-reporting">reporting it</a>.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="performance-yes">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Enable Efficiency Mode</h5>
+              <p>If you have many tabs, <a href="docs#efficiency-mode">Efficiency Mode</a> is your best friend. It throttles background tabs to save RAM and CPU. Enable it in <strong>Settings &gt; Performance</strong>.</p>
+              <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">Browser still slow? We're happy to help you diagnose it. Please <a href="docs#bug-reporting">contact us</a>.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="performance-no">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Rebuild AppData</h5>
+              <p>If the browser is slow with only a few tabs, there might be corrupted data. Try the <strong>Rebuild AppData</strong> option in <a href="docs#recovery-mode">Recovery Mode</a> (hold Shift at launch).</p>
+              <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">No luck? We're very happy to help personally. Please <a href="docs#bug-reporting">open a bug report</a>.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="other-issues-visual">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Toggle Hardware Acceleration / GPU Settings</h5>
+              <p>Visual glitches, black/white windows, or flickering are usually caused by conflicts with the GPU process. Try launching Leef from your terminal/command line with the <code>--disable-gpu</code> flag. If the window displays correctly, go to <strong>Settings &gt; Performance</strong> and disable <strong>Hardware Acceleration</strong>.</p>
+              <p style="margin-top: 1rem;">Alternatively, you can launch in <a href="docs#recovery-mode">Recovery Mode</a> (hold Shift at launch) and select <strong>Reset Window Layout</strong> to reset corrupt graphic states.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="other-issues-network">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Check Connection & DNS</h5>
+              <p>Network errors like <code>ERR_CONNECTION_RESET</code> are usually external. Try restarting your router or checking your firewall. See more in <a href="docs#other-issues">Other Issues</a>.</p>
+              <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">Can't connect? We're happy to help you troubleshoot. Please <a href="docs#bug-reporting">get in touch</a>.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="recovery-mode-result">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Use Recovery Mode</h5>
+              <p>For persistent crashes or startup failures, <a href="docs#recovery-mode">Recovery Mode</a> is the best tool to reset your configuration without losing data.</p>
+              <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">Still crashing? We're very happy to help you fix it! Please <a href="docs#bug-reporting">report the crash</a>.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="setup">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Reset & Re-run Setup</h5>
+              <p>You can re-trigger the first-launch experience or clear all local browsing data at any time by going to <strong>Settings &gt; Privacy &amp; Security</strong> and using the <strong>Re-run Setup Wizard</strong> or <strong>Clear Browser Data</strong> buttons.</p>
+              <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">Need a deep clean? You can also launch in <a href="docs#recovery-mode">Recovery Mode</a> (Hold Shift at launch) and select <strong>rebuild appdata</strong>.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="updater-fail-result">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Download Direct Update</h5>
+              <p>If the in-app automatic updater fails to download or apply a new version, you can always download and run the latest installer directly from the official <a href="https://github.com/git-QTech/leef/releases">Leef GitHub Releases page</a>.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="already-open-result">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Use OS-Native Version</h5>
+              <p>This error is a known bug that occurs when trying to run the Windows version of Leef via compatibility/emulation layers (like Wine or Proton) on macOS or Linux. Please make sure you have downloaded and installed the correct native build built for your specific operating system (e.g. macOS <code>.dmg</code>/<code>.pkg</code> or Linux package).</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="smartscreen-result">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Bypass Windows SmartScreen</h5>
+              <p>Because Leef is a newly released, open-source project, Windows Defender SmartScreen might display a message saying "Windows protected your PC". To finish installation, click the <strong>More Info</strong> link on that screen, and then select the <strong>Run Anyway</strong> button that appears.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="gatekeeper-result">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Allow Installation in macOS Settings</h5>
+              <p>To open Leef on macOS for the first time, you must right-click (or Control-click) the application icon and select <strong>Open</strong> from the context menu. If you double-clicked it and got blocked by Gatekeeper, open the macOS <strong>System Settings</strong> app, navigate to <strong>Privacy & Security</strong>, scroll down to the Security section, and click the button to allow Leef to open.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="autocomplete-result">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Enable Live Autocomplete</h5>
+              <p>To maximize your privacy, Leef disables search queries autocomplete by default so that nothing is sent to search engines as you type. If you prefer live search suggestions, you can turn this option on by going to <strong>Settings &gt; Privacy &amp; Security</strong> and toggling ON the <strong>Live Autocomplete</strong> setting.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+          <div class="troubleshooter-step" data-step="ssl-clock-result">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Check System Date & Time</h5>
+              <p>Chromium requires highly accurate system time to establish secure HTTPS connections. If your computer's system clock is off by even a few minutes, security handshakes will fail and show certificate warnings. Go to your operating system's settings and verify that your date, time, and timezone are set to synchronize automatically.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
+        </div>
+
+        <div class="troubleshooter-footer" style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--overlay-border); text-align: center; font-size: 0.95rem; color: #666; display: flex; flex-direction: column; gap: 0.5rem; align-items: center; justify-content: center;">
+          <div>Still having issues? We're happy to help!</div>
+          <div style="display: flex; gap: 1rem;">
+            <a href="docs#bug-reporting" style="color: var(--primary-color); text-decoration: underline; font-weight: 700;">Open GitHub Ticket</a>
+            <span>&bull;</span>
+            <a href="mailto:contact.qtech@proton.me" style="color: var(--primary-color); text-decoration: underline; font-weight: 700;">Email Support</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <div class="brand-footer">
+            <img src="logo.png" alt="Leef Logo" width="24" height="24">
+            Leef
+          </div>
+          <p class="footer-tagline">Fast, clean, open-source browsing.<br>No AI. No slop. Built by QTech.</p>
+        </div>
+
+        <div class="footer-links-col">
+          <div class="footer-heading">Project</div>
+          <ul class="footer-list">
+            <li><a href="https://github.com/git-QTech/leef">GitHub</a></li>
+            <li><a href="downloads">Downloads</a></li>
+            <li><a href="docs">Documentation</a></li>
+            <li><a href="troubleshooter">Troubleshooter</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <div class="footer-heading">Community</div>
+          <ul class="footer-list">
+            <li><a href="https://bsky.app/profile/leefbrowser.bsky.social">Leef on Bluesky</a></li>
+            <li><a href="https://bsky.app/profile/qtech.bsky.social">QTech on Bluesky</a></li>
+            <li><a href="docs#bug-reporting">Report a Bug</a></li>
+            <li><a href="https://github.com/git-QTech/leef/issues">Contribute</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <div class="footer-heading">Legal</div>
+          <ul class="footer-list">
+            <li><a href="privacy">Privacy Policy</a></li>
+            <li><a href="security">Security Policy</a></li>
+            <li><a href="codebase-policy">Codebase & Fork Policy</a></li>
+            <li><a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 License</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          &copy; 2026 QTech &bull; Proudly Made in Canada 🇨🇦 &bull; Leef is public domain under CC0 1.0
+        </div>
+        <div class="footer-bottom-right">
+          <span class="license-pill">CC0 1.0 Universal</span>
+        </div>
+      </div>
+      <p style="font-size: 0.72rem; opacity: 0.45; text-align: center; margin-top: 1.5rem; line-height: 1.5;">* Leef
+        itself sends zero telemetry. As a Chromium-based browser, some engine-level signals (e.g. safe-browsing checks)
+        may reach Google. We strip what we can but cannot control the underlying Chromium engine.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Troubleshooting Wizard Logic
+    const wizard = document.getElementById('troubleshooter-wizard');
+    if (wizard) {
+      const steps = wizard.querySelectorAll('.troubleshooter-step');
+      
+      wizard.addEventListener('click', (e) => {
+        const btn = e.target.closest('.troubleshooter-btn');
+        if (btn) {
+          const nextStep = btn.getAttribute('data-next');
+          showStep(nextStep);
+        }
+
+        if (e.target.classList.contains('troubleshooter-reset')) {
+          showStep('start');
+        }
+      });
+
+      function showStep(stepId) {
+        steps.forEach(step => {
+          step.classList.remove('active');
+          if (step.getAttribute('data-step') === stepId) {
+            step.classList.add('active');
+          }
+        });
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -6,39 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy - Leef Browser</title>
   <meta name="description" content="Official Privacy Policy for Leef Browser. Transparent information on data collection, local storage, and Chromium engine signals.">
-  <link rel="stylesheet" href="style.css?v=1.0.4">
+  <link rel="stylesheet" href="style.css?v=1.0.5">
   <link rel="icon" type="image/png" href="logo.png">
 </head>
 
 <body class="docs-page">
 
-  <div class="update-banner">
-    <div class="banner-text">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-        <line x1="12" y1="9" x2="12" y2="13"></line>
-        <line x1="12" y1="17" x2="12.01" y2="17"></line>
-      </svg>
-      <span><strong>Critical Update:</strong> If you are using Leef v0.5.1, please update immediately to fix a major bug.</span>
-    </div>
-    <a href="https://github.com/git-QTech/leef/releases/latest">
-      Update to v0.5.2
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="5" y1="12" x2="19" y2="12"></line>
-        <polyline points="12 5 19 12 12 19"></polyline>
-      </svg>
-    </a>
-  </div>
 
   <nav class="navbar">
-    <a href="index.html" class="brand">
+    <a href="./" class="brand">
       <img src="logo.png" alt="Leef Logo" width="32" height="32">
       Leef
     </a>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="docs.html">Docs</a>
-      <a href="downloads.html" class="btn btn-primary" id="nav-download">Download</a>
+      <a href="./">Home</a>
+      <a href="docs">Docs</a>
+      <a href="downloads" class="btn btn-primary" id="nav-download">Download</a>
     </div>
   </nav>
 
@@ -159,11 +142,15 @@
       <section id="third-party" class="docs-section">
         <h2 style="display: flex; align-items: center; gap: 12px;">
           <svg viewBox="0 0 24 24" width="28" height="28" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-          Third-Party Services
+          Third-Party Services & Network Boundaries
         </h2>
-        <p>While the browser itself is private, you may interact with third parties through our ecosystem:</p>
-        <ul style="margin-top: 1rem; margin-left: 1.5rem; list-style: disc;">
-          <li><strong>GitHub:</strong> We host our code and releases on GitHub. Their privacy policy applies when you download Leef or visit our repository.</li>
+        <p>While the browser itself is private, certain default features, updates, or optional services connect directly to third-party endpoints:</p>
+        <ul style="margin-top: 1rem; margin-left: 1.5rem; display: grid; gap: 0.75rem; list-style: disc;">
+          <li><strong>GitHub:</strong> We host our code and releases on GitHub. The browser queries GitHub for updates and critical announcements. GitHub's privacy policy applies when you download Leef or visit our repository.</li>
+          <li><strong>Yahoo News RSS Feed (Start Page):</strong> By default, the browser's home tab fetches the public Yahoo News RSS feed to display headlines. This feed does not fetch any data until onboarding is completed, and you can opt to disable it during onboarding to ensure it never makes a connection. You can also disable this widget completely at any time in the settings. This connection is direct to Yahoo's public RSS endpoint, and Yahoo's privacy policy applies.</li>
+          <li><strong>Ad-Blocker Filter Lists:</strong> When ad-blocking is active, the browser downloads filter lists from easyList.to and uBlockOrigin's GitHub assets to compile your local blocking engine.</li>
+          <li><strong>Search Autocomplete (Opt-In Only):</strong> If you manually enable the "Live Search Autocomplete" setting, keystrokes typed into the address bar are sent to Google Suggest Queries to fetch predictions. No personal identifiers or account details are attached to these requests.</li>
+          <li><strong>Bug & Diagnostic Reports (Manual Only):</strong> If you experience issues, you can generate a local system diagnostic log. This log is stored on your device and is never sent automatically. It is only shared if you manually choose to submit it through our Google Form bug reporter.</li>
           <li><strong>ProtonMail:</strong> Our support email is hosted by Proton. When you email us, your communication is protected by Proton's encryption.</li>
           <li><strong>Website Hosting:</strong> This landing page is hosted on GitHub Pages. Basic web server logs (IP addresses) may be collected by GitHub for security and maintenance.</li>
         </ul>
@@ -190,35 +177,49 @@
           </div>
           <p class="footer-tagline">Fast, clean, open-source browsing.<br>No AI. No slop. Built by QTech.</p>
         </div>
+
         <div class="footer-links-col">
           <div class="footer-heading">Project</div>
           <ul class="footer-list">
             <li><a href="https://github.com/git-QTech/leef">GitHub</a></li>
-            <li><a href="downloads.html">Downloads</a></li>
-            <li><a href="docs.html">Documentation</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="downloads">Downloads</a></li>
+            <li><a href="docs">Documentation</a></li>
+            <li><a href="troubleshooter">Troubleshooter</a></li>
           </ul>
         </div>
+
         <div class="footer-links-col">
           <div class="footer-heading">Community</div>
           <ul class="footer-list">
-            <li><a href="https://bsky.app/profile/leefbrowser.bsky.social">Bluesky</a></li>
-            <li><a href="docs.html#bug-reporting">Support</a></li>
+            <li><a href="https://bsky.app/profile/leefbrowser.bsky.social">Leef on Bluesky</a></li>
+            <li><a href="https://bsky.app/profile/qtech.bsky.social">QTech on Bluesky</a></li>
+            <li><a href="docs#bug-reporting">Report a Bug</a></li>
+            <li><a href="https://github.com/git-QTech/leef/issues">Contribute</a></li>
           </ul>
         </div>
+
         <div class="footer-links-col">
           <div class="footer-heading">Legal</div>
           <ul class="footer-list">
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 License</a></li>
+            <li><a href="privacy">Privacy Policy</a></li>
+            <li><a href="security">Security Policy</a></li>
+            <li><a href="codebase-policy">Codebase & Fork Policy</a></li>
+            <li><a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 License</a></li>
           </ul>
         </div>
       </div>
+
       <div class="footer-bottom">
         <div class="footer-bottom-left">
-          &copy; 2026 QTech &bull; Made in Canada 🍁
+          &copy; 2026 QTech &bull; Proudly Made in Canada 🇨🇦 &bull; Leef is public domain under CC0 1.0
+        </div>
+        <div class="footer-bottom-right">
+          <span class="license-pill">CC0 1.0 Universal</span>
         </div>
       </div>
+      <p style="font-size: 0.72rem; opacity: 0.45; text-align: center; margin-top: 1.5rem; line-height: 1.5;">* Leef
+        itself sends zero telemetry. As a Chromium-based browser, some engine-level signals (e.g. safe-browsing checks)
+        may reach Google. We strip what we can but cannot control the underlying Chromium engine.</p>
     </div>
   </footer>
 
