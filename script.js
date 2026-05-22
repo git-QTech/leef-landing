@@ -1,3 +1,5 @@
+document.body.classList.add('js-loaded');
+
 document.addEventListener('DOMContentLoaded', () => {
   // Smooth scroll for internal anchor links only
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
