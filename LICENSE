@@ -1,0 +1,47 @@
+Copyright (c) 2026 QTech. All Rights Reserved.
+
+This license applies solely to the SOURCE CODE AND ASSETS of the Leef Browser
+landing page and website (this repository). It does NOT apply to the Leef
+Browser application itself, which remains released under the CC0 1.0 Universal
+public domain dedication (see: https://github.com/git-QTech/leef).
+
+-------------------------------------------------------------------------------
+
+WEBSITE SOURCE CODE LICENSE
+
+Permission is NOT granted to copy, reproduce, redistribute, sublicense, or
+create derivative works of this website's source code, design, or assets,
+in whole or in part, for any purpose — including but not limited to:
+
+  - Creating a duplicate, mirror, or clone of this website
+  - Impersonating QTech, Leef Browser, or any affiliated persons
+  - Publishing modified versions of this site to mislead users
+  - Using this site's design or branding to distribute malware or
+    unofficial builds of Leef Browser
+
+You MAY:
+
+  - View and study this source code for personal, educational purposes
+  - Link to this website
+  - Quote brief excerpts for journalistic or review purposes, with attribution
+
+-------------------------------------------------------------------------------
+
+BRAND & TRADEMARK NOTICE
+
+"Leef", "Leef Browser", and "QTech" are names and brands associated with this
+project. Unauthorized use of these names, logos, or visual identity — including
+creating websites, apps, or social media accounts intended to impersonate the
+official project — is prohibited and may constitute fraud or trademark
+infringement under applicable law.
+
+If you believe you have found an unauthorized fork or impersonation attempt,
+please report it to: contact.qtech@proton.me
+
+-------------------------------------------------------------------------------
+
+DISCLAIMER
+
+THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. IN NO EVENT
+SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING
+FROM THE USE OR MISUSE OF THIS REPOSITORY.
