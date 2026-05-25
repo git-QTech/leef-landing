@@ -3,10 +3,8 @@
 The official landing page for [Leef Browser](https://leefbrowser.site). Built with vanilla HTML, CSS, and JS.
 
 ## Features
-- **Apple-style Scroll Reveals:** Smooth animations as you navigate.
 - **Privacy First:** Detailed breakdown of Leef's privacy-focused architecture.
 - **Technical Transparency:** Clear explanation of the Electron + Chromium foundation.
-- **Developer Focus:** Dedicated section for the core QTech team.
 
 ## Tech Stack
 - **HTML5:** Semantic structure for SEO.
