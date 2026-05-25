@@ -891,31 +891,6 @@ a {
   font-size: 0.75rem;
 }
 
-.footer-license-note {
-  border-top: 1px solid #222;
-  margin-top: 1.5rem;
-  padding-top: 1.25rem;
-  text-align: center;
-}
-
-.footer-license-note p {
-  font-size: 0.78rem;
-  color: #555;
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.footer-license-note a {
-  color: var(--primary-color);
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
-}
-
-.footer-license-note a:hover {
-  opacity: 1;
-}
-
 @media (max-width: 900px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
