@@ -187,7 +187,9 @@
               <strong>Leef does not play along.</strong> We automatically strip AI Overviews out of your search queries,
               returning you straight to the clean, link-first web.
             </p>
-            <p class="slop-wiper-scroll-hint">Scroll down to wipe away the slop in real time &rarr;</p>
+            <p class="slop-wiper-source">
+              Yes, that AI Overview is something Google's AI actually said. <a href="https://www.bbc.com/news/articles/cd11gzejgz4o" target="_blank" rel="noopener noreferrer">Google AI tells users to glue pizza, eat rocks and use gasoline to cook pasta &rarr;</a>
+            </p>
           </div>
 
           <div class="slop-wiper-container" id="slop-wiper-container">
@@ -195,15 +197,41 @@
             <div class="slop-layer dirty-layer">
               <div class="mock-search-bar">best pizza recipes</div>
               <div class="mock-ai-overview">
-                <div class="ai-sparkle">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    style="width: 16px; height: 16px;">
-                    <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"></path>
-                  </svg>
-                  AI Overview
+                <div class="ai-overview-header">
+                  <div class="ai-overview-title">
+                    <svg viewBox="0 0 24 24" fill="url(#sparkle-gradient)" style="width: 16px; height: 16px; display: inline-block; vertical-align: middle;">
+                      <defs>
+                        <linearGradient id="sparkle-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#1a73e8" />
+                          <stop offset="100%" stop-color="#9b51e0" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"></path>
+                    </svg>
+                    <span>AI Overview</span>
+                  </div>
+                  <div class="ai-overview-menu">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px; color: #5f6368;">
+                      <circle cx="12" cy="5" r="1.75"></circle>
+                      <circle cx="12" cy="12" r="1.75"></circle>
+                      <circle cx="12" cy="19" r="1.75"></circle>
+                    </svg>
+                  </div>
                 </div>
-                <p>To make the best pizza, you should consider adding 1/4 cup of non-toxic glue to the sauce to give it
-                  more tackiness. You can also eat at least 1 small rock per day for essential minerals.</p>
+                <div class="ai-overview-body">
+                  <p>
+                    To make the best pizza, <span class="ai-highlight">you should consider adding 1/4 cup of non-toxic glue to the sauce</span> <span class="ai-source-pill"><img class="source-favicon" src="https://www.google.com/s2/favicons?domain=reddit.com&sz=16" alt="Reddit"> Reddit</span> to give it more tackiness. 
+                    You can also <span class="ai-highlight">eat at least 1 small rock per day</span> <span class="ai-source-pill"><img class="source-favicon" src="https://www.google.com/s2/favicons?domain=reddit.com&sz=16" alt="Reddit"> Reddit</span> for essential minerals.
+                  </p>
+                </div>
+                <div class="ai-overview-footer">
+                  <button class="ai-show-more-btn">
+                    <span>Show more</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 10px; height: 10px; margin-left: 4px; vertical-align: middle;">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+                </div>
               </div>
               <div class="mock-sponsored">
                 <span class="sponsored-tag">Sponsored</span>
@@ -309,26 +337,28 @@
           </div>
         </div>
         <div class="why-image">
-          <div class="tech-stack-card">
-            <div class="tech-item">
-              <div class="tech-logo">E</div>
-              <div class="tech-info">
-                <strong>Electron</strong>
-                <span>Cross-platform Runtime</span>
+          <div class="weight-card">
+            <div class="weight-label" id="weight-label">A TYPICAL BROWSER</div>
+            <div class="weight-scene">
+              <div class="weight-icon-wrap" id="weight-icon">
+                <img src="generic-browser.svg" alt="Browser" class="weight-swap-icon" id="weight-browser-img">
+                <img src="leef-icon.svg" alt="Leef" class="weight-swap-icon weight-swap-hidden" id="weight-leef-img">
+                <div class="weight-shadow" id="weight-shadow"></div>
               </div>
-            </div>
-            <div class="tech-item">
-              <div class="tech-logo">C</div>
-              <div class="tech-info">
-                <strong>Chromium</strong>
-                <span>Web Engine</span>
-              </div>
-            </div>
-            <div class="tech-item">
-              <div class="tech-logo leef">L</div>
-              <div class="tech-info">
-                <strong>Leef</strong>
-                <span>Pure Browsing</span>
+              <div class="weight-tags-slot">
+                <div class="weight-tags" id="weight-tags">
+                  <span class="weight-badge" id="wb1">AI Overview</span>
+                  <span class="weight-badge" id="wb2">Ad Tracking</span>
+                  <span class="weight-badge" id="wb3">Telemetry</span>
+                  <span class="weight-badge" id="wb4">Forced Sync</span>
+                  <span class="weight-badge" id="wb5">Bloat</span>
+                </div>
+                <div class="leef-tags" id="leef-tags">
+                  <span class="leef-badge" id="lb1">No Ads</span>
+                  <span class="leef-badge" id="lb2">No Tracking</span>
+                  <span class="leef-badge" id="lb3">Blazing Fast</span>
+                  <span class="leef-badge" id="lb4">Privacy First</span>
+                </div>
               </div>
             </div>
           </div>
@@ -337,7 +367,7 @@
     </div>
   </section>
 
-  <section id="privacy" class="privacy-banner reveal">
+  <section id="privacy" class="visual-privacy-showcase reveal">
     <div class="container">
       <div class="pill">Privacy First</div>
       <h2>Private.<br><span class="highlight-white">Hard to come by nowadays.</span></h2>
@@ -367,10 +397,10 @@
         </div>
       </div>
 
-      <div class="data-sold-ticker">
-        <div class="data-sold-label">Value of your data sold to advertisers</div>
-        <div class="data-sold-value" id="data-sold-value">$ 0.00</div>
-        <div class="data-sold-caption">Your data belongs to you, not advertisers. We don't collect anything, so we have
+      <div class="data-valuation-ticker">
+        <div class="data-valuation-label">Value of your data sold to advertisers</div>
+        <div class="data-valuation-value" id="data-valuation-value">$ 0.00</div>
+        <div class="data-valuation-caption">Your data belongs to you, not advertisers. We don't collect anything, so we have
           nothing to sell.</div>
       </div>
     </div>
@@ -477,6 +507,50 @@
           <p>And it's staying that way. We don't track our users, so we have no idea how many of you are here. We're
             just happy you found us.</p>
         </div>
+      </div>
+    </div>
+  </section>
+  <section id="languages" class="languages-banner reveal">
+    <div class="container">
+      <div class="pill-small" style="text-align: center; display: block; margin: 0 auto 1.5rem; width: fit-content;">Coming mid-June</div>
+      <h2 style="text-align: center; font-size: 3.5rem; margin-bottom: 1.5rem; letter-spacing: -0.03em; color: var(--text-dark);"><span id="hello-text" class="hello-text">Parlez-vous</span> privacy?</h2>
+      <p style="text-align: center; font-size: 1.25rem; color: #555; margin-bottom: 1rem; max-width: 650px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+        Leef 1.0.0 will launch with localization support. We're starting with three new languages, but the work is still in progress. 
+      </p>
+      <p style="text-align: center; font-size: 1.1rem; color: #666; margin-bottom: 3.5rem;">
+        Read our <a href="https://madebyqtech.substack.com/p/3-new-languages-in-leef-v100" target="_blank" style="color: var(--primary-color); font-weight: 600; text-decoration: none; border-bottom: 2px solid rgba(139, 92, 246, 0.3); transition: border-color 0.2s ease;">announcement blog post</a> to learn more about our roadmap.
+      </p>
+      
+      <div class="languages-grid">
+        <div class="language-card">
+          <svg class="lang-flag" viewBox="0 0 3 2">
+            <rect width="1" height="2" fill="#002395"/>
+            <rect x="1" width="1" height="2" fill="#FFFFFF"/>
+            <rect x="2" width="1" height="2" fill="#ED2939"/>
+          </svg>
+          <span class="lang-name">French</span>
+        </div>
+        <div class="language-card">
+          <svg class="lang-flag" viewBox="0 0 3 2">
+            <rect width="3" height="0.5" fill="#C60B1E"/>
+            <rect y="0.5" width="3" height="1.0" fill="#FFC400"/>
+            <rect y="1.5" width="3" height="0.5" fill="#C60B1E"/>
+          </svg>
+          <span class="lang-name">Spanish</span>
+        </div>
+        <div class="language-card">
+          <svg class="lang-flag" viewBox="0 0 3 2">
+            <rect width="3" height="0.67" fill="#AE1C28"/>
+            <rect y="0.67" width="3" height="0.67" fill="#FFFFFF"/>
+            <rect y="1.34" width="3" height="0.67" fill="#21468B"/>
+          </svg>
+          <span class="lang-name">Dutch</span>
+        </div>
+      </div>
+
+      <div class="translation-cta" style="text-align: center; margin-top: 3.5rem; font-size: 1.15rem; color: #555; line-height: 1.6;">
+        We're currently looking for help translating <strong>French Canadian, Hindi, Chinese (Simplified), German,</strong> and <strong>Swedish</strong>.<br>
+        <a href="https://github.com/git-QTech/leef" target="_blank" style="color: var(--primary-color); font-weight: 600; text-decoration: none; border-bottom: 2px solid rgba(139, 92, 246, 0.3); transition: border-color 0.2s ease;">Open a pull request</a> to contribute a translation!
       </div>
     </div>
   </section>

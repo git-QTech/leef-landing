@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Interactive Elements Logic
 document.addEventListener('DOMContentLoaded', () => {
   // Data Sold Ticker Animation
-  const dataSoldTicker = document.getElementById('data-sold-value');
+  const dataSoldTicker = document.getElementById('data-valuation-value');
   if (dataSoldTicker) {
     const dataSoldObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -283,4 +283,146 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', calculateWiper);
     calculateWiper(); // Run once to set initial state
   }
+
+  // Weight Animation — progressive sinking
+  const weightIcon   = document.getElementById('weight-icon');
+  const weightShadow = document.getElementById('weight-shadow');
+  const weightLabel  = document.getElementById('weight-label');
+  const browserImg   = document.getElementById('weight-browser-img');
+  const leefImg      = document.getElementById('weight-leef-img');
+  const badges = [
+    document.getElementById('wb1'),
+    document.getElementById('wb2'),
+    document.getElementById('wb3'),
+    document.getElementById('wb4'),
+    document.getElementById('wb5'),
+  ];
+  const leefBadges = [
+    document.getElementById('lb1'),
+    document.getElementById('lb2'),
+    document.getElementById('lb3'),
+    document.getElementById('lb4'),
+  ];
+
+  // Sink capped at 14px — icon-wrap is 120px tall so shadow stays inside it
+  const sinkSteps   = [2, 5, 8, 11, 14];
+  const squishSteps = [1, 0.98, 0.96, 0.94, 0.92];
+  const shadowWidths = [70, 88, 104, 122, 142];
+  const shadowAlphas = [0.12, 0.18, 0.25, 0.32, 0.40];
+
+  function setSunk(step) {
+    const sink = sinkSteps[step];
+    const squish = squishSteps[step];
+    weightIcon.style.transform    = `translateY(${sink}px) scaleY(${squish})`;
+    // Counter the parent's translateY so the shadow stays fixed on screen
+    weightShadow.style.transform  = `translateX(-50%) translateY(${-sink}px)`;
+    weightShadow.style.width      = shadowWidths[step] + 'px';
+    weightShadow.style.background = `radial-gradient(ellipse, rgba(0,0,0,${shadowAlphas[step]}) 0%, transparent 70%)`;
+  }
+
+  function resetSunk() {
+    weightIcon.style.transform    = '';
+    weightShadow.style.transform  = ''; // CSS translateX(-50%) takes over again
+    weightShadow.style.width      = '';
+    weightShadow.style.background = '';
+  }
+
+  if (weightIcon && badges[0] && browserImg && leefImg) {
+    const clearAt   = 500 + (badges.length - 1) * 420 + 1100;
+    const loopTotal = clearAt + 2800 + 600;
+
+    function runWeightLoop() {
+      // Reset: browser icon, clear all badges
+      browserImg.classList.remove('weight-swap-hidden');
+      leefImg.classList.add('weight-swap-hidden');
+      weightIcon.classList.remove('clean');
+      resetSunk();
+      badges.forEach(b => b.classList.remove('visible'));
+      leefBadges.forEach(b => b.classList.remove('visible'));
+
+      // Drop each negative badge, sink the icon progressively
+      badges.forEach((b, i) => {
+        setTimeout(() => {
+          b.classList.add('visible');
+          setSunk(i);
+        }, 500 + i * 420);
+      });
+
+      // Spring clean: swap to Leef, pop in green badges
+      setTimeout(() => {
+        badges.forEach(b => b.classList.remove('visible'));
+        browserImg.classList.add('weight-swap-hidden');
+        leefImg.classList.remove('weight-swap-hidden');
+        weightIcon.classList.add('clean');
+        weightIcon.style.transform    = 'translateY(-6px) scaleY(1)';
+        // Icon springs up 6px, counter so shadow stays fixed
+        weightShadow.style.transform  = 'translateX(-50%) translateY(6px)';
+        weightShadow.style.width      = '44px';
+        weightShadow.style.background = 'radial-gradient(ellipse, rgba(90,239,126,0.18) 0%, transparent 70%)';
+        weightLabel.textContent = 'LEEF';
+        weightLabel.classList.add('leef-state');
+
+        // Stagger in the positive badges
+        leefBadges.forEach((b, i) => {
+          setTimeout(() => b.classList.add('visible'), 200 + i * 160);
+        });
+      }, clearAt);
+
+      // Reset for next loop
+      setTimeout(() => {
+        leefBadges.forEach(b => b.classList.remove('visible'));
+        weightLabel.textContent = 'A TYPICAL BROWSER';
+        weightLabel.classList.remove('leef-state');
+      }, clearAt + 2800);
+    }
+
+    runWeightLoop();
+    setInterval(runWeightLoop, loopTotal);
+  }
+
+  // Languages text animation
+  const helloText = document.getElementById('hello-text');
+  if (helloText) {
+    const phrases = [
+      "Parlez-vous",
+      "¿Hablas",
+      "Spreek je",
+      "Do you speak",
+      "Parli",
+      "Sprichst du"
+    ];
+    let phraseIndex = 0;
+
+    // Set initial explicit width so we can transition it
+    helloText.style.width = helloText.offsetWidth + 'px';
+
+    setInterval(() => {
+      const oldWidth = helloText.offsetWidth;
+      helloText.classList.add('hidden');
+      
+      // Wait for fade-out transition
+      setTimeout(() => {
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        
+        // Temporarily turn off transition to measure new width instantly
+        helloText.style.transition = 'none';
+        helloText.style.width = 'auto';
+        helloText.textContent = phrases[phraseIndex];
+        
+        const newWidth = helloText.offsetWidth;
+        
+        // Revert to old width and turn transition back on
+        helloText.style.width = oldWidth + 'px';
+        // Force reflow
+        void helloText.offsetHeight; 
+        
+        helloText.style.transition = ''; // Restore CSS transitions
+        
+        // Now trigger the animation to new width and fade in
+        helloText.style.width = newWidth + 'px';
+        helloText.classList.remove('hidden');
+      }, 400); // Matches the 0.4s transition in CSS
+    }, 2500); // Changes every 2.5s
+  }
+
 });
