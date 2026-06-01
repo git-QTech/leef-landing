@@ -425,4 +425,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2500); // Changes every 2.5s
   }
 
+  // Live Countdown to June 13th at 12pm EDT
+  const countdownDays = document.getElementById('countdown-days');
+  const countdownHours = document.getElementById('countdown-hours');
+  const countdownMinutes = document.getElementById('countdown-minutes');
+  const countdownSeconds = document.getElementById('countdown-seconds');
+
+  if (countdownDays && countdownHours && countdownMinutes && countdownSeconds) {
+    // June 13, 2026 at 12:00 PM Eastern Daylight Time (UTC-4)
+    const targetDate = new Date("2026-06-13T12:00:00-04:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdownDays.textContent = "00";
+        countdownHours.textContent = "00";
+        countdownMinutes.textContent = "00";
+        countdownSeconds.textContent = "00";
+        const countdownHeader = document.querySelector('.countdown-label');
+        if (countdownHeader) {
+          countdownHeader.textContent = "v1.0.0 is Live!";
+        }
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownDays.textContent = String(days).padStart(2, '0');
+      countdownHours.textContent = String(hours).padStart(2, '0');
+      countdownMinutes.textContent = String(minutes).padStart(2, '0');
+      countdownSeconds.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
 });
