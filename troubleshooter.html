@@ -67,7 +67,6 @@
     </a>
     <div class="nav-links">
       <a href="./">Home</a>
-      <a href="countdown">Countdown</a>
       <a href="docs">Docs</a>
       <a href="https://madebyqtech.substack.com" target="_blank" rel="noopener noreferrer">Blog</a>
       <a href="downloads" class="btn btn-primary" id="nav-download">Download</a>
@@ -90,10 +89,9 @@
             <div class="troubleshooter-options">
               <div class="troubleshooter-btn" data-next="installation-issues">I'm having trouble downloading, installing, or updating the browser</div>
               <div class="troubleshooter-btn" data-next="site-loading">A specific website isn't loading or looks broken</div>
-              <div class="troubleshooter-btn" data-next="youtube">YouTube or videos behave strangely</div>
-              <div class="troubleshooter-btn" data-next="audio">Music or audio stops in the background</div>
-              <div class="troubleshooter-btn" data-next="performance">The browser feels slow or laggy</div>
-              <div class="troubleshooter-btn" data-next="settings-privacy">I have questions about Settings, Privacy, or search suggestions</div>
+              <div class="troubleshooter-btn" data-next="search-privacy">Search & Privacy troubleshooting</div>
+              <div class="troubleshooter-btn" data-next="video-issues">Video player & audio troubleshooting</div>
+              <div class="troubleshooter-btn" data-next="performance">Performance troubleshooting</div>
               <div class="troubleshooter-btn" data-next="other-issues">Something else / Other error screens</div>
             </div>
           </div>
@@ -109,12 +107,22 @@
             </div>
           </div>
 
-          <!-- Settings & Privacy Step -->
-          <div class="troubleshooter-step" data-step="settings-privacy">
-            <div class="troubleshooter-question">What settings or privacy feature are you trying to configure?</div>
+          <!-- Search & Privacy Step -->
+          <div class="troubleshooter-step" data-step="search-privacy">
+            <div class="troubleshooter-question">What search or privacy feature are you trying to configure?</div>
             <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="search-fallback-result">Sometimes I google something and it redirects me to DuckDuckGo</div>
               <div class="troubleshooter-btn" data-next="setup">I want to clear my browsing data or start fresh (reset settings)</div>
               <div class="troubleshooter-btn" data-next="autocomplete-result">Address bar search suggestions aren't appearing as I type</div>
+            </div>
+          </div>
+
+          <!-- Video & Audio Issues Step -->
+          <div class="troubleshooter-step" data-step="video-issues">
+            <div class="troubleshooter-question">What kind of media issue are you experiencing?</div>
+            <div class="troubleshooter-options">
+              <div class="troubleshooter-btn" data-next="youtube">YouTube or videos behave strangely</div>
+              <div class="troubleshooter-btn" data-next="audio">Music or audio stops in the background</div>
             </div>
           </div>
 
@@ -332,6 +340,14 @@
             <button class="troubleshooter-reset">Start over</button>
           </div>
 
+          <div class="troubleshooter-step" data-step="search-fallback-result">
+            <div class="troubleshooter-result">
+              <h5>Suggested Solution: Automatic Search Engine Fallback</h5>
+              <p>This is expected behavior! Google is currently changing their search engine frequently, so some things may break with certain searches. To ensure you can always find what you're looking for, if a Google search fails, Leef automatically falls back to DuckDuckGo.</p>
+            </div>
+            <button class="troubleshooter-reset">Start over</button>
+          </div>
+
         </div>
 
         <div class="troubleshooter-footer" style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--overlay-border); text-align: center; font-size: 0.95rem; color: #666; display: flex; flex-direction: column; gap: 0.5rem; align-items: center; justify-content: center;">
@@ -362,7 +378,6 @@
           <ul class="footer-list">
             <li><a href="https://github.com/git-QTech/leef">GitHub</a></li>
             <li><a href="downloads">Downloads</a></li>
-            <li><a href="countdown">v1.0.0 Countdown</a></li>
             <li><a href="docs">Documentation</a></li>
             <li><a href="troubleshooter">Troubleshooter</a></li>
           </ul>

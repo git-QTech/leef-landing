@@ -254,67 +254,6 @@ a {
   font-weight: 400;
 }
 
-/* Hero Countdown Timer */
-.hero-countdown {
-  background: rgba(255, 255, 255, 0.45);
-  border: 1.5px solid rgba(23, 179, 64, 0.15);
-  border-radius: 28px;
-  padding: 1.5rem 2.5rem;
-  max-width: 580px;
-  margin: 0 auto 3.5rem;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
-  text-align: center;
-}
-
-.countdown-label {
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--primary-color);
-  margin-bottom: 1.25rem;
-}
-
-.countdown-timer-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.countdown-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 65px;
-}
-
-.countdown-num {
-  font-family: var(--font-display);
-  font-size: 2.75rem;
-  font-weight: 900;
-  color: var(--text-dark);
-  line-height: 1;
-}
-
-.countdown-unit {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #666;
-  margin-top: 0.4rem;
-  font-weight: 700;
-}
-
-.countdown-colon {
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  line-height: 1;
-  padding-bottom: 1.2rem;
-}
 
 .cta-container {
   display: flex;
