@@ -90,108 +90,128 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentVersionSpans = document.querySelectorAll('.current-version');
 
     try {
-      const response = await fetch('https://api.github.com/repos/git-QTech/leef/releases/latest');
+      const response = await fetch('https://api.github.com/repos/git-QTech/leef/releases');
       if (response.ok) {
-        const data = await response.json();
+        const releases = await response.json();
+        if (releases.length === 0) return;
 
-        // Update Version Text
-        if (data.tag_name) {
-          if (versionSpan) versionSpan.textContent = data.tag_name;
+        const latestRelease = releases[0];
+
+        // Update Version Text (Overall)
+        if (latestRelease.tag_name) {
+          if (versionSpan) versionSpan.textContent = latestRelease.tag_name;
           currentVersionSpans.forEach(span => {
-            span.textContent = data.tag_name;
+            span.textContent = latestRelease.tag_name;
           });
         }
 
-        // Update Download Links
-        if (data.assets) {
-          // Windows (.exe)
-          const exeAsset = data.assets.find(asset => asset.name.endsWith('.exe'));
-          if (exeAsset) {
-            if (winDownload) winDownload.href = exeAsset.browser_download_url;
-            if (winDownloadPage) winDownloadPage.href = exeAsset.browser_download_url;
+        // Find latest assets per OS
+        let winAsset = null, winRelease = null;
+        let macAsset = null, macRelease = null;
+        let linuxAsset = null, linuxRelease = null;
+
+        for (const release of releases) {
+          if (!winAsset && release.assets) {
+            winAsset = release.assets.find(asset => asset.name.endsWith('.exe'));
+            if (winAsset) winRelease = release;
           }
-
-          // macOS (.dmg / .pkg)
-          const dmgAsset = data.assets.find(asset => asset.name.endsWith('.dmg') || asset.name.endsWith('.pkg'));
-          if (dmgAsset) {
-            // Enable macOS Dropdown Download Link
-            if (macDownload) {
-              macDownload.href = dmgAsset.browser_download_url;
-              macDownload.classList.remove('disabled');
-            }
-            if (macDownloadStatus) {
-              macDownloadStatus.textContent = 'Direct Download (.dmg)';
-            }
-
-            // Enable macOS Downloads Page Card
-            if (macCard) {
-              macCard.classList.remove('disabled');
-              macCard.classList.add('featured');
-            }
-            if (macPill) {
-              macPill.textContent = 'Stable';
-              macPill.classList.remove('beta');
-            }
-            if (macVersionTag) {
-              macVersionTag.innerHTML = `Version <span class="current-version">${data.tag_name}</span> (Universal)`;
-            }
-            if (macDownloadPage) {
-              macDownloadPage.href = dmgAsset.browser_download_url;
-              macDownloadPage.style.display = 'inline-flex';
-            }
-            if (macBtnPlaceholder) {
-              macBtnPlaceholder.style.display = 'none';
-            }
-            if (openInstructions) {
-              openInstructions.style.display = 'inline-flex';
-            }
-            if (macRequirement) {
-              macRequirement.style.opacity = '1';
-              macRequirement.innerHTML = `
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                macOS 11.0 or later
-              `;
-            }
+          if (!macAsset && release.assets) {
+            macAsset = release.assets.find(asset => asset.name.endsWith('.dmg') || asset.name.endsWith('.pkg'));
+            if (macAsset) macRelease = release;
           }
+          if (!linuxAsset && release.assets) {
+            linuxAsset = release.assets.find(asset => asset.name.endsWith('.deb') || asset.name.endsWith('.rpm') || asset.name.endsWith('.AppImage'));
+            if (linuxAsset) linuxRelease = release;
+          }
+          if (winAsset && macAsset && linuxAsset) break;
+        }
 
-          // Linux (.deb / .rpm / .AppImage)
-          const linuxAsset = data.assets.find(asset => asset.name.endsWith('.deb') || asset.name.endsWith('.rpm') || asset.name.endsWith('.AppImage'));
-          if (linuxAsset) {
-            // Enable Linux Dropdown Download Link (takes to GitHub Release page)
-            if (linuxDownload) {
-              linuxDownload.href = data.html_url;
-              linuxDownload.classList.remove('disabled');
-            }
-            if (linuxDownloadStatus) {
-              linuxDownloadStatus.textContent = 'Choose Package (.deb, .rpm, .AppImage)';
-            }
+        // Update Windows Download Links
+        if (winAsset) {
+          if (winDownload) winDownload.href = winAsset.browser_download_url;
+          if (winDownloadPage) winDownloadPage.href = winAsset.browser_download_url;
+          
+          // Optionally update Windows version if it differs from the overall latest,
+          // though currentVersionSpans already set it to latestRelease.tag_name.
+          // Let's specifically target the Windows download card span if it exists.
+          const winCardVersion = document.querySelector('.download-card.featured .current-version');
+          if (winCardVersion && winRelease) {
+             winCardVersion.textContent = winRelease.tag_name;
+          }
+        }
 
-            // Enable Linux Downloads Page Card
-            if (linuxCard) {
-              linuxCard.classList.remove('disabled');
-            }
-            if (linuxPill) {
-              linuxPill.textContent = 'Stable';
-              linuxPill.classList.remove('beta');
-            }
-            if (linuxVersionTag) {
-              linuxVersionTag.innerHTML = `Version <span class="current-version">${data.tag_name}</span>`;
-            }
-            if (linuxDownloadPage) {
-              linuxDownloadPage.href = data.html_url;
-              linuxDownloadPage.style.display = 'inline-flex';
-            }
-            if (linuxBtnPlaceholder) {
-              linuxBtnPlaceholder.style.display = 'none';
-            }
+        // Update macOS Download Links
+        if (macAsset) {
+          if (macDownload) {
+            macDownload.href = macAsset.browser_download_url;
+            macDownload.classList.remove('disabled');
+          }
+          if (macDownloadStatus) {
+            macDownloadStatus.textContent = 'Direct Download (.dmg)';
+          }
+          if (macCard) {
+            macCard.classList.remove('disabled');
+            macCard.classList.add('featured');
+          }
+          if (macPill) {
+            macPill.textContent = 'Stable';
+            macPill.classList.remove('beta');
+          }
+          if (macVersionTag) {
+            macVersionTag.innerHTML = `Version <span class="current-version">${macRelease.tag_name}</span> (Universal)`;
+          }
+          if (macDownloadPage) {
+            macDownloadPage.href = macAsset.browser_download_url;
+            macDownloadPage.style.display = 'inline-flex';
+          }
+          if (macBtnPlaceholder) {
+            macBtnPlaceholder.style.display = 'none';
+          }
+          if (openInstructions) {
+            openInstructions.style.display = 'inline-flex';
+          }
+          if (macRequirement) {
+            macRequirement.style.opacity = '1';
+            macRequirement.innerHTML = `
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              macOS 11.0 or later
+            `;
+          }
+        }
+
+        // Update Linux Download Links
+        if (linuxAsset) {
+          if (linuxDownload) {
+            linuxDownload.href = linuxRelease.html_url;
+            linuxDownload.classList.remove('disabled');
+          }
+          if (linuxDownloadStatus) {
+            linuxDownloadStatus.textContent = 'Choose Package (.deb, .rpm, .AppImage)';
+          }
+          if (linuxCard) {
+            linuxCard.classList.remove('disabled');
+          }
+          if (linuxPill) {
+            linuxPill.textContent = 'Stable';
+            linuxPill.classList.remove('beta');
+          }
+          if (linuxVersionTag) {
+            linuxVersionTag.innerHTML = `Version <span class="current-version">${linuxRelease.tag_name}</span>`;
+          }
+          if (linuxDownloadPage) {
+            linuxDownloadPage.href = linuxRelease.html_url;
+            linuxDownloadPage.style.display = 'inline-flex';
+          }
+          if (linuxBtnPlaceholder) {
+            linuxBtnPlaceholder.style.display = 'none';
           }
         }
       }
     } catch (error) {
-      console.log('GitHub API fetch failed, using fallback links.');
+      console.log('GitHub API fetch failed, using fallback links.', error);
     }
   }
 
