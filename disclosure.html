@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transparency Disclosure - Leef Browser</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="style.css?v=1.0.8">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="canonical" href="https://leefbrowser.site/disclosure">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://leefbrowser.site/disclosure">
+  <meta property="og:title" content="Transparency Disclosure - Leef Browser">
+  <meta property="og:description" content="AI usage and code provenance disclosure for Leef Browser.">
+  <meta property="og:image" content="https://leefbrowser.site/logo.svg">
+  <meta property="og:site_name" content="Leef Browser">
+</head>
+
+<body class="docs-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav class="navbar">
+    <a href="./" class="brand">
+      <img src="logo.svg" alt="Leef Logo" width="32" height="32">
+      Leef
+    </a>
+    <div class="nav-links">
+      <a href="./">Home</a>
+      <a href="docs">Docs</a>
+      <a href="https://madebyqtech.substack.com" target="_blank" rel="noopener noreferrer">Blog</a>
+      <a href="downloads" class="btn btn-primary" id="nav-download">Download</a>
+    </div>
+  </nav>
+
+  <header class="docs-hero">
+    <div class="container" style="display: flex; align-items: center; gap: 4rem; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 300px;">
+        <div class="pill-beta">Transparency & Provenance</div>
+        <h1>AI & Codebase Disclosure</h1>
+        <p>Documenting the history and evolution of the Leef codebase.</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container docs-container" style="grid-template-columns: 1fr;">
+    <article class="docs-content" style="max-width: 800px; margin: 0 auto;">
+      <section class="docs-section">
+        <h2>Code Provenance</h2>
+        <p>Transparency is a core value of QTech and the Leef project. In line with this commitment, we disclose the
+          following regarding the development and creation of Leef Browser:</p>
+
+        <div class="docs-card"
+          style="background: rgba(23, 179, 64, 0.03); border: 1.5px solid var(--overlay-border); padding: 2.5rem;">
+          <h4 style="margin-bottom: 1rem; color: var(--primary-color);">AI &amp; Code Generation Disclosure</h4>
+          <p style="font-size: 1.15rem; line-height: 1.7; color: var(--text-dark); margin: 0; font-weight: 500;">
+            Leef, when it was first launched, was made up of mostly AI generated code.
+          </p>
+          <p style="margin-top: 1rem; line-height: 1.7; color: var(--text-dark); margin: 0;">
+            Today, while we still utilize AI tools during development for brainstorming, organization, and scaffolding
+            (such as writing comments), we manually write a substantial portion of our code and test all features and
+            updates extensively.
+          </p>
+        </div>
+
+        <h3 style="margin-top: 3rem;">App Translations</h3>
+        <p>Artificial intelligence is also used to power some of the in-app localization. Specifically, the
+          <strong>French</strong> and <strong>Spanish</strong> translations in Leef Browser are AI-generated, while the
+          <strong>Dutch</strong> translation is fully human-translated.
+        </p>
+
+        <h3 style="margin-top: 3rem;">Development Tools vs. App Features</h3>
+        <p>It is important to distinguish between <em>how</em> Leef is developed and <em>what</em> is in the final
+          product. While we use generative AI during our software design, brainstorming, and code-authoring phases, Leef
+          Browser itself contains <strong>no embedded AI models, local LLMs, sidebar assistants, or server-side AI
+            integrations</strong>.</p>
+        <p>Unlike other modern browsers that force bloated AI features onto users—resulting in heavy RAM usage, faster
+          battery drain, and forced cloud telemetry—Leef remains completely free of this overhead. Our UI has no "smart"
+          search summary boxes, no automated writing assistants, and zero tracking scripts disguised as personalization
+          features. We use AI to help build the browser, but we refuse to ship it to our users.</p>
+
+        <h3 style="margin-top: 3rem;">Security &amp; License Compliance</h3>
+        <p>Using AI in software development introduces unique challenges around code safety and IP cleanliness. To
+          protect both our end-users and developers who fork our open-source codebase, we enforce strict compliance
+          checks on all code inputs:</p>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; display: grid; gap: 0.75rem; margin-top: 0.5rem;">
+          <li><strong>Vulnerability &amp; Code Quality Audits:</strong> AI code can sometimes introduce subtle bugs,
+            logic flaws, or security vulnerabilities (commonly referred to as "hallucinations"). Every line of code
+            proposed by an AI assistant is reviewed, refactored, and audited line-by-line by human eyes before it enters
+            our production branch. We test and review memory allocations, network behaviors, and system calls to ensure
+            the browser remains bulletproof.</li>
+          <li><strong>IP Cleanliness &amp; GPL Contamination Auditing:</strong> AI models are trained on varied
+            codebases, which can occasionally lead to the output of copyrighted or copyleft code blocks (e.g.,
+            GPL-licensed snippets). We run strict audits on our codebase to ensure no restricted licenses contaminate
+            our project. This guarantees that Leef remains entirely safe and legally clean under the <strong>CC0 1.0
+              Universal Public Domain Dedication</strong>.</li>
+        </ul>
+
+        <h3 style="margin-top: 3rem;">Testing &amp; Maintenance</h3>
+        <p>Every update, release, and feature is hand-tested and audited to guarantee the integrity of Leef's
+          privacy-first design, ensuring that zero telemetry or user data is ever collected or transmitted.</p>
+      </section>
+
+      <section class="docs-section">
+        <h2>Our Stance on AI</h2>
+
+        <p>AI should be feared. Or at the very least, it should be taken extremely seriously—because right now, there
+          are virtually no regulations, no guardrails, and no accountability being placed on the companies building it.
+          Without those things, AI is not just disruptive; it is genuinely dangerous.</p>
+
+        <p><strong>The problem is what is being done with it, and who is making those decisions.</strong></p>
+
+        <p>Right now, in 2026, every major tech company on the planet is racing to cram artificial intelligence into
+          every single product, service, and interface they control—not because users asked for it, not because it makes
+          the product better, and not because it solves a real problem. They are doing it because investors demand it.
+          They are doing it because Wall Street has decided that "AI" is the magic word that makes stock prices go up,
+          and so every product manager at every company is under enormous pressure to ship <em>something</em> with AI in
+          it, regardless of whether it belongs there.</p>
+
+        <p>And so now we live in a world where:</p>
+
+        <ul style="list-style-type: disc; padding-left: 1.5rem; display: grid; gap: 0.75rem; margin-top: 0.5rem;">
+          <li>You open your <strong>web browser</strong> and an AI sidebar you never asked for is summarizing web pages
+            you haven't finished reading yet, sending your browsing data to a cloud server in the process.</li>
+          <li>You open a <strong>spreadsheet</strong> to do your taxes and a floating AI button is offering to "help"
+            you by analyzing your financial data—data that is now being processed on someone else's server, somewhere
+            you can't see or audit.</li>
+          <li>You open your <strong>email client</strong> and AI is pre-writing your responses for you, because
+            apparently the act of writing a sentence to another human being is now too burdensome to do yourself.</li>
+          <li>You open your <strong>photo gallery</strong> and AI has decided to "enhance" your memories without asking,
+            or worse, is scanning every image you've ever taken to train a model you'll never benefit from.</li>
+          <li>You open your <strong>file manager</strong> and AI wants to read your Google Drive, your Dropbox, your
+            local documents—indexing everything, understanding everything, reporting back to a datacenter about
+            everything.</li>
+          <li>You try to <strong>search the internet</strong> and instead of getting links to websites written by real
+            people, you get a generated paragraph of text that may or may not be accurate, that cites sources it may or
+            may not have actually read, and that has effectively stolen traffic from the creators who actually wrote the
+            content.</li>
+        </ul>
+
+        <p>None of this was asked for. None of this was needed. None of this makes the product meaningfully better for
+          the person using it. It makes the <em>metrics</em> better. It makes the <em>investor pitch</em> better. It
+          makes the <em>quarterly earnings call</em> sound better. But for the actual human sitting at their desk trying
+          to get work done, it is noise. It is bloat. It is an invasion of space that used to belong to them.</p>
+
+        <h3 style="margin-top: 3rem;">The Environmental Cost</h3>
+
+        <p>And then there is the part that makes us genuinely angry: the environmental cost.</p>
+
+        <p>Training and running large-scale AI models requires an almost incomprehensible amount of energy. The
+          datacenters that power these models consume electricity at a scale that rivals small countries. They require
+          millions of gallons of water for cooling. They are being built at a pace that is outstripping the capacity of
+          renewable energy grids, which means that in practice, a significant portion of the energy powering your
+          "helpful" AI sidebar is coming from fossil fuels.</p>
+
+        <p>We are in the middle of a climate crisis. Temperatures are breaking records every single year. Ecosystems are
+          collapsing. And the response from the largest, wealthiest, most powerful technology companies on Earth is to
+          build more datacenters. More GPU farms. More cooling systems. More power plants. Not to cure cancer. Not to
+          model climate solutions. Not to make clean water accessible. To summarize your emails. To autocomplete your
+          spreadsheet. To generate a picture of a cat wearing a hat.</p>
+
+        <p>The people who have the power to decide what AI is used for—the executives, the board members, the venture
+          capitalists—are not making decisions based on what is good for humanity. They are making decisions based on
+          what is good for the next quarter. They are making decisions that please investors. And those decisions are,
+          quite literally, destroying the planet so that you can have a chatbot in your notepad app.</p>
+
+        <p>There are no guardrails. There is no serious regulatory framework. There is no accountability for the
+          environmental damage. There is no requirement to prove that a given AI integration actually benefits the user
+          before it ships. The incentive structure is broken from top to bottom, and regular people are paying the
+          price—in higher energy costs, in degraded product experiences, in lost privacy, and in a warming planet.</p>
+
+        <h3 style="margin-top: 3rem;">Where AI Actually Matters</h3>
+
+        <p>Here is what we believe: AI should be used where it genuinely helps people in ways they cannot help
+          themselves.</p>
+
+        <ul style="list-style-type: disc; padding-left: 1.5rem; display: grid; gap: 0.75rem; margin-top: 0.5rem;">
+          <li><strong>Medicine:</strong> AI that can detect early-stage tumors, predict drug interactions, accelerate
+            vaccine development, and assist surgeons in real-time is saving lives. That is worth the compute. That is
+            worth the energy. That is worth the investment.</li>
+          <li><strong>Accessibility:</strong> AI that helps blind users navigate the web, that provides real-time
+            captioning for deaf users, that translates sign language, that makes technology usable for people who were
+            previously excluded—that is a genuine, undeniable good.</li>
+          <li><strong>Climate Science:</strong> AI that models weather patterns, optimizes energy grids, predicts
+            wildfires, and helps researchers understand the staggering complexity of global ecosystems—that is the kind
+            of application that justifies the infrastructure.</li>
+          <li><strong>Education:</strong> AI that provides personalized tutoring to students who can't afford private
+            instruction, that translates educational materials into underserved languages, that helps teachers identify
+            struggling students earlier—that has real, measurable impact on real people's lives.</li>
+          <li><strong>Scientific Research:</strong> AI that accelerates materials science, that maps protein structures,
+            that helps physicists process particle collision data, that enables breakthroughs that would take human
+            researchers decades—that is transformative in the truest sense of the word.</li>
+        </ul>
+
+        <p>These are the applications that make us excited about AI. These are the use cases that justify the energy,
+          the water, the silicon, and the engineering talent. These are the things that make us say "yes, this
+          technology is worth it."</p>
+
+        <p>What does <em>not</em> make us say that is an AI-powered search summary that hallucinates fake citations. Or
+          an AI assistant in a word processor that nobody asked for. Or an AI feature in a web browser that reads your
+          tabs and sends the data to a server farm powered by natural gas.</p>
+
+        <h3 style="margin-top: 3rem;">Where We Stand</h3>
+
+        <p>We are not against AI. We do not think the technology is inherently evil. Artificial intelligence, when
+          applied thoughtfully and responsibly, has the potential to be one of the most transformative and genuinely
+          <em>good</em> technologies humanity has ever developed. The examples above prove that.
+        </p>
+
+        <p>And we use AI ourselves. We just told you that on this very page. We used it to scaffold the earliest
+          versions of Leef. We use it today to brainstorm, to organize, to generate boilerplate, and to translate our
+          app into languages we don't personally speak fluently. We even use it to clean up our own writing. We'll be
+          the first to admit we don't always write perfectly, and we sometimes struggle with flow. We wrote this entire
+          statement ourselves, from our own minds and beliefs, but we used AI to help edit it, clean up the structure,
+          and make it read better.</p>
+
+        <p>Using AI as an editor is fine. But entrusting AI to act as a ghostwriter to generate entire articles from
+          scratch, which is exactly what some major news organizations and corporations are doing right now, is not
+          fine. The technology itself is not the problem. The problem is the reckless, profit-driven, investor-obsessed
+          way it is being deployed by the companies that control it.</p>
+
+        <h3 style="margin-top: 3rem;">Human Creativity &amp; Design Integrity</h3>
+
+        <p>There is another domain where we draw a hard line: <strong>human design and creative expression.</strong></p>
+
+        <p>Leef Browser was not generated by a prompt. The original UI and visual concept of Leef was carefully crafted
+          in <strong>Figma for a school project back in 2022</strong>. Every single page, layout, component, icon
+          alignment, and color palette across the entire browser and website was designed by real human beings. We built
+          this project through human trial, error, iteration, and artistic choice.</p>
+
+        <p>We firmly believe that artificial intelligence should not take away the creative aspects of design. AI does
+          not belong in creative fields—whether that is fine art, graphic design, typography, illustration, or standard
+          Photoshop editing work. Design is a form of communication and human thought. Replacing that process with
+          automated image generators and prompt engineering strips away genuine craft and human soul.</p>
+
+        <p>This extends far beyond visual design. The rise of "AI music" is an absolute disgrace to the art form.
+          Musicians, producers, and audio engineers are some of the most talented, dedicated people in the world. The
+          idea that someone can type a sentence into a text box, have a machine spit out a generated song, and then
+          attempt to monetize it while contributing zero actual effort or creativity is absurd. The same goes for
+          animation. These are mediums that require years of practice, passion, and human expression—things a server
+          farm cannot replicate.</p>
+
+        <p>Worse yet, forcing AI into creative tasks is conditioning younger generations and developing minds to rely on
+          machine-generated output instead of learning to think, solve problems, and create for themselves. It breeds a
+          culture of passive consumption over active creation. That is a trend we refuse to sit by and watch without
+          speaking out.</p>
+
+        <h3 style="margin-top: 3rem;">What This Means for Leef</h3>
+
+        <p>Leef will never ship AI features to our users. Not because we hate AI—we literally use it to build the
+          product—but because we believe a web browser is not the place for it. A browser should do one thing
+          exceptionally well: let you access the internet quickly, privately, and without getting in your way. That's
+          it. You don't need a chatbot while you're reading the news. You don't need a content summarizer while you're
+          shopping for groceries. You don't need your browsing habits analyzed by a language model so that an
+          advertising company can serve you more targeted ads.</p>
+
+        <p>We are a tiny team. Two people. We don't have investors to please. We don't have a board of directors
+          breathing down our necks demanding AI integration by Q3. We don't have quarterly earnings calls where we need
+          to say the word "AI" fourteen times to keep the stock price up. We answer to our users and to ourselves. And
+          our users came to Leef because they wanted something clean, something fast, something that respects their time
+          and their privacy. Adding AI features would betray every single one of those people.</p>
+
+        <p>So yes—we use AI to build Leef. We are transparent about that. We think that's a perfectly reasonable use of
+          the technology. But we will never, ever force it on the people who use our browser. That is a line we will not
+          cross.</p>
+
+        <p>If the tech industry wants to use AI to cure diseases and save the planet, we'll be the first ones cheering.
+          But if the best they can come up with is an AI-powered emoji picker and a chatbot that reads your Google
+          Drive, then they can count us out.</p>
+
+        <p style="margin-top: 2rem; font-style: italic; opacity: 0.7;">— The QTech Team</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <div class="brand-footer">
+            <img src="logo.svg" alt="Leef Logo" width="24" height="24">
+            Leef
+          </div>
+          <p class="footer-tagline">Fast, clean, open-source browsing.<br>No AI. No slop. Built by QTech.</p>
+        </div>
+
+        <div class="footer-links-col">
+          <div class="footer-heading">Project</div>
+          <ul class="footer-list">
+            <li><a href="https://github.com/git-QTech/leef">GitHub</a></li>
+            <li><a href="downloads">Downloads</a></li>
+            <li><a href="docs">Documentation</a></li>
+            <li><a href="troubleshooter">Troubleshooter</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <div class="footer-heading">Community</div>
+          <ul class="footer-list">
+            <li><a href="https://bsky.app/profile/leefbrowser.bsky.social">Leef on Bluesky</a></li>
+            <li><a href="https://bsky.app/profile/qtech.bsky.social">QTech on Bluesky</a></li>
+            <li><a href="https://madebyqtech.substack.com" target="_blank">Blog</a></li>
+            <li><a href="docs#bug-reporting">Report a Bug</a></li>
+            <li><a href="https://github.com/git-QTech/leef/issues">Contribute</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <div class="footer-heading">Legal</div>
+          <ul class="footer-list">
+            <li><a href="privacy">Privacy Policy</a></li>
+            <li><a href="security">Security Policy</a></li>
+            <li><a href="codebase-policy">Codebase & Fork Policy</a></li>
+            <li><a href="licensing">Licensing</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          &copy; 2026 QTech &bull; Proudly Made in Canada 🇨🇦 &bull; Leef Browser is CC0 public domain
+        </div>
+        <div class="footer-bottom-right">
+          <span class="license-pill">CC0 1.0 — Leef Browser</span>
+          <span class="license-pill" style="margin-left: 0.5rem;">&copy; All Rights Reserved — This Site</span>
+        </div>
+      </div>
+      <p style="font-size: 0.72rem; opacity: 0.45; text-align: center; margin-top: 1.5rem; line-height: 1.5;">* Leef
+        Browser
+        itself sends zero telemetry. As a Chromium-based browser, some engine-level signals (e.g. safe-browsing checks)
+        may reach Google. We strip what we can but cannot control the underlying Chromium engine.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
