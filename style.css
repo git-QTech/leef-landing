@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800;900&display=swap');
 
+@font-face {
+  font-family: 'Leef Sans';
+  src: url('./LeefSans-Regular-v1.3.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Leef Sans';
+  src: url('./LeefSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
 html {
   scroll-padding-top: 80px;
   scroll-behavior: smooth;
@@ -13,7 +27,7 @@ html {
   --card-bg: #cffebb;
   --text-dark: #111;
 
-  --font-display: 'Outfit', 'Georgia', serif;
+  --font-display: 'Leef Sans', 'Outfit', 'Georgia', serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   --overlay-bg: rgba(23, 179, 64, 0.05);
@@ -38,10 +52,15 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 .brand {
   font-family: var(--font-display);
+  font-weight: 600;
   line-height: 1.1;
   color: var(--text-dark);
+  letter-spacing: -0.04em;
+  word-spacing: -0.05em;
 }
 
 a {
@@ -70,13 +89,13 @@ a {
 
 .brand {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 600;
   font-size: 1.65rem;
   display: flex;
   align-items: center;
   gap: 0.12rem;
   color: var(--primary-color);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
   text-decoration: none;
 }
 
@@ -486,7 +505,7 @@ a {
 }
 
 .why-content h2 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin-bottom: 2rem;
 }
 
