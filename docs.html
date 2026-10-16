@@ -7,7 +7,7 @@
   <title>Documentation - Leef Browser</title>
   <meta name="description"
     content="Learn how to get the most out of Leef Browser. Detailed guides on privacy tools, efficiency mode, and AI-blocking features.">
-  <link rel="stylesheet" href="style.css?v=1.0.8">
+  <link rel="stylesheet" href="style.css?v=1.2.1">
   <link rel="icon" type="image/svg+xml" href="logo.svg">
   <!-- Canonical URL -->
   <link rel="canonical" href="https://leefbrowser.site/docs">
@@ -544,28 +544,50 @@
 
         <div class="docs-card">
           <span class="feature-tag">Windows</span>
-          <h4>Windows Installation</h4>
-          <p>1. Grab the latest <code>.exe</code> from our <a href="https://github.com/git-QTech/leef/releases">GitHub
-              Releases</a> page.</p>
-          <p>2. Run the installer. You may see a "Windows Protected your PC" popup: this is because we haven't
-            purchased a code-signing certificate yet. Click <strong>More Info</strong> and then <strong>Run
+          <h4>Windows Installation (64-bit)</h4>
+          <p>1. Grab the latest <code>.exe</code> installer from our <a href="https://github.com/git-QTech/leef/releases">GitHub
+              Releases</a> page or the <a href="downloads">Downloads page</a>.</p>
+          <p>2. Run the installer. You may see a "Windows Protected your PC" SmartScreen alert: this is because we haven't
+            purchased an expensive code-signing certificate yet. Click <strong>More Info</strong> and then <strong>Run
               Anyway</strong>.</p>
-          <p>3. Leef installs and launches automatically. No bundled extras, just the browser.</p>
+          <p>3. Leef installs and launches automatically. No bundled extras or adware.</p>
         </div>
 
         <div class="docs-card">
           <span class="feature-tag">macOS</span>
-          <h4>macOS Installation</h4>
+          <h4>macOS Installation (Universal)</h4>
           <p>1. Download the latest Universal <code>.dmg</code> from our <a href="https://github.com/git-QTech/leef/releases">GitHub
-              Releases</a> page.</p>
+              Releases</a> page or <a href="downloads">Downloads page</a>. It runs natively on both Apple Silicon (M1&ndash;M4) and Intel Macs.</p>
           <p>2. Double-click the downloaded <code>.dmg</code> file to mount it.</p>
           <p>3. Drag the <strong>Leef</strong> icon into your <strong>Applications</strong> folder.</p>
-          <p>4. Since we do not sign our builds with an Apple Developer certificate yet, you will need to right-click the app in your Applications folder and select <strong>Open</strong> on the first launch to bypass the system Gatekeeper check.</p>
+          <p>4. Since our builds are not signed with an Apple Developer certificate, right-click the app in your Applications folder and select <strong>Open</strong> on the first launch to bypass Gatekeeper.</p>
+        </div>
+
+        <div class="docs-card">
+          <span class="feature-tag">Linux</span>
+          <h4>Linux Installation (x86_64 AppImage)</h4>
+          <p>1. Download the latest <code>.AppImage</code> package from our <a href="https://github.com/git-QTech/leef/releases">GitHub Releases</a> page or <a href="downloads">Downloads page</a>.</p>
+          <p>2. Mark the file executable: <code>chmod +x Leef-Browser-*.AppImage</code>.</p>
+          <p>3. Launch the AppImage directly from your terminal or file manager.</p>
+        </div>
+
+        <div class="docs-card">
+          <span class="feature-tag">Verification</span>
+          <h4>Verify Download Authenticity &amp; Inspect Code</h4>
+          <p>All releases provide an official <code>SHA256SUMS.txt</code> file so you can prove your installer matches the open-source code:</p>
+          <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem; display: grid; gap: 0.5rem; font-size: 0.95rem;">
+            <li><strong>Windows (PowerShell):</strong> <code>Get-FileHash .\leef-browser-setup-*.exe -Algorithm SHA256</code></li>
+            <li><strong>macOS (Terminal):</strong> <code>shasum -a 256 Leef-Browser-*-universal.dmg</code></li>
+            <li><strong>Linux (Terminal):</strong> <code>sha256sum Leef-Browser-*.AppImage</code></li>
+          </ul>
+          <p style="margin-top: 0.75rem;">
+            Because Leef is 100% open source under CC0 1.0 Universal, you can also unpack the packaged frontend source code directly with <code>npx @electron/asar extract resources/app.asar ./unpacked-code</code> and audit every line of JavaScript, HTML, and CSS against our GitHub repository.
+          </p>
         </div>
 
         <div class="docs-notice">
-          <strong>Note</strong>
-          <p>On restricted networks, you may need to run the installer as an administrator.</p>
+          <strong>Architecture Note</strong>
+          <p>macOS is our only universal build, supporting Apple Silicon and Intel natively. Windows and Linux support 64-bit (x86_64) processors. Native ARM support is not currently planned for standard Windows or Linux hardware.</p>
         </div>
       </section>
 

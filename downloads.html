@@ -7,7 +7,7 @@
   <title>Downloads - Leef Browser</title>
   <meta name="description"
     content="Download Leef Browser for Windows, macOS, and Linux. The lightweight, privacy-first Chromium browser.">
-  <link rel="stylesheet" href="style.css?v=1.0.9">
+  <link rel="stylesheet" href="style.css?v=1.2.1">
   <link rel="icon" type="image/svg+xml" href="logo.svg">
   <!-- Canonical URL -->
   <link rel="canonical" href="https://leefbrowser.site/downloads">
@@ -67,8 +67,8 @@
               </svg>
             </div>
             <h3>Windows</h3>
-            <div class="version-tag">Version <span class="current-version">v?.?.?</span> (x64)</div>
-            <a href="#" class="btn btn-primary" id="win-download-page">
+            <div class="version-tag">Version <span class="current-version">v1.2.1</span> (x64)</div>
+            <a href="https://github.com/git-QTech/leef/releases/latest" class="btn btn-primary" id="win-download-page">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
                 stroke-linejoin="round" style="width: 18px; height: 18px; margin-right: 8px;">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -78,7 +78,7 @@
               Download for Windows
             </a>
 
-            <button class="instructions-link" id="open-instructions">
+            <button class="instructions-link" id="open-instructions" data-target-tab="tab-install" data-target-os="win">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -90,8 +90,8 @@
           </div>
 
           <!-- macOS -->
-          <div class="download-card disabled" id="mac-card">
-            <div class="platform-pill beta" id="mac-pill">Coming Soon</div>
+          <div class="download-card featured" id="mac-card">
+            <div class="platform-pill" id="mac-pill">Universal</div>
             <div class="platform-icon">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path
@@ -99,9 +99,8 @@
               </svg>
             </div>
             <h3>macOS</h3>
-            <div class="version-tag" id="mac-version-tag">Universal Build (Intel/Apple)</div>
-            <a href="https://github.com/git-QTech/leef/releases/latest" class="btn btn-primary" id="mac-download-page"
-              style="display: none;">
+            <div class="version-tag" id="mac-version-tag">Version <span class="current-version">v1.2.1</span> (Universal)</div>
+            <a href="https://github.com/git-QTech/leef/releases/latest" class="btn btn-primary" id="mac-download-page">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
                 stroke-linejoin="round" style="width: 18px; height: 18px; margin-right: 8px;">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -111,9 +110,7 @@
               Download for macOS
             </a>
 
-            <button class="btn" disabled id="mac-btn-placeholder">Download</button>
-
-            <button class="instructions-link" id="open-instructions" style="display: none;">
+            <button class="instructions-link" data-target-tab="tab-install" data-target-os="mac">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -125,8 +122,8 @@
           </div>
 
           <!-- Linux -->
-          <div class="download-card disabled" id="linux-card">
-            <div class="platform-pill beta" id="linux-pill">Coming Soon</div>
+          <div class="download-card featured" id="linux-card">
+            <div class="platform-pill" id="linux-pill">Stable</div>
             <div class="platform-icon">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path
@@ -134,9 +131,8 @@
               </svg>
             </div>
             <h3>Linux</h3>
-            <div class="version-tag" id="linux-version-tag">Debian, RPM, and AppImage</div>
-            <a href="https://github.com/git-QTech/leef/releases/latest" class="btn btn-primary" id="linux-download-page"
-              style="display: none;">
+            <div class="version-tag" id="linux-version-tag">Version <span class="current-version">v1.2.1</span> (x86_64 AppImage)</div>
+            <a href="https://github.com/git-QTech/leef/releases/latest" class="btn btn-primary" id="linux-download-page">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
                 stroke-linejoin="round" style="width: 18px; height: 18px; margin-right: 8px;">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -145,7 +141,16 @@
               </svg>
               Download for Linux
             </a>
-            <button class="btn" disabled id="linux-btn-placeholder">Download</button>
+
+            <button class="instructions-link" data-target-tab="tab-install" data-target-os="linux">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              Installation & Build Instructions
+            </button>
           </div>
         </div>
       </div>
@@ -189,29 +194,28 @@
       <div class="container">
         <div class="info-grid">
           <div class="info-box">
-            <h4>Release Information</h4>
-            <p>Leef Browser follows a rapid release cycle. Stable builds are thoroughly tested for daily use, but you
-              can
-              also get it from GitHub and check our source code. We want to be completely open about how everything
-              works.
-            </p>
-            <div class="alert note" style="margin-top: 1.5rem; line-height: 1.5;">
-              <strong>Why are macOS & Linux versions sometimes behind?</strong>
-              We are a small team of two, and we want to be completely transparent. Building and thoroughly testing
-              across multiple operating systems takes time. Rather than rush out half-baked builds, we take the time
-              needed to get them right for every platform. Windows will generally have the most up-to-date releases
-              while we work to ensure parity across macOS and Linux. We appreciate your patience!
+            <h4>Verify Your Download</h4>
+            <p>Every Leef release is cryptographically hashed with SHA-256 so you can verify that what you download has not been altered and matches the official open-source release byte-for-byte.</p>
+            <p>Because Leef is released under <strong>CC0 1.0 Universal</strong>, there are no black boxes. You can inspect the hash list or extract the package source code directly on your machine to audit the code yourself.</p>
+            <div class="info-box-actions">
+              <a href="https://github.com/git-QTech/leef/releases/latest" id="checksum-file-link" class="card-btn"
+                target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                View SHA256SUMS.txt
+              </a>
+              <button type="button" class="card-btn" id="open-verify-modal" data-target-tab="tab-verify">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                How to Verify Hashes
+              </button>
             </div>
-            <a href="https://github.com/git-QTech/leef/releases" class="card-btn"
-              style="background: white; margin-top: 1rem;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                </path>
-              </svg>
-              View Release Notes on GitHub
-            </a>
           </div>
           <div class="info-box">
             <h4>System Requirements</h4>
@@ -221,21 +225,21 @@
                   stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                Windows 10 or later (64-bit)
+                Windows 10 or later (64-bit / x86_64)
               </li>
               <li id="mac-requirement">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
                   stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                macOS 11.0 or later
+                macOS 11.0 or later (Universal: Apple Silicon &amp; Intel)
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
                   stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                Any Linux distribution supporting AppImage (64-bit)
+                Any Linux distribution supporting AppImage (64-bit / x86_64)
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
@@ -245,8 +249,8 @@
                 Minimum 4GB RAM recommended
               </li>
               <li
-                style="opacity: 0.6; font-size: 0.9em; margin-top: 1rem; border-top: 1px solid var(--overlay-border); padding-top: 1rem;">
-                <strong>Note:</strong> Native ARM support is not planned; Apple Silicon is supported via Rosetta 2.
+                style="opacity: 0.65; font-size: 0.88rem; margin-top: 0.75rem; border-top: 1px solid var(--overlay-border); padding-top: 0.75rem;">
+                <strong>Note:</strong> macOS is Universal; PC builds are 64-bit (x86_64; no ARM).
               </li>
             </ul>
           </div>
@@ -256,50 +260,264 @@
 
     <!-- Instructions Modal -->
     <div class="modal-overlay" id="instructions-modal">
-      <div class="modal-content">
-        <button class="close-modal" id="close-instructions">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"
+      <div class="modal-content instructions-modal-card">
+        <button class="close-modal" id="close-instructions" aria-label="Close modal">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"
             stroke-linecap="round" stroke-linejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
-        <h3>Installation & Build</h3>
 
-        <div class="details-section" style="border-top: none; padding-top: 0;">
-          <h5>Download & Install</h5>
+        <div class="modal-header-block">
+          <div class="modal-badge-pill">Help &amp; Verification</div>
+          <h3>Guides &amp; Verification</h3>
+          <p class="modal-subtitle">Step-by-step setup, cryptographic hash verification, and source code audit.</p>
+        </div>
 
-          <h6 style="margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1.1em; color: var(--tab-active);">Windows</h6>
-          <ol>
-            <li>Click the <strong>Download for Windows</strong> button on this page.</li>
-            <li>Run the <code>.exe</code> installer once the download completes.</li>
-          </ol>
-          <div class="alert note" style="margin-bottom: 1.5rem;">
-            <strong>Windows SmartScreen:</strong> You may see a "Windows protected your PC" warning on first run. Click
-            <strong>More Info &rarr; Run Anyway</strong> to proceed.
+        <!-- Category Tabs -->
+        <div class="modal-nav-tabs" role="tablist">
+          <button class="modal-tab-btn active" data-tab="tab-install" role="tab" aria-selected="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Installation Guide
+          </button>
+          <button class="modal-tab-btn" data-tab="tab-verify" role="tab" aria-selected="false">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            Verify Checksums
+          </button>
+          <button class="modal-tab-btn" data-tab="tab-build" role="tab" aria-selected="false">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            Audit &amp; Build
+          </button>
+        </div>
+
+        <!-- TAB 1: INSTALLATION -->
+        <div class="modal-tab-pane active" id="tab-install" role="tabpanel">
+          <!-- OS Subtabs -->
+          <div class="modal-subtabs">
+            <button class="subtab-btn active" data-os="win">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                <path d="M3 12L10 13V5L3 6V12ZM11 13.14L21 14.5V4L11 5.43V13.14ZM3 13V19L10 20V13.14L3 13ZM11 20L21 21.5V14.64L11 13.29V20Z"/>
+              </svg>
+              Windows (64-bit)
+            </button>
+            <button class="subtab-btn" data-os="mac">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                <path d="M18.71,19.5C17.88,20.74,17,21.95,15.66,21.97C14.32,22,13.89,21.18,12.37,21.18C10.84,21.18,10.37,21.95,9.1,22C7.79,22.05,6.8,20.68,5.96,19.47C4.25,17,2.94,12.45,4.7,9.39C5.57,7.87,7.13,6.91,8.82,6.88C10.1,6.86,11.32,7.75,12.11,7.75C12.89,7.75,14.37,6.68,15.92,6.84C16.57,6.87,18.39,7.1,19.56,8.82C19.47,8.88,17.39,10.1,17.41,12.63C17.44,15.65,20.06,16.66,20.09,16.67C20.06,16.74,19.67,18.11,18.71,19.5M13,3.5C13.73,2.67,14.94,2.04,15.94,2C16.07,3.17,15.6,4.35,14.9,5.19C14.21,6.04,13.07,6.7,11.95,6.61C11.8,5.46,12.36,4.26,13,3.5Z"/>
+              </svg>
+              macOS (Universal)
+            </button>
+            <button class="subtab-btn" data-os="linux">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                <path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071.771-.06 1.592-.536 2.257-1.306.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.357.357 0 00-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139zm.529 3.405h.013c.213 0 .396.062.584.198.19.135.33.332.438.533.105.259.158.459.166.724 0-.02.006-.04.006-.06v.105a.086.086 0 01-.004-.021l-.004-.024a1.807 1.807 0 01-.15.706.953.953 0 01-.213.335.71.71 0 00-.088-.042c-.104-.045-.198-.064-.284-.133a1.312 1.312 0 00-.22-.066c.05-.06.146-.133.183-.198.053-.128.082-.264.088-.402v-.02a1.21 1.21 0 00-.061-.4c-.045-.134-.101-.2-.183-.333-.084-.066-.167-.132-.267-.132h-.016c-.093 0-.176.03-.262.132a.8.8 0 00-.205.334 1.18 1.18 0 00-.09.4v.019c.002.089.008.179.02.267-.193-.067-.438-.135-.607-.202a1.635 1.635 0 01-.018-.2v-.02a1.772 1.772 0 01.15-.768c.082-.22.232-.406.43-.533a.985.985 0 01.594-.2z"/>
+              </svg>
+              Linux (x86_64)
+            </button>
           </div>
 
-          <h6 style="margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1.1em; color: var(--tab-active);">macOS</h6>
-          <ol>
-            <li>Click the <strong>Download for macOS</strong> button on this page.</li>
-            <li>Double-click the downloaded <code>.dmg</code> file to mount it.</li>
-            <li>Drag the <strong>Leef</strong> icon into your <strong>Applications</strong> folder.</li>
-          </ol>
-          <div class="alert note">
-            <strong>macOS Gatekeeper:</strong> Since we do not sign our builds with a paid Apple Developer certificate
-            yet, you will need to right-click the app in your Applications folder and select <strong>Open</strong> on
-            the first run to bypass the system check.
+          <!-- Windows Content -->
+          <div class="os-content-pane active" id="os-win">
+            <div class="instruction-steps">
+              <div class="step-card">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <strong>Download the Installer</strong>
+                  <p>Click <strong>Download for Windows</strong> on this page to get the latest <code>.exe</code> installer.</p>
+                </div>
+              </div>
+              <div class="step-card">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                  <strong>Run Setup</strong>
+                  <p>Open the installer. Leef installs directly to your user profile without admin privileges or bundled extras.</p>
+                </div>
+              </div>
+            </div>
+            <div class="smart-notice">
+              <div class="notice-icon">ℹ️</div>
+              <div class="notice-text">
+                <strong>Windows SmartScreen Notice:</strong> You may see a "Windows protected your PC" alert on first run because Leef is community open-source without an expensive EV certificate. Click <strong>More Info &rarr; Run Anyway</strong> to proceed.
+              </div>
+            </div>
+          </div>
+
+          <!-- macOS Content -->
+          <div class="os-content-pane" id="os-mac">
+            <div class="instruction-steps">
+              <div class="step-card">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <strong>Download Universal .dmg</strong>
+                  <p>Our Universal build runs natively on both Apple Silicon (M1&ndash;M4) and Intel Macs.</p>
+                </div>
+              </div>
+              <div class="step-card">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                  <strong>Drag to Applications</strong>
+                  <p>Double-click the downloaded <code>.dmg</code> file to mount it, then drag the <strong>Leef</strong> icon into your <strong>Applications</strong> folder.</p>
+                </div>
+              </div>
+            </div>
+            <div class="smart-notice">
+              <div class="notice-icon">ℹ️</div>
+              <div class="notice-text">
+                <strong>macOS Gatekeeper Notice:</strong> On first launch, right-click the Leef icon in Applications and select <strong>Open</strong> to bypass the unsigned developer warning.
+              </div>
+            </div>
+          </div>
+
+          <!-- Linux Content -->
+          <div class="os-content-pane" id="os-linux">
+            <div class="instruction-steps">
+              <div class="step-card">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <strong>Download x86_64 AppImage</strong>
+                  <p>Download the standalone <code>.AppImage</code> package (compatible with Ubuntu, Fedora, Debian, Arch, and more).</p>
+                </div>
+              </div>
+              <div class="step-card">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                  <strong>Make Executable &amp; Launch</strong>
+                  <p>Run this in terminal or check "Allow executing file as program" in file properties:</p>
+                  <div class="terminal-card" style="margin-top: 0.65rem;">
+                    <div class="terminal-header">
+                      <span class="terminal-dot red"></span>
+                      <span class="terminal-dot yellow"></span>
+                      <span class="terminal-dot green"></span>
+                      <span class="terminal-title">bash</span>
+                      <button class="copy-btn" data-copy="chmod +x Leef-Browser-*.AppImage &amp;&amp; ./Leef-Browser-*.AppImage">Copy</button>
+                    </div>
+                    <pre class="terminal-code"><code>chmod +x Leef-Browser-*.AppImage &amp;&amp; ./Leef-Browser-*.AppImage</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="details-section">
-          <h5>Build from Source</h5>
-          <ol>
-            <li>Clone the repo: <code>git clone https://github.com/git-QTech/leef.git</code></li>
-            <li>Install dependencies: <code>npm install</code></li>
-            <li>Run in dev mode: <code>npm start</code></li>
-            <li>Build installer: <code>npm run dist</code></li>
-          </ol>
+        <!-- TAB 2: VERIFY CHECKSUMS -->
+        <div class="modal-tab-pane" id="tab-verify" role="tabpanel">
+          <p class="section-intro">
+            Every release is cryptographically hashed with SHA-256. Compare your local file hash with our official <a href="https://github.com/git-QTech/leef/releases/latest" target="_blank" rel="noopener noreferrer">SHA256SUMS.txt</a> to guarantee authenticity:
+          </p>
+
+          <div class="modal-subtabs">
+            <button class="subtab-btn active" data-verify-os="v-win">Windows (PowerShell)</button>
+            <button class="subtab-btn" data-verify-os="v-mac">macOS (Terminal)</button>
+            <button class="subtab-btn" data-verify-os="v-linux">Linux (Terminal)</button>
+          </div>
+
+          <!-- Verify Windows -->
+          <div class="verify-content-pane active" id="v-win">
+            <div class="terminal-card">
+              <div class="terminal-header">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+                <span class="terminal-title">PowerShell</span>
+                <button class="copy-btn" data-copy="Get-FileHash .\leef-browser-setup-*.exe -Algorithm SHA256">Copy</button>
+              </div>
+              <pre class="terminal-code"><code>Get-FileHash .\leef-browser-setup-*.exe -Algorithm SHA256</code></pre>
+            </div>
+            <p class="verify-hint">The returned <code>Hash</code> should exactly match the string published in <code>SHA256SUMS.txt</code>.</p>
+          </div>
+
+          <!-- Verify macOS -->
+          <div class="verify-content-pane" id="v-mac">
+            <div class="terminal-card">
+              <div class="terminal-header">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+                <span class="terminal-title">Terminal</span>
+                <button class="copy-btn" data-copy="shasum -a 256 Leef-Browser-*-universal.dmg">Copy</button>
+              </div>
+              <pre class="terminal-code"><code>shasum -a 256 Leef-Browser-*-universal.dmg</code></pre>
+            </div>
+            <p class="verify-hint">Compare the calculated checksum with the entry for your <code>.dmg</code> file.</p>
+          </div>
+
+          <!-- Verify Linux -->
+          <div class="verify-content-pane" id="v-linux">
+            <div class="terminal-card">
+              <div class="terminal-header">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+                <span class="terminal-title">Terminal</span>
+                <button class="copy-btn" data-copy="sha256sum Leef-Browser-*.AppImage">Copy</button>
+              </div>
+              <pre class="terminal-code"><code>sha256sum Leef-Browser-*.AppImage</code></pre>
+            </div>
+            <p class="verify-hint">Tip: Download <code>SHA256SUMS.txt</code> to the same folder and run <code>sha256sum -c SHA256SUMS.txt</code>.</p>
+          </div>
+        </div>
+
+        <!-- TAB 3: AUDIT & BUILD -->
+        <div class="modal-tab-pane" id="tab-build" role="tabpanel">
+          <div class="audit-grid">
+            <div class="audit-card">
+              <div class="audit-card-header">
+                <span class="audit-icon">🔍</span>
+                <div>
+                  <strong>Audit Packaged Code (app.asar)</strong>
+                  <p>Because Leef is CC0 public domain, the source code runs unpacked. You can extract and inspect every line of frontend code running on your machine:</p>
+                </div>
+              </div>
+              <div class="terminal-card">
+                <div class="terminal-header">
+                  <span class="terminal-dot red"></span>
+                  <span class="terminal-dot yellow"></span>
+                  <span class="terminal-dot green"></span>
+                  <span class="terminal-title">Terminal</span>
+                  <button class="copy-btn" data-copy="npx @electron/asar extract resources/app.asar ./leef-unpacked">Copy</button>
+                </div>
+                <pre class="terminal-code"><code>npx @electron/asar extract resources/app.asar ./leef-unpacked</code></pre>
+              </div>
+              <p class="audit-paths">
+                <strong>Archive location:</strong><br>
+                &bull; Windows: <code>%LocalAppData%\Programs\private-browser\resources\app.asar</code><br>
+                &bull; macOS: <code>/Applications/Leef Browser.app/Contents/Resources/app.asar</code>
+              </p>
+            </div>
+
+            <div class="audit-card">
+              <div class="audit-card-header">
+                <span class="audit-icon">🛠️</span>
+                <div>
+                  <strong>Build Standalone Installer From Source</strong>
+                  <p>Clone the GitHub repository and compile your own local installer:</p>
+                </div>
+              </div>
+              <div class="terminal-card">
+                <div class="terminal-header">
+                  <span class="terminal-dot red"></span>
+                  <span class="terminal-dot yellow"></span>
+                  <span class="terminal-dot green"></span>
+                  <span class="terminal-title">Commands</span>
+                  <button class="copy-btn" data-copy="git clone https://github.com/git-QTech/leef.git&#10;cd leef&#10;npm install&#10;npm run dist">Copy All</button>
+                </div>
+                <pre class="terminal-code"><code>git clone https://github.com/git-QTech/leef.git
+cd leef
+npm install
+npm run dist        <span class="code-comment"># Build Windows Installer</span>
+npm run dist:mac    <span class="code-comment"># Build macOS Universal (.dmg)</span>
+npm run dist:linux  <span class="code-comment"># Build Linux AppImage</span></code></pre>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -364,7 +582,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=1.1.0"></script>
+  <script src="script.js?v=1.2.1"></script>
 </body>
 
 </html>

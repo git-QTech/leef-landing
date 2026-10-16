@@ -7,7 +7,7 @@
   <title>Security Policy - Leef Browser</title>
   <meta name="description"
     content="Official Security Policy for Leef Browser. Vulnerability reporting guidelines, scope of disclosure, and triage response timeline.">
-  <link rel="stylesheet" href="style.css?v=1.0.8">
+  <link rel="stylesheet" href="style.css?v=1.2.1">
   <link rel="icon" type="image/svg+xml" href="logo.svg">
   <!-- Canonical URL -->
   <link rel="canonical" href="https://leefbrowser.site/security">
@@ -276,6 +276,7 @@
               your system's native OS keychain (Windows Credential Manager / macOS Keychain).</li>
             <li><strong>Stripped Handshakes:</strong> We actively configure the Chromium engine to drop tracking and
               telemetry requests, reducing the active connection surface.</li>
+            <li><strong>Verifiable Cryptographic Checksums:</strong> All official releases provide SHA-256 hashes (<code>SHA256SUMS.txt</code>) so users can independently verify installer authenticity and unpack the application to audit the code.</li>
           </ul>
         </div>
       </section>

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leef Browser - No AI. No Slop. Just Browsing.</title>
   <meta name="description" content="Leef Browser is a free, AI-free Chromium browser. No AI Overviews, telemetry, or bloat — just fast, private browsing. Open source and CC0 licensed.">
-  <link rel="stylesheet" href="style.css?v=1.0.9">
+  <link rel="stylesheet" href="style.css?v=1.2.1">
   <link rel="icon" type="image/svg+xml" href="logo.svg">
   
   <!-- Canonical URL -->
@@ -679,7 +679,7 @@
                 stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              Reproducible builds: verify exactly what you download
+              Cryptographic SHA-256 checksums: verify every build against the source
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
@@ -700,10 +700,11 @@
         <div class="os-card">
           <div class="card-header">Audit Us Yourself</div>
           <div class="code-block">
-            <span class="code-comment"># Clone the repository</span><br>
+            <span class="code-comment"># 1. Clone the repository</span><br>
             git clone https://github.com/git-QTech/leef.git<br><br>
-            <span class="code-comment"># Read the code. Verify the claims.</span><br>
-            <span class="code-comment"># No surprises.</span>
+            <span class="code-comment"># 2. Check the cryptographic SHA-256 hashes</span><br>
+            <span class="code-comment"># Compare against official SHA256SUMS.txt</span><br>
+            <span class="code-comment"># Audit everything. No surprises.</span>
           </div>
           <a href="https://github.com/git-QTech/leef" class="card-btn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -713,6 +714,13 @@
               </path>
             </svg>
             Browse the Repository
+          </a>
+          <a href="downloads" class="card-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            Verify Checksums &amp; Downloads
           </a>
           <a href="https://github.com/git-QTech/leef/releases" class="card-btn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -779,10 +787,10 @@
             <div class="music-card">
               <div class="music-info">
                 <span class="music-label">current vibe</span>
-                <strong class="song-title">death rolL</strong>
+                <strong class="song-title">marroW</strong>
                 <span class="artist-name">brakence</span>
               </div>
-              <a href="https://song.link/i/6814885751" target="_blank" class="music-link" aria-label="Listen to death rolL by brakence (opens in a new tab)">
+              <a href="https://album.link/i/6814885746" target="_blank" class="music-link" aria-label="Listen to marroW by brakence (opens in a new tab)">
                 <svg viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px;" aria-hidden="true">
                   <path d="M8 5v14l11-7z" />
                 </svg>
@@ -854,7 +862,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=1.1.0"></script>
+  <script src="script.js?v=1.2.1"></script>
 </body>
 
 </html>

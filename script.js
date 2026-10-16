@@ -76,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const macPill = document.getElementById('mac-pill');
     const macVersionTag = document.getElementById('mac-version-tag');
     const macBtnPlaceholder = document.getElementById('mac-btn-placeholder');
-    const openInstructions = document.getElementById('open-instructions');
     const macRequirement = document.getElementById('mac-requirement');
 
     const linuxDownload = document.getElementById('linux-download');
@@ -88,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const linuxBtnPlaceholder = document.getElementById('linux-btn-placeholder');
 
     const currentVersionSpans = document.querySelectorAll('.current-version');
+    const checksumFileLink = document.getElementById('checksum-file-link');
 
     try {
       const response = await fetch('https://api.github.com/repos/git-QTech/leef/releases');
@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let winAsset = null, winRelease = null;
         let macAsset = null, macRelease = null;
         let linuxAsset = null, linuxRelease = null;
+        let checksumAsset = null;
 
         for (const release of releases) {
           if (!winAsset && release.assets) {
@@ -120,10 +121,22 @@ document.addEventListener('DOMContentLoaded', () => {
             if (macAsset) macRelease = release;
           }
           if (!linuxAsset && release.assets) {
-            linuxAsset = release.assets.find(asset => asset.name.endsWith('.deb') || asset.name.endsWith('.rpm') || asset.name.endsWith('.AppImage'));
+            linuxAsset = release.assets.find(asset => asset.name.endsWith('.AppImage') || asset.name.endsWith('.deb') || asset.name.endsWith('.rpm'));
             if (linuxAsset) linuxRelease = release;
           }
-          if (winAsset && macAsset && linuxAsset) break;
+          if (!checksumAsset && release.assets) {
+            checksumAsset = release.assets.find(asset => asset.name === 'SHA256SUMS.txt' || asset.name.toLowerCase().includes('checksum') || asset.name.toLowerCase().includes('sha256'));
+          }
+          if (winAsset && macAsset && linuxAsset && checksumAsset) break;
+        }
+
+        // Update Checksum Link
+        if (checksumFileLink) {
+          if (checksumAsset) {
+            checksumFileLink.href = checksumAsset.browser_download_url;
+          } else if (latestRelease.html_url) {
+            checksumFileLink.href = latestRelease.html_url;
+          }
         }
 
         // Update Windows Download Links
@@ -131,9 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
           if (winDownload) winDownload.href = winAsset.browser_download_url;
           if (winDownloadPage) winDownloadPage.href = winAsset.browser_download_url;
           
-          // Optionally update Windows version if it differs from the overall latest,
-          // though currentVersionSpans already set it to latestRelease.tag_name.
-          // Let's specifically target the Windows download card span if it exists.
           const winCardVersion = document.querySelector('.download-card.featured .current-version');
           if (winCardVersion && winRelease) {
              winCardVersion.textContent = winRelease.tag_name;
@@ -147,14 +157,13 @@ document.addEventListener('DOMContentLoaded', () => {
             macDownload.classList.remove('disabled');
           }
           if (macDownloadStatus) {
-            macDownloadStatus.textContent = 'Direct Download (.dmg)';
+            macDownloadStatus.textContent = 'Direct Download (.dmg) - Universal';
           }
           if (macCard) {
             macCard.classList.remove('disabled');
-            macCard.classList.add('featured');
           }
           if (macPill) {
-            macPill.textContent = 'Stable';
+            macPill.textContent = 'Universal';
             macPill.classList.remove('beta');
           }
           if (macVersionTag) {
@@ -167,9 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
           if (macBtnPlaceholder) {
             macBtnPlaceholder.style.display = 'none';
           }
-          if (openInstructions) {
-            openInstructions.style.display = 'inline-flex';
-          }
           if (macRequirement) {
             macRequirement.style.opacity = '1';
             macRequirement.innerHTML = `
@@ -177,32 +183,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              macOS 11.0 or later
+              macOS 11.0 or later (Universal: Apple Silicon &amp; Intel)
             `;
           }
         }
 
         // Update Linux Download Links
         if (linuxAsset) {
+          const linuxUrl = linuxAsset.browser_download_url || linuxRelease.html_url;
           if (linuxDownload) {
-            linuxDownload.href = linuxRelease.html_url;
+            linuxDownload.href = linuxUrl;
             linuxDownload.classList.remove('disabled');
           }
           if (linuxDownloadStatus) {
-            linuxDownloadStatus.textContent = 'Choose Package (.deb, .rpm, .AppImage)';
+            linuxDownloadStatus.textContent = 'Direct Download (.AppImage)';
           }
           if (linuxCard) {
             linuxCard.classList.remove('disabled');
+            linuxCard.classList.add('featured');
           }
           if (linuxPill) {
             linuxPill.textContent = 'Stable';
             linuxPill.classList.remove('beta');
           }
           if (linuxVersionTag) {
-            linuxVersionTag.innerHTML = `Version <span class="current-version">${linuxRelease.tag_name}</span>`;
+            linuxVersionTag.innerHTML = `Version <span class="current-version">${linuxRelease.tag_name}</span> (x86_64 AppImage)`;
           }
           if (linuxDownloadPage) {
-            linuxDownloadPage.href = linuxRelease.html_url;
+            linuxDownloadPage.href = linuxUrl;
             linuxDownloadPage.style.display = 'inline-flex';
           }
           if (linuxBtnPlaceholder) {
@@ -218,31 +226,182 @@ document.addEventListener('DOMContentLoaded', () => {
   updateVersionAndLinks();
 });
 
-// Modal Logic
+// Modal & Verification Dashboard Logic
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('instructions-modal');
-  const openBtn = document.getElementById('open-instructions');
+  const openBtns = document.querySelectorAll('.instructions-link, #open-instructions, #open-verify-modal, [data-target-tab]');
   const closeBtn = document.getElementById('close-instructions');
 
-  if (openBtn && modal && closeBtn) {
-    openBtn.addEventListener('click', () => {
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Prevent scroll
+  if (modal) {
+    // Switch top-level category tabs (Install, Verify, Build)
+    const setModalTab = (tabId) => {
+      if (!tabId) return;
+      const tabButtons = modal.querySelectorAll('.modal-tab-btn');
+      const tabPanes = modal.querySelectorAll('.modal-tab-pane');
+
+      tabButtons.forEach(btn => {
+        const isMatch = btn.getAttribute('data-tab') === tabId;
+        btn.classList.toggle('active', isMatch);
+        btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+      });
+
+      tabPanes.forEach(pane => {
+        pane.classList.toggle('active', pane.id === tabId);
+      });
+    };
+
+    // Switch Installation OS subtabs (win, mac, linux)
+    const setInstallOs = (osKey) => {
+      if (!osKey) return;
+      const osButtons = modal.querySelectorAll('.subtab-btn[data-os]');
+      const osPanes = modal.querySelectorAll('.os-content-pane');
+
+      osButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-os') === osKey);
+      });
+
+      osPanes.forEach(pane => {
+        pane.classList.toggle('active', pane.id === `os-${osKey}`);
+      });
+    };
+
+    // Switch Checksums OS subtabs (v-win, v-mac, v-linux)
+    const setVerifyOs = (verifyKey) => {
+      if (!verifyKey) return;
+      const vButtons = modal.querySelectorAll('.subtab-btn[data-verify-os]');
+      const vPanes = modal.querySelectorAll('.verify-content-pane');
+
+      vButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-verify-os') === verifyKey);
+      });
+
+      vPanes.forEach(pane => {
+        pane.classList.toggle('active', pane.id === verifyKey);
+      });
+    };
+
+    // Bind category tabs click
+    modal.querySelectorAll('.modal-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabId = btn.getAttribute('data-tab');
+        setModalTab(tabId);
+      });
     });
 
-    closeBtn.addEventListener('click', () => {
+    // Bind Install OS subtabs click
+    modal.querySelectorAll('.subtab-btn[data-os]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const osKey = btn.getAttribute('data-os');
+        setInstallOs(osKey);
+      });
+    });
+
+    // Bind Verify OS subtabs click
+    modal.querySelectorAll('.subtab-btn[data-verify-os]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const verifyKey = btn.getAttribute('data-verify-os');
+        setVerifyOs(verifyKey);
+      });
+    });
+
+    // Open Modal helper
+    const openModal = (targetTab, targetOs) => {
+      if (targetTab) {
+        setModalTab(targetTab);
+      }
+      if (targetOs) {
+        setInstallOs(targetOs);
+        const verifyMap = { win: 'v-win', mac: 'v-mac', linux: 'v-linux' };
+        if (verifyMap[targetOs]) {
+          setVerifyOs(verifyMap[targetOs]);
+        }
+      }
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    // Close Modal helper
+    const closeModal = () => {
       modal.classList.remove('active');
       document.body.style.overflow = '';
+    };
+
+    // Trigger buttons
+    openBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetTab = btn.getAttribute('data-target-tab') || 'tab-install';
+        const targetOs = btn.getAttribute('data-target-os');
+        openModal(targetTab, targetOs);
+      });
     });
 
-    // Close on outside click
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+
+    // Close on backdrop click
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
+        closeModal();
       }
     });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    // Auto-open modal if URL hash specifies #verify, #checksums, #instructions, or #install
+    const hash = window.location.hash.toLowerCase();
+    if (hash === '#verify' || hash === '#checksums') {
+      openModal('tab-verify');
+    } else if (hash === '#install' || hash === '#instructions') {
+      openModal('tab-install');
+    } else if (hash === '#audit' || hash === '#build') {
+      openModal('tab-build');
+    }
   }
+
+  // Terminal & Code Copy Handler (works across any .copy-btn on the page)
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const textToCopy = btn.getAttribute('data-copy') ||
+        btn.closest('.terminal-card')?.querySelector('.terminal-code code')?.innerText ||
+        btn.closest('.terminal-card')?.querySelector('code')?.innerText || '';
+
+      if (!textToCopy) return;
+
+      const originalHtml = btn.innerHTML;
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(textToCopy);
+        } else {
+          const ta = document.createElement('textarea');
+          ta.value = textToCopy;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+        }
+        btn.classList.add('copied');
+        btn.textContent = 'Copied! ✓';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = originalHtml;
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy to clipboard:', err);
+      }
+    });
+  });
 });
 
 // Interactive Elements Logic
