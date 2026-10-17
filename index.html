@@ -95,7 +95,7 @@
 
   <header class="hero">
     <div class="container">
-      <div class="pill-beta">Leef Browser <span id="leef-version">v?.?.?</span></div>
+      <div class="pill-beta" id="leef-version">Leef Browser — Latest Release</div>
       <h1>Reclaim the Web.<br><span class="highlight">Ditch the Slop.</span></h1>
       <p>Leef is a fast, lightweight, and completely <strong>AI-free web browser</strong> built for anyone looking for a <strong>browser without AI Overviews</strong>, tracking, or bloat. Reclaim a clean, link-first web layout on Chromium.</p>
 
@@ -142,10 +142,111 @@
           Electron & Chromium
         </div>
       </div>
+      <p class="hero-caption">Available natively for Windows, macOS, and Linux &mdash; 100% open-source builds on GitHub.</p>
     </div>
   </header>
 
   <main id="main-content">
+  <section id="showcase" class="ui-showcase-section reveal">
+    <div class="container">
+      <div class="section-badge-center">
+        <div class="pill-beta">INSIDE THE BROWSER</div>
+      </div>
+      <h2 class="section-title">Clean UI. Built-in Power.</h2>
+      <p class="section-subtitle">Everything you need for daily browsing—without the clutter, tracking, or forced AI.</p>
+      
+      <!-- Interactive Showcase Carousel -->
+      <div class="showcase-carousel" id="showcase-carousel">
+        <!-- Interactive Pill Nav / Tabs -->
+        <div class="carousel-nav" role="tablist" aria-label="Feature Showcase Tabs">
+          <button class="carousel-tab active" data-slide="0" role="tab" aria-selected="true" aria-controls="slide-0">
+            <span class="tab-dot"></span>
+            Link-First Search
+          </button>
+          <button class="carousel-tab" data-slide="1" role="tab" aria-selected="false" aria-controls="slide-1">
+            <span class="tab-dot"></span>
+            Curated Plugin Library
+          </button>
+          <button class="carousel-tab" data-slide="2" role="tab" aria-selected="false" aria-controls="slide-2">
+            <span class="tab-dot"></span>
+            Built-in Daily Utilities
+          </button>
+        </div>
+
+        <!-- Main Display Card -->
+        <div class="carousel-stage">
+          <!-- Slide 0 -->
+          <div class="carousel-slide active" id="slide-0" role="tabpanel">
+            <div class="carousel-frame">
+              <img src="placeholder-clean-search.png" alt="Link-First Search UI Preview" class="carousel-img">
+            </div>
+            <div class="carousel-info-strip">
+              <div class="carousel-title-col">
+                <span class="carousel-badge">FEATURE 01</span>
+                <h3>Link-First Search &amp; Browsing</h3>
+              </div>
+              <p class="carousel-desc">Automatic -noai filtering intercepts and removes forced AI Overviews, giving you clean, direct web results every time you search.</p>
+            </div>
+          </div>
+
+          <!-- Slide 1 -->
+          <div class="carousel-slide" id="slide-1" role="tabpanel" hidden>
+            <div class="carousel-frame">
+              <img src="placeholder-extension-store.png" alt="Curated Plugin Library UI Preview" class="carousel-img">
+            </div>
+            <div class="carousel-info-strip">
+              <div class="carousel-title-col">
+                <span class="carousel-badge">FEATURE 02</span>
+                <h3>Curated Plugin Library</h3>
+              </div>
+              <p class="carousel-desc">Enable optional, lightweight plugins right inside the browser. Every plugin in our store is built or manually vetted by our team.</p>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-slide" id="slide-2" role="tabpanel" hidden>
+            <div class="carousel-frame">
+              <img id="adblock-preview-img" src="placeholder-builtin-tools.png" alt="Built-in Daily Utilities UI Preview" class="carousel-img">
+            </div>
+            <div class="carousel-info-strip">
+              <div class="carousel-title-col">
+                <span class="carousel-badge">FEATURE 03</span>
+                <h3>Built-in Daily Utilities</h3>
+                <div class="adblock-toggle-wrap" role="group" aria-label="Ad Blocker State">
+                  <span class="adblock-toggle-label">Ad Blocker:</span>
+                  <div class="adblock-toggle-pill">
+                    <button type="button" class="adblock-toggle-btn active" id="btn-adblock-on" data-src="placeholder-builtin-tools.png">ON (Blocked)</button>
+                    <button type="button" class="adblock-toggle-btn" id="btn-adblock-off" data-src="daily-utilities-no-adblock.png">OFF (With Ads)</button>
+                  </div>
+                </div>
+              </div>
+              <p class="carousel-desc">Access native tools out of the box, including a built-in Ad &amp; Tracker Blocker, Volume Booster, and live Sports Scores.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls / Indicator Bar -->
+        <div class="carousel-controls">
+          <button class="carousel-arrow prev" id="carousel-prev" aria-label="Previous Feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <div class="carousel-dots" id="carousel-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+          </div>
+          <button class="carousel-arrow next" id="carousel-next" aria-label="Next Feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="features" class="features reveal">
     <div class="container">
       <h2 class="section-title">Built for Speed and Privacy</h2>
@@ -393,7 +494,7 @@
               </div>
               <div class="comp-text">
                 <strong>Modern Foundation</strong>
-                <span>Built on Electron. The same tech powering VS Code, Discord, and Slack.</span>
+                <span>Built on Electron and Chromium for full web compatibility and strong sandboxing—stripped of background updater daemons, telemetry, and bloat.</span>
               </div>
             </div>
             <div class="comp-item">
@@ -404,9 +505,8 @@
                 </svg>
               </div>
               <div class="comp-text">
-                <strong>Curated Tools</strong>
-                <span>Leef ships with built-in utilities like Volume Booster and Ad-Blocker, all strictly audited by our
-                  team.</span>
+                <strong>Built-in Tools &amp; Vetted Plugins</strong>
+                <span>Core protections like our Ad-Blocker and -noai filter are baked in, while optional plugins like Volume Booster and Live Sports Scores can be enabled from our curated built-in plugin store.</span>
               </div>
             </div>
           </div>
@@ -437,6 +537,186 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="standalone" class="standalone-section reveal">
+    <div class="container">
+      <div class="section-badge-center">
+        <div class="pill-beta">THE STANDALONE ADVANTAGE</div>
+      </div>
+      <h2 class="section-title">Why a whole browser instead of an extension?</h2>
+      <p class="section-subtitle">Browser extensions can hide elements on a webpage, but they can't fix a bloated browser engine running underneath.</p>
+
+      <!-- Part A: Comparison Table Card -->
+      <div class="comparison-table-card">
+        <div class="comparison-table-scroll">
+          <table class="standalone-table">
+            <thead>
+              <tr>
+                <th class="col-feature">Feature</th>
+                <th class="col-leef">
+                  <div class="th-leef-badge">
+                    <img src="logo.svg" alt="Leef" width="20" height="20">
+                    <span>Leef Browser</span>
+                  </div>
+                </th>
+                <th class="col-chrome">Chrome + Extensions</th>
+                <th class="col-brave">Brave</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-feature"><strong>Google AI Overviews</strong></td>
+                <td class="col-leef">
+                  <span class="table-badge yes">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Stripped automatically
+                  </span>
+                </td>
+                <td class="col-chrome">
+                  <span class="table-badge no">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    Requires workarounds
+                  </span>
+                </td>
+                <td class="col-brave">
+                  <span class="table-badge no">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    Shown in Google Search
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-feature"><strong>Built-in Browser AI</strong></td>
+                <td class="col-leef">
+                  <span class="table-badge yes">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    100% AI-Free
+                  </span>
+                </td>
+                <td class="col-chrome">
+                  <span class="table-badge no">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    Downloads 4GB local AI model
+                  </span>
+                </td>
+                <td class="col-brave">
+                  <span class="table-badge no">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    Built-in Leo AI sidebar
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-feature"><strong>Browser Vendor Telemetry</strong></td>
+                <td class="col-leef">
+                  <span class="table-badge yes">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Zero telemetry from us*
+                  </span>
+                </td>
+                <td class="col-chrome">
+                  <span class="table-badge no">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    Heavy Google tracking
+                  </span>
+                </td>
+                <td class="col-brave">
+                  <span class="table-badge no">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    Opt-out usage pings
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-feature"><strong>Crypto Wallets &amp; Ad Rewards</strong></td>
+                <td class="col-leef">
+                  <span class="table-badge yes">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    None
+                  </span>
+                </td>
+                <td class="col-chrome">
+                  <span class="table-badge yes">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    None
+                  </span>
+                </td>
+                <td class="col-brave">
+                  <span class="table-badge no">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    Built-in Wallet &amp; BAT ads
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-feature"><strong>Tools &amp; Extensions</strong></td>
+                <td class="col-leef">
+                  <span class="table-badge yes">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Native tools + vetted plugin store
+                  </span>
+                </td>
+                <td class="col-chrome"><span class="table-text-muted">Chrome Web Store (Unvetted)</span></td>
+                <td class="col-brave"><span class="table-text-muted">Ad-Block + Chrome Web Store</span></td>
+              </tr>
+              <tr>
+                <td class="col-feature"><strong>License</strong></td>
+                <td class="col-leef">
+                  <span class="table-badge yes">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    CC0 Public Domain
+                  </span>
+                </td>
+                <td class="col-chrome">
+                  <span class="table-badge no">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    Proprietary
+                  </span>
+                </td>
+                <td class="col-brave"><span class="table-license">MPL 2.0</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Part B: 3-Card Row -->
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3>Why not just a Chrome extension?</h3>
+          <p>Extensions can hide elements on a page, but they can't stop Chrome from running background updater daemons, sending browser-level telemetry, or silently downloading 4GB local AI models onto your drive.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+          </div>
+          <h3>How do plugins &amp; tools work?</h3>
+          <p>Instead of an open marketplace flooded with millions of unvetted extensions, Leef uses a curated plugin store. Core protections are baked in, while optional utilities like Volume Booster and Sports Scores are built or approved by our team.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3>Why does Windows or macOS warn on install?</h3>
+          <p>Leef runs natively on Windows, macOS, and Linux. Because we are a CC0 open-source project and don't pay corporate certificate authorities, SmartScreen or Gatekeeper may show an "Unknown Publisher" prompt on first launch.</p>
         </div>
       </div>
     </div>

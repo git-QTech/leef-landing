@@ -63,6 +63,89 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Showcase Carousel Logic
+  const showcaseCarousel = document.getElementById('showcase-carousel');
+  if (showcaseCarousel) {
+    const tabs = showcaseCarousel.querySelectorAll('.carousel-tab');
+    const slides = showcaseCarousel.querySelectorAll('.carousel-slide');
+    const dots = showcaseCarousel.querySelectorAll('.carousel-dots .dot');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    function goToSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentIndex = index;
+
+      tabs.forEach((tab, i) => {
+        const isActive = i === currentIndex;
+        tab.classList.toggle('active', isActive);
+        tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      slides.forEach((slide, i) => {
+        const isActive = i === currentIndex;
+        slide.classList.toggle('active', isActive);
+        if (isActive) {
+          slide.removeAttribute('hidden');
+        } else {
+          slide.setAttribute('hidden', '');
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const slideIdx = parseInt(tab.getAttribute('data-slide'), 10);
+        goToSlide(slideIdx);
+      });
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const slideIdx = parseInt(dot.getAttribute('data-slide'), 10);
+        goToSlide(slideIdx);
+      });
+    });
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        goToSlide(currentIndex - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        goToSlide(currentIndex + 1);
+      });
+    }
+
+    // Slide 2 Ad Blocker Toggle (With / Without Ads)
+    const adblockImg = document.getElementById('adblock-preview-img');
+    const btnAdblockOn = document.getElementById('btn-adblock-on');
+    const btnAdblockOff = document.getElementById('btn-adblock-off');
+
+    if (adblockImg && btnAdblockOn && btnAdblockOff) {
+      btnAdblockOn.addEventListener('click', () => {
+        adblockImg.src = btnAdblockOn.getAttribute('data-src');
+        btnAdblockOn.classList.add('active');
+        btnAdblockOff.classList.remove('active');
+      });
+
+      btnAdblockOff.addEventListener('click', () => {
+        adblockImg.src = btnAdblockOff.getAttribute('data-src');
+        btnAdblockOff.classList.add('active');
+        btnAdblockOn.classList.remove('active');
+      });
+    }
+  }
+
   // Fetch Latest Version and Download Link from GitHub
   async function updateVersionAndLinks() {
     const versionSpan = document.getElementById('leef-version');
@@ -89,6 +172,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentVersionSpans = document.querySelectorAll('.current-version');
     const checksumFileLink = document.getElementById('checksum-file-link');
 
+    // Fetch latest release tag specifically
+    try {
+      const latestResponse = await fetch('https://api.github.com/repos/git-QTech/leef/releases/latest');
+      if (latestResponse.ok) {
+        const latestData = await latestResponse.json();
+        if (latestData && latestData.tag_name) {
+          if (versionSpan) versionSpan.textContent = `Leef Browser ${latestData.tag_name}`;
+          currentVersionSpans.forEach(span => {
+            span.textContent = latestData.tag_name;
+          });
+        }
+      }
+    } catch (e) {
+      console.log('GitHub API latest release fetch failed, keeping fallback.', e);
+    }
+
     try {
       const response = await fetch('https://api.github.com/repos/git-QTech/leef/releases');
       if (response.ok) {
@@ -97,11 +196,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const latestRelease = releases[0];
 
-        // Update Version Text (Overall)
-        if (latestRelease.tag_name) {
-          if (versionSpan) versionSpan.textContent = latestRelease.tag_name;
+        // Fallback update if latestResponse did not set it
+        if (latestRelease && latestRelease.tag_name) {
+          if (versionSpan && versionSpan.textContent === 'Leef Browser — Latest Release') {
+            versionSpan.textContent = `Leef Browser ${latestRelease.tag_name}`;
+          }
           currentVersionSpans.forEach(span => {
-            span.textContent = latestRelease.tag_name;
+            if (!span.textContent || span.textContent.startsWith('v?.?.?')) {
+              span.textContent = latestRelease.tag_name;
+            }
           });
         }
 
