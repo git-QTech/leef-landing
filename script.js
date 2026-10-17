@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (latestResponse.ok) {
         const latestData = await latestResponse.json();
         if (latestData && latestData.tag_name) {
-          if (versionSpan) versionSpan.textContent = `Leef Browser ${latestData.tag_name}`;
+          if (versionSpan) versionSpan.textContent = latestData.tag_name;
           currentVersionSpans.forEach(span => {
             span.textContent = latestData.tag_name;
           });
@@ -198,8 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Fallback update if latestResponse did not set it
         if (latestRelease && latestRelease.tag_name) {
-          if (versionSpan && versionSpan.textContent === 'Leef Browser — Latest Release') {
-            versionSpan.textContent = `Leef Browser ${latestRelease.tag_name}`;
+          if (versionSpan && (versionSpan.textContent === 'v?.?.?' || versionSpan.textContent === '')) {
+            versionSpan.textContent = latestRelease.tag_name;
           }
           currentVersionSpans.forEach(span => {
             if (!span.textContent || span.textContent.startsWith('v?.?.?')) {
