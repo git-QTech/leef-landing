@@ -126,6 +126,25 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    // Slide 0 AI Overview Toggle (OFF / ON)
+    const aiImg = document.getElementById('ai-preview-img');
+    const btnAiOff = document.getElementById('btn-ai-off');
+    const btnAiOn = document.getElementById('btn-ai-on');
+
+    if (aiImg && btnAiOff && btnAiOn) {
+      btnAiOff.addEventListener('click', () => {
+        aiImg.src = btnAiOff.getAttribute('data-src');
+        btnAiOff.classList.add('active');
+        btnAiOn.classList.remove('active');
+      });
+
+      btnAiOn.addEventListener('click', () => {
+        aiImg.src = btnAiOn.getAttribute('data-src');
+        btnAiOn.classList.add('active');
+        btnAiOff.classList.remove('active');
+      });
+    }
+
     // Slide 2 Ad Blocker Toggle (With / Without Ads)
     const adblockImg = document.getElementById('adblock-preview-img');
     const btnAdblockOn = document.getElementById('btn-adblock-on');
